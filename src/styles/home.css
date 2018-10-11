@@ -12,11 +12,15 @@ h1,h3 {
 img{
     width: 100%;
     margin-top: 0%;
-    height: 50%;
+}
+
+a{
+  color: white;
+  align-content: center;
 }
 
 /*Footer css*/
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,300,700');
 
 * {
   font-family: Roboto;

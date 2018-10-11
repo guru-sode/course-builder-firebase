@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import '../styles/home.css';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import  CreateCourse from './createCourse';
 
 class Home extends Component {
     state = {  }
     render() { 
         return (
+          <BrowserRouter>
             <div>
             <h1>Course builder</h1>
             <nav className="navbar navbar-inverse">
@@ -20,8 +24,8 @@ class Home extends Component {
       <li>JavaScript</li>
     </ul>
       </li>
-      <li><a href="#">Create a course</a></li>
-      <li><a href="#">View all courses</a></li>
+      <li><NavLink to='/create/course'>Create a course</NavLink></li>
+      <li><NavLink to='/view/all/course'>View all courses</NavLink></li>
     </ul>
   </div>
 </nav>
@@ -31,22 +35,26 @@ class Home extends Component {
 
     <div className="footer-right">
 
-        <a href="#"><i className="fa fa-facebook"></i></a>
-        <a href="#"><i className="fa fa-twitter"></i></a>
-        <a href="#"><i className="fa fa-linkedin"></i></a>
-        <a href="#"><i className="fa fa-github"></i></a>
+        <a href="https://www.facebook.com/udemy/"><i className="fa fa-facebook"></i></a>
+        <a href="https://twitter.com/udemy?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i className="fa fa-twitter"></i></a>
+        <a href="https://in.linkedin.com/company/udemy"><i className="fa fa-linkedin"></i></a>
+        <a href="https://www.udemy.com/git-started-with-github/"><i className="fa fa-github"></i></a>
 
     </div>
 
     <div className="footer-left">
-    <p className="footer-links">
-    <a className="link-1" href="#">About</a>
-    <p>Random text</p>
-    </p>
+    <div className="footer-links">
+    <p>About</p>
+    <p>Course builder is a global marketplace for learning and teaching online where students are mastering new skills and achieving their goals by learning from an extensive library of over 80,000 courses taught by expert instructors.
+
+</p>
+    </div>
     </div>
 
 </footer>
+<Route path='/create/course' component={CreateCourse}/>
 </div>
+</BrowserRouter>
           );
     }
 }
