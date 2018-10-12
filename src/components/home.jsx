@@ -3,6 +3,7 @@ import '../styles/home.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import  CreateCourse from './createCourse';
+import ImageBody from './imageBody';
 
 class Home extends Component {
     // state = {  }
@@ -30,8 +31,7 @@ class Home extends Component {
                         </div>
                     </nav>
                     <Route path='/create/course' component={CreateCourse}/>
-                    <img src={require('/home/dell/mvp-course-builder/src/data/learning.jpg')} alt="learning"/>
-
+                    <Route exact path='/' component={ImageBody} />
                     <footer className="footer-distributed">
 
                         <div className="footer-right">
@@ -60,4 +60,3 @@ class Home extends Component {
 }
  
 export default Home;
->>>>>>> gurukiran

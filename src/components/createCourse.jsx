@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import '../styles/createCourse.css';
+import CourseTitle from '../components/courseTitle';
+import AddResources from '../components/addResources';
+import PlanOfAttack from '../components/planOfAttack';
+import AddDeliverables from '../components/addDeliverables';
+import Duration from '../components/duration';
 
 //For stepper
 import { withStyles } from '@material-ui/core/styles';
@@ -11,7 +16,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
     root: {
-      width: '90%',
+      width: '100%',
     },
     button: {
       marginRight: theme.spacing.unit,
@@ -19,21 +24,25 @@ const styles = theme => ({
     instructions: {
       marginTop: theme.spacing.unit,
       marginBottom: theme.spacing.unit,
-    },
+    }
   });
   
   function getSteps() {
-    return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    return ['Add title and description', 'Add resources', 'Add plan of attack','Add deliverables','Add completion duration'];
   }
   
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return 'Select campaign settings...';
+        return (<CourseTitle />);
       case 1:
-        return 'What is an ad group anyways?';
+        return (<AddResources />);
       case 2:
-        return 'This is the bit I really care about!';
+        return (<PlanOfAttack />);
+        case 3:
+        return (<AddDeliverables />);
+        case 4:
+        return (<Duration />);
       default:
         return 'Unknown step';
     }
@@ -41,19 +50,6 @@ const styles = theme => ({
   
 
 class CreateCourse extends Component {
-//     state = {  }
-//     render() { 
-//         return (
-//             <div>
-//             <h1>form course</h1>
-//             <h1>form course</h1>
-//             <h1>form course</h1>
-//             </div>
-//           );
-//     }
-// }
- 
-// export default CreateCourse;
 state = {
     activeStep: 0,
     skipped: new Set(),
@@ -112,6 +108,7 @@ state = {
 
   render() {
     const { classes } = this.props;
+    console.log(classes);
     const steps = getSteps();
     const { activeStep } = this.state;
 
@@ -122,7 +119,7 @@ state = {
             const props = {};
             const labelProps = {};
             if (this.isStepOptional(index)) {
-              labelProps.optional = <Typography variant="caption">Optional</Typography>;
+              labelProps.optional = <Typography variant="caption"></Typography>;
             }
             if (this.isStepSkipped(index)) {
               props.completed = false;
@@ -146,7 +143,8 @@ state = {
             </div>
           ) : (
             <div>
-              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+              {getStepContent(activeStep)}
+              <Typography className={classes.instructions}></Typography>
               <div>
                 <Button
                   disabled={activeStep === 0}
