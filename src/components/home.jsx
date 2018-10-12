@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import '../styles/home.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import  CreateCourse from './createCourse';
+import CreateCourse from './createCourse';
 
 class Home extends Component {
     // state = {  }
-    render() { 
+    render() {
         return (
             <BrowserRouter>
                 <div>
@@ -18,19 +18,19 @@ class Home extends Component {
                             <ul className="nav navbar-nav">
                                 <li><button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Categories
                                     <span className="caret"></span></button>
-                                <ul className="dropdown-menu">
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>JavaScript</li>
-                                </ul>
+                                    <ul className="dropdown-menu">
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                    </ul>
                                 </li>
                                 <li><NavLink to='/create/course'>Create a course</NavLink></li>
                                 <li><NavLink to='/view/all/course'>View all courses</NavLink></li>
                             </ul>
                         </div>
                     </nav>
-                    <Route path='/create/course' component={CreateCourse}/>
-                    <img src={require('/home/dell/mvp-course-builder/src/data/learning.jpg')} alt="learning"/>
+                    <Route path='/create/course' component={CreateCourse} />
+                    <img src={require('/home/dell/mvp-course-builder/src/data/learning.jpg')} alt="learning" />
 
                     <footer className="footer-distributed">
 
@@ -58,6 +58,5 @@ class Home extends Component {
         );
     }
 }
- 
+
 export default Home;
->>>>>>> gurukiran
