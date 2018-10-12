@@ -30,7 +30,7 @@ class Home extends Component {
                         </div>
                     </nav>
                     <Route path='/create/course' component={CreateCourse} />
-                    <img src={require('/home/dell/mvp-course-builder/src/data/learning.jpg')} alt="learning" />
+                    {/* <img src={require('/home/dell/mvp-course-builder/src/data/learning.jpg')} alt="learning" /> */}
 
                     <footer className="footer-distributed">
 
