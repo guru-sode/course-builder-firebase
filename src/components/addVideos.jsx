@@ -108,7 +108,7 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (title,description,url) => dispatch({ type: 'ADD_VIDEO', payload:{
+        ADD_SECTION: (title,description,url) => dispatch({ type: 'ADD_SECTION', payload:{
             name:'addVideo',
             title:title,
             description:description,

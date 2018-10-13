@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
     container: {
@@ -21,14 +22,22 @@ const styles = theme => ({
 });
 
 class AddResources extends Component {
+    constructor(props){
+        super(props);
+        this.handleAdd=this.handleAdd.bind(this);
+    }
+    
     handleAdd(e){
         e.preventDefault();
-        const url = document.getElementById('title').value;
+        const url = document.getElementById('url').value;
         const description = document.getElementById('description').value;
         const add = {
             url: url,
             description: description 
         };
+        document.getElementById('url').value='';
+        document.getElementById('description').value='';
+        this.props.ADD_SECTION(url,description);
         console.log(add);
 
     }
@@ -76,4 +85,20 @@ class AddResources extends Component {
 }
 
 
-export default withStyles(styles)(AddResources);
+const mapStateToProps = state => {
+    return {
+        data: state.data,
+    };
+};
+  
+const mapDispatchToProps = dispatch => {
+    return {
+        ADD_SECTION: (url,description) => dispatch({ type: 'ADD_SECTION', payload:{
+            name:'addResource',
+            url:url,
+            description:description,
+        }}),
+    };
+};
+
+export default  connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(AddResources));

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
     container: {
@@ -25,6 +26,7 @@ class AddPlan extends Component {
         const add = {
             plan: description 
         };
+        this.props.ADD_SECTION(add);
         console.log(add);
 
     }
@@ -50,4 +52,19 @@ class AddPlan extends Component {
 }
 
 
-export default withStyles(styles)(AddPlan);
+const mapStateToProps = state => {
+    return {
+        data: state.data,
+    };
+};
+  
+const mapDispatchToProps = dispatch => {
+    return {
+        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
+            name:'addPlan',
+            plan:add.plan,
+        }}),
+    };
+};
+
+export default  connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(AddPlan));

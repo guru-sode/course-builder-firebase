@@ -95,6 +95,13 @@ const sectionReducer=(state=initialState,action)=>{
             console.log(action.payload.description);
             console.log(action.payload.URL);
         }
+        if(action.payload.name==='addResource'){
+            console.log(action.payload.url);
+            console.log(action.payload.description);
+        }
+        if(action.payload.name==='addPlan'){
+            console.log(action.payload.plan);
+        }
         break;
     default:
         return state;
