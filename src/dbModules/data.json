@@ -10,7 +10,7 @@
             ]
         }
     },
-    "course": {
+    "courses": {
         "courseId-1": {
             "title": "javaScript",
             "description": "this is basic course of javaScript",
@@ -28,7 +28,7 @@
             "section": []
         }
     },
-    "section": {
+    "sections": {
         "section_id1": {
             "title": "javaScript syntax",
             "description": "Introduction to javascript",
@@ -63,7 +63,7 @@
             ]
         }
     },
-    "course_catagory": [
+    "course_catagorys": [
         "JavaScrip",
         "IPL DATA SET VISUALIZATION",
         "React",
