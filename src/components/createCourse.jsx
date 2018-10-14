@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 
+
 const styles = theme => ({
     container: {
         display: 'flex',
@@ -70,8 +71,6 @@ class CreateCourse extends Component {
 CreateCourse.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-
-
 
 const mapDispatchToProps = (dispatch) => {
     return {
