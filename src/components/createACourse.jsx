@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { withStyles, Grid, Button, TextField, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, List, Drawer } from '@material-ui/core';
+import ViewMyCourse  from './viewMyCourse';
 import { createCourse } from '../redux/actions/createACourse';
 import { connect } from 'react-redux';
 
 const styles = theme => ({
     main: {
         display: 'flex',
+        padding: '1em'
     },
     selectDropdown: {
-        textDecoration: "none",
-        padding: "0.50em",
-        backgroundColor: "white",
+        textDecoration: 'none',
+        padding: '0.50em',
+        backgroundColor: 'white',
     }
 });
 
@@ -59,7 +61,7 @@ class CreateCourse extends Component {
         const { classes } = this.props;
         return (
             <Grid className={classes.main} container>
-                <Grid item md={6}>
+                <Grid item md={2}>
                     <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }} anchor="left">
                         <Divider />
                         <Button onClick={this.viewMyCourses}>View My Courses</Button>
@@ -74,7 +76,7 @@ class CreateCourse extends Component {
                                 <TextField autoFocus margin="dense" id="course-name" fullWidth onChange={this.handleTitleChange} />
                                 <DialogContentText>Select Category</DialogContentText>
                                 <select onClick={this.handleDropdownChange} className={classes.selectDropdown}>
-                                    <option value="Software">Software Development</option>
+                                    <option selected value="Software">Software Development</option>
                                     <option value="Science">Science</option>
                                     <option value="Art">Art</option>
                                 </select>
@@ -86,8 +88,8 @@ class CreateCourse extends Component {
                     </Drawer>
                 </Grid>
 
-                <Grid item md={6}>
-                    hello
+                <Grid item md={10}>
+                    <ViewMyCourse />
                 </Grid>
             </Grid>
         );

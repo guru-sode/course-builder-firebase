@@ -6,5 +6,6 @@ export const createCourse = data => ({
         title: data.courseTitle,
         category: data.category,
         description: data.courseDescription,
+        sections: [],
     }
 });
