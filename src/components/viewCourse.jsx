@@ -17,9 +17,7 @@ const mapStateToProps = state => {
 export default compose(
     connect(mapStateToProps, null),
     /* connecting firebase redux store */
-    firebaseConnect([
-        {
-            path: 'app/courses'
-        }
-    ])
+    firebaseConnect([{
+        path: 'app/courses'
+    }])
 )(ViewCourse);
