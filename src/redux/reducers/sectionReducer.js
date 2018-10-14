@@ -90,13 +90,10 @@ const sectionReducer=(state=initialState,action)=>{
             console.log(action.payload.section);
         }
         if(action.payload.name==='addVideo'){
-            console.log(action.payload.title);
-            console.log(action.payload.description);
-            console.log(action.payload.URL);
+            console.log(action.payload.video);
         }
         if(action.payload.name==='addResource'){
-            console.log(action.payload.url);
-            console.log(action.payload.description);
+            console.log(action.payload.resource);
         }
         if(action.payload.name==='addPlan'){
             console.log(action.payload.plan);

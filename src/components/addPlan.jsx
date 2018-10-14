@@ -27,7 +27,6 @@ class AddPlan extends Component {
             plan: description 
         };
         this.props.ADD_SECTION(add);
-        console.log(add);
 
     }
 
@@ -62,7 +61,7 @@ const mapDispatchToProps = dispatch => {
     return {
         ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
             name:'addPlan',
-            plan:add.plan,
+            plan:add,
         }}),
     };
 };

@@ -41,7 +41,7 @@ class AddVideos extends Component {
         document.getElementById('url').value='';
 
         console.log(add);
-        this.props.ADD_SECTION(title,description,url);
+        this.props.ADD_SECTION(add);
 
     }
 
@@ -54,8 +54,7 @@ class AddVideos extends Component {
             videoDescription: description,
             videoUrl:url
         };
-        console.log(add);
-        this.props.ADD_SECTION(title,description,url);
+        this.props.ADD_SECTION(add);
     }
 
     render() {
@@ -108,11 +107,9 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (title,description,url) => dispatch({ type: 'ADD_SECTION', payload:{
+        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
             name:'addVideo',
-            title:title,
-            description:description,
-            url:url
+            video:add
         }}),
     };
 };

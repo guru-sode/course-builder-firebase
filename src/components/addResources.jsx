@@ -37,8 +37,7 @@ class AddResources extends Component {
         };
         document.getElementById('url').value='';
         document.getElementById('description').value='';
-        this.props.ADD_SECTION(url,description);
-        console.log(add);
+        this.props.ADD_SECTION(add);
 
     }
     
@@ -49,7 +48,7 @@ class AddResources extends Component {
             resourceUrl: url,
             resourceDescription: description 
         };
-        console.log(add);
+        this.props.ADD_SECTION(add);
     }
 
     render() {
@@ -93,10 +92,9 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (url,description) => dispatch({ type: 'ADD_SECTION', payload:{
+        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
             name:'addResource',
-            url:url,
-            description:description,
+            resource:add
         }}),
     };
 };
