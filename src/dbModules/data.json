@@ -12,6 +12,8 @@
     },
     "courses": {
         "courseId-1": {
+            "course_id": "courseId-1",
+            "user_id": "kishan",
             "title": "javaScript",
             "description": "this is basic course of javaScript",
             "cataagory": "software",
@@ -22,6 +24,8 @@
             ]
         },
         "courseId-2": {
+            "course_id": "courseId-2",
+            "user_id": "kishan",
             "title": "IPL DATA SET VISUALIZATION",
             "description": "You will learn data manipulate",
             "cataagory": "software",
@@ -30,6 +34,7 @@
     },
     "sections": {
         "section_id1": {
+            "course_id": "courseId-1",
             "title": "javaScript syntax",
             "description": "Introduction to javascript",
             "resourses": [
