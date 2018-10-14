@@ -4,8 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { createCourse } from '../redux/actions/courseActions';
+import { signIn, signOut } from '../redux/actions/authActions';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+
 
 
 
@@ -38,7 +40,21 @@ class CreateCourse extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const course = {
+            course_id: 'kishan_javaScript_1',
+            'user_id': 'kishan',
+            name: 'javaScript',
+            description: 'basic of javaScript'
+        };
+        const userInfo = {
+            email: 'kishan.reddy@gmail.com',
+            password: '123456'
+        };
+        const { classes, createCourse, signIn, signOut } = this.props;
+        signIn(userInfo);
+        createCourse(course);
+        signOut();
+        console.log('in createc ourse >> ', this.props);
 
         return (
             <form className={classes.container} id="titleForm" noValidate autoComplete="off">
@@ -75,6 +91,8 @@ CreateCourse.propTypes = {
 const mapDispatchToProps = (dispatch) => {
     return {
         createCourse: (course) => dispatch(createCourse(course)),
+        signIn: (userInfo) => dispatch(signIn(userInfo)),
+        signOut: () => dispatch(signOut())
     };
 };
 /*  composing multiple connecter  */

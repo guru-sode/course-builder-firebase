@@ -3,7 +3,8 @@ import { CREATE_COURSE } from '../../constants/actionTypes';
 export const createCourse = (course) => {
 
     /*   return function to redux-thunk */
-    return (dispatch, { getFirebase }) => {
+    return (dispatch, getState, { getFirebase }) => {
+        console.log('in course action >> ', getState());
         /* asyn call to firbase  to add course object with id to courses */
         const firbase = getFirebase();
         firbase.database().ref(`app/courses/${course.id}`).set(course)
