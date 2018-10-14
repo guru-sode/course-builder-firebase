@@ -53,7 +53,7 @@ class CreateCourse extends Component {
         const { classes, createCourse, signIn, signOut } = this.props;
         signIn(userInfo);
         createCourse(course);
-        signOut();
+        // signOut();
         console.log('in createc ourse >> ', this.props);
 
         return (

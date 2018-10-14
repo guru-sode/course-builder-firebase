@@ -17,7 +17,12 @@ export const signIn = (userInfo) => {
             userInfo.email,
             userInfo.password
         ).then(() => {
-            dispatch({ type: SIGNIN_SUCCESS, payload: getState().firebase.auth });
+            const { auth } = getState().firebase;
+            const { uid } = auth;
+            userInfo['uid'] = uid;
+            userInfo['course'] = ['courseId-1', 'courseId-2'];
+            firebase.database().ref(`app/users/${uid}`).set(userInfo);
+            return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
             dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
         });

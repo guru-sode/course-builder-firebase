@@ -17,6 +17,7 @@ const authReducer = (state = initState, action) => {
             userInfo: action.payload
         };
     case SIGNOUT:
+        // console.log('signOUt reducer >>> ', action);
         return {
             ...state,
             userInfo: null
