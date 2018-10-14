@@ -87,8 +87,7 @@ const sectionReducer=(state=initialState,action)=>{
     switch(action.type){
     case 'ADD_SECTION':
         if(action.payload.name==='addTitle'){
-            console.log(action.payload.title);
-            console.log(action.payload.description);
+            console.log(action.payload.section);
         }
         if(action.payload.name==='addVideo'){
             console.log(action.payload.title);

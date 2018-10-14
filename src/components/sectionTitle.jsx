@@ -29,8 +29,7 @@ class SectionTitle extends Component {
             sectionName: title,
             sectionDescription: description 
         };
-        console.log(add);
-        this.props.ADD_SECTION(title,description);
+        this.props.ADD_SECTION(add);
     }
 
     render() {
@@ -69,10 +68,9 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (title,description) => dispatch({ type: 'ADD_SECTION', payload:{
+        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
             name:'addTitle',
-            title:title,
-            description:description
+            section:add
         }}),
     };
 };
