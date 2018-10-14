@@ -59,7 +59,7 @@ class CreateCourse extends Component {
         // signIn(userInfo);
         createCourse(course);
         // signOut();
-        console.log('in createc ourse >> ', this.props);
+        // console.log('in createc ourse >> ', this.props);
 
         return (
             <form className={classes.container} id="titleForm" noValidate autoComplete="off">
@@ -94,7 +94,7 @@ CreateCourse.propTypes = {
 };
 
 const mapStateToProps = state => {
-    console.log('in createCourse >>', state);
+    // console.log('in createCourse >>', state);
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
         courses: state.firebase.data.app ? state.firebase.data.app['courses'] : state.courses,
