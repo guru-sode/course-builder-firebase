@@ -16,7 +16,7 @@
             "user_id": "kishan",
             "title": "javaScript",
             "description": "this is basic course of javaScript",
-            "cataagory": "software",
+            "catagory": "software",
             "section": [
                 "section_id1",
                 "section_id2",
@@ -28,7 +28,7 @@
             "user_id": "kishan",
             "title": "IPL DATA SET VISUALIZATION",
             "description": "You will learn data manipulate",
-            "cataagory": "software",
+            "catagory": "software",
             "section": []
         }
     },

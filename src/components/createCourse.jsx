@@ -7,6 +7,7 @@ import { createCourse } from '../redux/actions/courseActions';
 import { signIn, signOut } from '../redux/actions/authActions';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
 
 
 
@@ -41,17 +42,21 @@ class CreateCourse extends Component {
 
     render() {
         const course = {
-            course_id: 'kishan_javaScript_1',
-            'user_id': 'kishan',
-            name: 'javaScript',
-            description: 'basic of javaScript'
+            cid: 'kishan_javaScript_1',
+            'uid': 'kishan',
+            title: 'javaScript',
+            description: 'basic of javaScript',
+            'catagory': 'software',
+            'section': [
+                ''
+            ]
         };
         const userInfo = {
             email: 'kishan.reddy@gmail.com',
             password: '123456'
         };
         const { classes, createCourse, signIn, signOut } = this.props;
-        signIn(userInfo);
+        // signIn(userInfo);
         createCourse(course);
         // signOut();
         console.log('in createc ourse >> ', this.props);
@@ -88,6 +93,15 @@ CreateCourse.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
+const mapStateToProps = state => {
+    console.log('in createCourse >>', state);
+    return {
+        /* getting data from firebase redux store { firebaseReducer as firebase } */
+        courses: state.firebase.data.app ? state.firebase.data.app['courses'] : state.courses,
+        users: state.firebase.data.app ? state.firebase.data.app['users'] : state.users,
+    };
+};
+
 const mapDispatchToProps = (dispatch) => {
     return {
         createCourse: (course) => dispatch(createCourse(course)),
@@ -98,7 +112,10 @@ const mapDispatchToProps = (dispatch) => {
 /*  composing multiple connecter  */
 export default compose(
     withStyles(styles),
-    connect(null, mapDispatchToProps),
+    connect(mapStateToProps, mapDispatchToProps),
+    firebaseConnect([{
+        path: '/app'
+    }])
 )(CreateCourse);
 
 // export default withStyles(styles)(CreateCourse);

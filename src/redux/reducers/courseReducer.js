@@ -16,12 +16,11 @@ const initState = {
 const courseReducer = (state = initState, action) => {
     switch (action.type) {
     case CREATE_COURSE:
-        console.log('in course Reducer >> ', action.payload);
+        // console.log('in course Reducer >> ', action.payload);
         return state;
     default:
         return state;
     }
-    return state;
 };
 
 export default courseReducer;
