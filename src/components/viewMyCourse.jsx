@@ -3,6 +3,10 @@ import { Typography, Card, CardContent, CardActions, CardMedia, withStyles, Grid
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import { NavLink } from 'react-router-dom';
+import { Route } from 'react-router';
+import DrawerSection from './drawerSection';
+import  { selectCourse }  from '../redux/actions/courseActions';
 
 
 const styles = theme => ({
@@ -25,10 +29,17 @@ const styles = theme => ({
 });
 
 class ViewMyCourse extends Component {
+    constructor(){
+        super();
+        this.addSection = this.addSection.bind(this);
+    }
+
+    addSection(key) {
+        this.props.selectCourse(key);
+    }
     render() {
         const { classes ,courses} = this.props;
         const courseKeys = Object.keys(courses);
-        // console.log(courseKeys)
         return (
             <Grid className={classes.myCourseContainer} container>
                 {courses !== undefined ?
@@ -48,7 +59,7 @@ class ViewMyCourse extends Component {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button color="primary" size="small">Add Sections</Button>
+                                    <NavLink to='/addSection'><Button id={key} color="primary" size="small" onClick={this.addSection.bind(this, key)}>Add Sections</Button></NavLink>
                                 </CardActions>
                             </Card>
                         </Grid>);
@@ -67,10 +78,16 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = dispatch => {
+    return { 
+        selectCourse: id => dispatch(selectCourse(id)),
+    };
+};
+
 /*  composing multiple connecter  */
 export default compose(
     withStyles(styles),
-    connect(mapStateToProps, null),
+    connect(mapStateToProps, mapDispatchToProps),
     firebaseConnect([{
         path: '/app'
     }])

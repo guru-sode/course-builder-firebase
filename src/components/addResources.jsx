@@ -29,24 +29,29 @@ class AddResources extends Component {
     
     handleAdd(e){
         e.preventDefault();
-        const url = document.getElementById('url').value;
-        const description = document.getElementById('description').value;
+        const name = document.getElementById('name').value;
+        const url = document.getElementById('description').value;
+        const description = document.getElementById('url').value;
         const add = {
-            url: url,
-            description: description 
+            name,
+            description,
+            url,
         };
-        document.getElementById('url').value='';
+        document.getElementById('name').value='';
         document.getElementById('description').value='';
+        document.getElementById('url').value='';
         this.props.ADD_SECTION(add);
 
     }
     
     componentWillUnmount(){
+        const name = document.getElementById('name').value;
         const url = document.getElementById('url').value;
         const description = document.getElementById('description').value;
         const add = {
-            resourceUrl: url,
-            resourceDescription: description 
+            name,
+            description,
+            url, 
         };
         this.props.ADD_SECTION(add);
     }
@@ -57,11 +62,11 @@ class AddResources extends Component {
         return (
             <form className={classes.container} id="titleForm"noValidate autoComplete="off">
                 <TextField
-                    id="url"
-                    label="Resource URL"
+                    id="name"
+                    label="Resource Name"
                     className={classes.textField}
-                    type="url"
-                    name="url"
+                    type="name"
+                    name="name"
                     margin="normal"
                     variant="outlined"
                 />
@@ -72,6 +77,15 @@ class AddResources extends Component {
                     className={classes.textField}
                     type="description"
                     name="description"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <TextField
+                    id="url"
+                    label="Resource URL"
+                    className={classes.textField}
+                    type="url"
+                    name="url"
                     margin="normal"
                     variant="outlined"
                 />

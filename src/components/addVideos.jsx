@@ -33,9 +33,9 @@ class AddVideos extends Component {
         const description = document.getElementById('description').value;
         const url = document.getElementById('url').value;
         const add = {
-            videoName: title,
-            videoDescription: description,
-            videoUrl: url
+            name: title,
+            description: description,
+            url: url
         };
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
@@ -50,9 +50,9 @@ class AddVideos extends Component {
         const description = document.getElementById('description').value;
         const url = document.getElementById('url').value;
         const add = {
-            videoName: title,
-            videoDescription: description,
-            videoUrl: url
+            name: title,
+            description: description,
+            url: url
         };
         this.props.ADD_SECTION(add);
     }

@@ -9,3 +9,4 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const SIGNOUT = 'LOGOUT';
 export const SIGNUP = 'SIGNUP';
 export const AUHT = 'AUHT';
+export const SELECT_COURSE = 'SELECT_COURSE';

@@ -26,8 +26,8 @@ class SectionTitle extends Component {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const add = {
-            sectionName: title,
-            sectionDescription: description 
+            title,
+            description 
         };
         this.props.ADD_SECTION(add);
     }
