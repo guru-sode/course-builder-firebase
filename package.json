@@ -11,15 +11,21 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-redux": "^5.0.7",
 ||||||| merged common ancestors
 =======
     "react-redux": "^5.0.7",
     "react-redux-firebase": "^2.1.8",
 >>>>>>> firebase
+||||||| merged common ancestors
+=======
+    "react-redux": "^5.0.7",
+>>>>>>> addSection
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.4",
+<<<<<<< HEAD
 <<<<<<< HEAD
     "redux": "^4.0.1",
 ||||||| merged common ancestors
@@ -27,6 +33,11 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
 >>>>>>> firebase
+||||||| merged common ancestors
+=======
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+>>>>>>> addSection
     "typeface-roboto": "0.0.54"
   },
   "scripts": {

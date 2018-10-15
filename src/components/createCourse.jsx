@@ -42,8 +42,6 @@ class CreateCourse extends Component {
 
     render() {
         const course = {
-            cid: 'kishan_javaScript_1',
-            'uid': 'kishan',
             title: 'javaScript',
             description: 'basic of javaScript',
             'catagory': 'software',
@@ -51,10 +49,10 @@ class CreateCourse extends Component {
                 ''
             ]
         };
-        const userInfo = {
-            email: 'kishan.reddy@gmail.com',
-            password: '123456'
-        };
+        // const userInfo = {
+        //     email: 'kishan.reddy@gmail.com',
+        //     password: '123456'
+        // };
         const { classes, createCourse, signIn, signOut } = this.props;
         // signIn(userInfo);
         createCourse(course);
