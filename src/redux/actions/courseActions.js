@@ -6,7 +6,7 @@ export const createCourse = (course) => {
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add course object with id to courses */
 
-        console.log('in createCourse >> ', getState());
+        // console.log('in createCourse >> ', getState());
         const { userInfo } = getState().auth;
         // const app = getState().firebase.data.app;
 
