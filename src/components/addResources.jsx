@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { addAdditionalResourse } from '../redux/actions/sectionActions';
 
 const styles = theme => ({
     container: {
@@ -15,52 +17,52 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
         width: '100%',
     },
-    button:{
-        marginLeft:'45%',
+    button: {
+        marginLeft: '45%',
         marginTop: '2%'
     }
 });
 
 class AddResources extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.handleAdd=this.handleAdd.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
     }
-    
-    handleAdd(e){
+
+    handleAdd(e) {
         e.preventDefault();
         const name = document.getElementById('name').value;
         const url = document.getElementById('description').value;
         const description = document.getElementById('url').value;
-        const add = {
+        const resoursesInfo = {
             name,
             description,
             url,
         };
-        document.getElementById('name').value='';
-        document.getElementById('description').value='';
-        document.getElementById('url').value='';
-        this.props.ADD_SECTION(add);
+        document.getElementById('name').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('url').value = '';
+        this.props.addAdditionalResourse(resoursesInfo);
 
     }
-    
-    componentWillUnmount(){
+
+    componentWillUnmount() {
         const name = document.getElementById('name').value;
         const url = document.getElementById('url').value;
         const description = document.getElementById('description').value;
         const add = {
             name,
             description,
-            url, 
+            url,
         };
-        this.props.ADD_SECTION(add);
+        this.props.addAdditionalResourse(add);
     }
 
     render() {
         const { classes } = this.props;
 
         return (
-            <form className={classes.container} id="titleForm"noValidate autoComplete="off">
+            <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
                     id="name"
                     label="Resource Name"
@@ -90,7 +92,7 @@ class AddResources extends Component {
                     variant="outlined"
                 />
                 <Button variant="contained" className={classes.button} onClick={this.handleAdd}>
-                Add another URL
+                    Add another URL
                 </Button>
             </form>
         );
@@ -98,19 +100,15 @@ class AddResources extends Component {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        data: state.data,
-    };
-};
-  
+
+
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
-            name:'addResource',
-            resource:add
-        }}),
+        addAdditionalResourse: (resoursesInfo) => dispatch(addAdditionalResourse(resoursesInfo))
     };
 };
 
-export default  connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(AddResources));
+export default compose(
+    withStyles(styles),
+    connect(null, mapDispatchToProps),
+)(AddResources);

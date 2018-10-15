@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles, Grid, Button, TextField, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, List, Drawer } from '@material-ui/core';
-import ViewMyCourse  from './viewMyCourse';
+import ViewMyCourse from './viewMyCourse';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
@@ -67,7 +67,7 @@ class CreateCourse extends Component {
 
     render() {
         const { classes } = this.props;
-        console.log(this.props.courses);
+        // console.log(this.props.courses);
         return (
             <Grid className={classes.main} container>
                 <Grid item md={2}>

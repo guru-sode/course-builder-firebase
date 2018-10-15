@@ -1,4 +1,4 @@
-import { CREATE_COURSE }  from '../../constants/actionTypes';
+import { CREATE_COURSE } from '../../constants/actionTypes';
 
 export const createCourse = data => ({
     type: CREATE_COURSE,

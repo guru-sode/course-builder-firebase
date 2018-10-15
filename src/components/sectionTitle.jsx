@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
+import { addSection } from '../redux/actions/sectionActions';
 // import { func } from 'prop-types';
 
 const styles = theme => ({
@@ -25,11 +26,12 @@ class SectionTitle extends Component {
     componentWillUnmount() {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
-        const add = {
+        const section = {
             title,
             description
         };
-        this.props.ADD_SECTION(add);
+
+        this.props.addSection(section);
     }
 
     render() {
@@ -62,18 +64,12 @@ class SectionTitle extends Component {
 
 const mapStateToProps = state => {
     return {
-        data: state.data,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (add) => dispatch({
-            type: 'ADD_SECTION', payload: {
-                name: 'addTitle',
-                section: add
-            }
-        }),
+        addSection: (section) => dispatch(addSection(section)),
     };
 };
 

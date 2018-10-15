@@ -13,7 +13,7 @@ function createCourse(state = initialState, action) {
         return state;
     }
     case SELECT_COURSE:
-        console.log(action.payload);
+        // console.log(action.payload);
         return {
             ...state, current_course: action.payload
         };
