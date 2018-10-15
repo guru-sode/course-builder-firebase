@@ -15,19 +15,19 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
         width: '100%',
     },
-    button:{
-        marginLeft:'45%'
+    button: {
+        marginLeft: '45%'
     }
 });
 
 class SectionTitle extends Component {
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const add = {
             title,
-            description 
+            description
         };
         this.props.ADD_SECTION(add);
     }
@@ -36,7 +36,7 @@ class SectionTitle extends Component {
         const { classes } = this.props;
 
         return (
-            <form className={classes.container} id="titleForm"noValidate autoComplete="off">
+            <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
                     id="title"
                     label="Section title"
@@ -65,14 +65,16 @@ const mapStateToProps = state => {
         data: state.data,
     };
 };
-  
+
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
-            name:'addTitle',
-            section:add
-        }}),
+        ADD_SECTION: (add) => dispatch({
+            type: 'ADD_SECTION', payload: {
+                name: 'addTitle',
+                section: add
+            }
+        }),
     };
 };
 
-export default  connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(SectionTitle)); 
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(SectionTitle)); 
