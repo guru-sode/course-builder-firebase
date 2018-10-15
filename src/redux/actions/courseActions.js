@@ -7,7 +7,7 @@ export const createCourse = (course) => {
         /* asyn call to firbase  to add course object with id to courses */
 
         // console.log('in createCourse >> ', getState());
-        const { userInfo } = getState().auth;
+        // const { userInfo } = getState().auth;
         // const app = getState().firebase.data.app;
 
         // const uid = userInfo ? userInfo['uid'] : null;

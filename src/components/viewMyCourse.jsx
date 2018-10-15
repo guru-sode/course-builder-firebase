@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Typography, Card, CardContent, CardActions, CardMedia, withStyles, Grid, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
 
 
 const styles = theme => ({
@@ -24,23 +26,25 @@ const styles = theme => ({
 
 class ViewMyCourse extends Component {
     render() {
-        const { classes } = this.props;
+        const { classes ,courses} = this.props;
+        const courseKeys = Object.keys(courses);
+        // console.log(courseKeys)
         return (
             <Grid className={classes.myCourseContainer} container>
-                {this.props.courses.length !== 0 ?
-                    this.props.courses.map((course) => {
+                {courses !== undefined ?
+                    courseKeys.map((key) => {
                         return (<Grid item md={4}>
                             <Card className={classes.card}>
                                 <CardMedia className={classes.media}  />
                                 <CardContent>
                                     <Typography component="h2">
-                                        {course.title}
+                                        {courses[key].title}
                                     </Typography>
                                     <Typography component="h4">
-                                        {course.category}
+                                        {courses[key].category}
                                     </Typography>
                                     <Typography component="p">
-                                        {course.description}
+                                        {courses[key].description}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -55,8 +59,19 @@ class ViewMyCourse extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    courses: state,
-});
+const mapStateToProps = state => {
+    // console.log('in createCourse >>', state);
+    return {
+        /* getting data from firebase redux store { firebaseReducer as firebase } */
+        courses: state.firebase.data.app ? state.firebase.data.app['courses'] : state.courses,
+    };
+};
 
-export default connect(mapStateToProps, null)(withStyles(styles)(ViewMyCourse));
+/*  composing multiple connecter  */
+export default compose(
+    withStyles(styles),
+    connect(mapStateToProps, null),
+    firebaseConnect([{
+        path: '/app'
+    }])
+)(ViewMyCourse);

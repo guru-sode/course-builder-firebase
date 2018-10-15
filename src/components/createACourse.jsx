@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { withStyles, Grid, Button, TextField, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, List, Drawer } from '@material-ui/core';
 import ViewMyCourse  from './viewMyCourse';
-import { createCourse } from '../redux/actions/createACourse';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
+import { createCourse } from '../redux/actions/courseActions';
 
 const styles = theme => ({
     main: {
@@ -54,15 +56,18 @@ class CreateCourse extends Component {
     handleSubmit = () => {
         this.setState({ open: false });
         const courseDetails = {
-            courseTitle: this.state.courseTitle,
+            title: this.state.courseTitle,
+            description: this.state.courseDescription,
             category: this.state.category,
-            courseDescription: this.state.courseDescription
-        }
-        this.props.sendCourseDetails(courseDetails);
+            section: ['']
+        };
+        // this.props.sendCourseDetails(courseDetails);
+        this.props.createCourse(courseDetails);
     }
 
     render() {
         const { classes } = this.props;
+        console.log(this.props.courses);
         return (
             <Grid className={classes.main} container>
                 <Grid item md={2}>
@@ -100,10 +105,28 @@ class CreateCourse extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    sendCourseDetails: (details) => {
-        dispatch(createCourse(details));
-    }
-});
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(CreateCourse));
+
+const mapStateToProps = state => {
+    // console.log('in createCourse >>', state);
+    return {
+        /* getting data from firebase redux store { firebaseReducer as firebase } */
+        courses: state.firebase.data.app ? state.firebase.data.app['courses'] : state.courses,
+        users: state.firebase.data.app ? state.firebase.data.app['users'] : state.users,
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createCourse: (course) => dispatch(createCourse(course)),
+    };
+};
+
+/*  composing multiple connecter  */
+export default compose(
+    withStyles(styles),
+    connect(mapStateToProps, mapDispatchToProps),
+    firebaseConnect([{
+        path: '/app'
+    }])
+)(CreateCourse);
+

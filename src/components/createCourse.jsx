@@ -49,14 +49,11 @@ class CreateCourse extends Component {
                 ''
             ]
         };
-        // const userInfo = {
-        //     email: 'kishan.reddy@gmail.com',
-        //     password: '123456'
-        // };
-        const { classes, createCourse, signIn, signOut } = this.props;
-        // signIn(userInfo);
+        
+        const { classes, createCourse } = this.props;
+       
         createCourse(course);
-        // signOut();
+       
         // console.log('in createc ourse >> ', this.props);
 
         return (
@@ -103,8 +100,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         createCourse: (course) => dispatch(createCourse(course)),
-        signIn: (userInfo) => dispatch(signIn(userInfo)),
-        signOut: () => dispatch(signOut())
+       
     };
 };
 /*  composing multiple connecter  */
