@@ -4,7 +4,9 @@ import {
     SIGNIN_ERROR,
     SIGNOUT_SUCCESS,
     SIGNOUT,
-    SIGNOUT_FAIL
+    SIGNOUT_FAIL,
+    SIGNUP_ERROR, SIGNUP_SUCCESS
+
 } from '../../constants/actionTypes';
 
 export const signIn = (userInfo) => {
@@ -24,7 +26,7 @@ export const signIn = (userInfo) => {
             firebase.database().ref(`app/users/${uid}`).set(userInfo);
             return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
-            dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
+            dispatch({ type: SIGNIN_ERROR, payload: err });
         });
     };
 };
@@ -40,9 +42,35 @@ export const signOut = () => {
             .then(() => {
                 dispatch({ type: SIGNOUT, payload: SIGNOUT_SUCCESS });
             }).catch((err) => {
-                dispatch({ type: SIGNIN_ERROR, payload: SIGNOUT_FAIL });
+                dispatch({ type: SIGNIN_ERROR, payload: err });
             });
     };
 };
+
+export const signUp = (newUserInfo) => {
+
+    /*   return function to redux-thunk */
+    return (dispatch, getState, { getFirebase }) => {
+        /* asyn call to firbase  to add course object with id to courses */
+        const firebase = getFirebase();
+        firebase.auth().createUserWithEmailAndPassword(
+            newUserInfo.email,
+            newUserInfo.password
+        ).then((response) => {
+            return firebase.database().ref(`app/users/${response.user.uid}`).set({
+                uid: response.user.uid,
+                firstName: newUserInfo.firstName,
+                lastName: newUserInfo.lastName,
+                email: newUserInfo.email,
+                course: ['']
+            });
+        }).then(() => {
+            return dispatch({ type: SIGNUP_SUCCESS });
+        }).catch((err) => {
+            dispatch({ type: SIGNUP_ERROR, payload: err });
+        });
+    };
+};
+
 
 
