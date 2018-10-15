@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import { Typography, Card, CardContent, CardActions, withStyles, Grid, Button } from '@material-ui/core';
+import { Typography, Card, CardContent, CardActions, CardMedia, withStyles, Grid, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 
 
 const styles = theme => ({
     myCourseContainer: {
         display: 'flex',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
+        alignSelf: 'flex-end',
         flexWrap: 'wrap'
     },
     card: {
         margin: '1em',
-        minWidth: 275,
-        maxWidth: 300,
+        width: 300,
+        height: 300,
+        wordWrap: 'break-word',
+    },
+    media: {
+        height: 140,
+        backgroundColor: '#b22a00',
     }
 });
 
@@ -25,6 +31,7 @@ class ViewMyCourse extends Component {
                     this.props.courses.map((course) => {
                         return (<Grid item md={4}>
                             <Card className={classes.card}>
+                                <CardMedia className={classes.media}  />
                                 <CardContent>
                                     <Typography component="h2">
                                         {course.title}
@@ -32,7 +39,7 @@ class ViewMyCourse extends Component {
                                     <Typography component="h4">
                                         {course.category}
                                     </Typography>
-                                    <Typography componenet="p">
+                                    <Typography component="p">
                                         {course.description}
                                     </Typography>
                                 </CardContent>

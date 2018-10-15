@@ -13,6 +13,10 @@ const styles = theme => ({
         textDecoration: 'none',
         padding: '0.50em',
         backgroundColor: 'white',
+    },
+    dialogBox: {
+        padding: '0.5em',
+        margin: '1em',
     }
 });
 
@@ -69,14 +73,14 @@ class CreateCourse extends Component {
                         <Button onClick={this.viewAllCourses}>View All Courses</Button>
                         <Divider />
                         <Button onClick={this.handleClickOpen}>Create a Course</Button>
-                        <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+                        <Dialog className={classes.dialogBox} open={this.state.open} onClose={this.handleClose}>
                             <DialogTitle id="form-dialog-title">Enter Course Details</DialogTitle>
                             <DialogContent>
                                 <DialogContentText>Enter Course Title</DialogContentText>
                                 <TextField autoFocus margin="dense" id="course-name" fullWidth onChange={this.handleTitleChange} />
                                 <DialogContentText>Select Category</DialogContentText>
-                                <select onClick={this.handleDropdownChange} className={classes.selectDropdown}>
-                                    <option selected value="Software">Software Development</option>
+                                <select onClick={this.handleDropdownChange} className={classes.selectDropdown} required>
+                                    <option value="Software Development">Software Development</option>
                                     <option value="Science">Science</option>
                                     <option value="Art">Art</option>
                                 </select>
