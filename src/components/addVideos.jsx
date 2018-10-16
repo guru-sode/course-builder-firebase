@@ -62,7 +62,8 @@ class AddVideos extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, section } = this.props;
+        console.log('section >> ', section);
 
         return (
             <Grid container>
@@ -118,12 +119,16 @@ class AddVideos extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(' in addVideo >> ', state);
+    // console.log(' in addVideo >> ', state.sections.current_section);
+    const sid = state.sections.current_section;
+    const sections = state.firebase.data.app.sections;
+    const section = sections ? sections[sid] : null;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
-        sections: state.firebase.data.app.sections ? state.firebase.data.app['sections'] : {}
+        section: section,
     };
 };
+
 
 const mapDispatchToProps = dispatch => {
     return {
