@@ -28,21 +28,35 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            errorFlagEmail: false,
+            errorFlagPassword: false,
         };
     }
 
     handleEmailChange = (e) => {
-        this.setState({ email: e.target.value })
+        this.setState({ email: e.target.value, errorFlagEmail: false })
     }
 
 
     handlePasswordChange = (e) => {
-        this.setState({ password: e.target.value })
+        this.setState({ password: e.target.value, errorFlagPassword: false })
     }
 
     submitLoginForm = () => {
-        // console.log(this.state);
-        this.props.signIn(this.state);
+        const emailRegex = /[a-z0-9!#$%&'*+\/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9][a-z0-9-]*[a-z0-9]/;
+        if(this.state.email === '' || !emailRegex.test(this.state.email)) {
+            this.setState({ errorFlagEmail: true});
+        }
+        if(this.state.password === '') {
+            this.setState({ errorFlagPassword: true});
+        }
+        if(this.state.errorFlagEmail === false && this.state.errorFlagPassword === false) {
+            const loginDetails = {
+                email: this.state.email,
+                password: this.state.password,
+            }
+            this.props.signIn(loginDetails);
+        }
     }
 
     render() {
@@ -52,9 +66,6 @@ class Login extends Component {
                 <Grid item>
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>
-                            <Typography variant="title" align="center" gutterBottom>
-                                Enter Email
-                            </Typography>
                             <TextField
                                 id="email-input"
                                 onChange={this.handleEmailChange}
@@ -65,19 +76,20 @@ class Login extends Component {
                                 autoComplete="email"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagEmail}
+                                helperText={this.state.errorFlagEmail ? 'Invalid Email' : ''}
                             />
-                            <Typography variant="title" align="center" gutterBottom>
-                                Enter Password
-                            </Typography>
                             <TextField
                                 id="password-input"
                                 onChange={this.handlePasswordChange}
-                                label="password"
+                                label="Password"
                                 className={classes.textField}
                                 type="password"
                                 name="password"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagPassword}
+                                helperText={this.state.errorFlagPassword ? 'Password Required' : ''}
                             />
                         </CardContent>
                         <CardActions>
