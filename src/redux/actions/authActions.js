@@ -61,7 +61,8 @@ export const signUp = (newUserInfo) => {
                 course: ['']
             });
         }).then(() => {
-            return dispatch({ type: SIGNUP_SUCCESS });
+            const { auth } = getState().firebase;
+            return dispatch({ type: SIGNUP_SUCCESS, payload: auth });
         }).catch((err) => {
             dispatch({ type: SIGNUP_ERROR, payload: err });
         });

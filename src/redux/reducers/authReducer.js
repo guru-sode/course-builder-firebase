@@ -37,7 +37,11 @@ const authReducer = (state = initState, action) => {
 
     case SIGNUP_SUCCESS:
         console.log('in auth action signup >> ', action);
-        return state;
+        return {
+            ...state,
+            authError: null,
+            userInfo: action.payload
+        };
 
     case SIGNUP_ERROR:
         return {
