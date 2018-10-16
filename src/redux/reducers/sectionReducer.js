@@ -1,5 +1,4 @@
 const initialState = {
-
     current_section: ''
 };
 

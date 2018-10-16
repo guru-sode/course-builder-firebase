@@ -1,17 +1,15 @@
 import { ADD_SECTION, ADD_VIDEO, ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT } from '../../constants/actionTypes';
 
+
 export const addSection = (section) => {
 
     /*   return function to redux-thunk */
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add section object with id to sections */
-
         const store = getState();
         const app = store.firebase.data.app;
         const cid = store.courses.current_course;
-        // const cid = 'gZOTI0SWDkZAtYziC0yiKrWuXGK2_react';
         const currentCourse = app.courses[cid];
-
         const sid = `${cid}_${section.title}`;
         section = {
             ...section,
@@ -20,10 +18,7 @@ export const addSection = (section) => {
             resourses: [''],
             additional_resourses: [''],
             plan_of_attack: ''
-
         };
-
-        // console.log('section Action  store >> ', userCourse);
         const firebase = getFirebase();
         firebase.database().ref(`app/sections/${section.sid}`).set(section)
             .then(() => {
@@ -39,6 +34,9 @@ export const addSection = (section) => {
     };
 };
 
+export const addSectionToStore = (section) => {
+
+};
 
 export const addVideo = (videoInfo) => {
     /*   return function to redux-thunk */
@@ -48,8 +46,6 @@ export const addVideo = (videoInfo) => {
         const app = store.firebase.data.app;
         const sid = store.sections.current_section;
         const currentSection = app.sections[sid];
-        console.log('section Action  addVideo >> ', app.sections);
-        console.log('section Action  sid >> ', sid);
         const firebase = getFirebase();
         firebase.database().ref(`app/sections/${currentSection.sid}`).update({
             resourses: [...currentSection.resourses, videoInfo]
@@ -69,8 +65,6 @@ export const addAdditionalResourse = (resoursesInfo) => {
         const app = store.firebase.data.app;
         const sid = store.sections.current_section;
         const currentSection = app.sections[sid];
-        console.log('addtional resourse >> ', resoursesInfo);
-        console.log('currentSection >> ', currentSection);
         const firebase = getFirebase();
         firebase.database().ref(`app/sections/${currentSection.sid}`).update({
             additional_resourses: [...currentSection.additional_resourses, resoursesInfo]
