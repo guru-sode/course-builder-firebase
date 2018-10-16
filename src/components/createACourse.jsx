@@ -10,7 +10,10 @@ import {
   DialogTitle,
   Divider,
   List,
-  Drawer
+  Drawer,
+  AppBar,
+  Toolbar,
+  Typography
 } from '@material-ui/core';
 import ViewMyCourse from './viewMyCourse';
 import { connect } from 'react-redux';
@@ -18,10 +21,12 @@ import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { createCourse } from '../redux/actions/courseActions';
 
+const drawerWidth = 200;
+
 const styles = theme => ({
   main: {
     display: 'flex',
-    padding: '1em'
+    padding: '0 1em 1em 0',
   },
   selectDropdown: {
     textDecoration: 'none',
@@ -35,7 +40,15 @@ const styles = theme => ({
   },
   input: {
     width: '100%'
-  }
+  },
+  drawer: {
+      position: 'relative',
+  },
+  drawerPaper: {
+    position: 'relative',
+    width: drawerWidth,
+    height:'925px'
+}
 });
 
 class CreateCourse extends Component {
@@ -84,9 +97,18 @@ class CreateCourse extends Component {
     const { classes } = this.props;
     // console.log(this.props.courses);
     return (
+        <div>
+                    <AppBar position="relative" className={classes.appBar}>
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            Courses 
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Grid className={classes.main} container>
         <Grid item md={2}>
           <Drawer
+            className={classes.drawer}
             variant="permanent"
             classes={{ paper: classes.drawerPaper }}
             anchor="left"
@@ -107,7 +129,6 @@ class CreateCourse extends Component {
               </DialogTitle>
               <DialogContent>
                 <DialogContentText>Enter Course Title</DialogContentText>
-                {/* <TextField className={classes.input} autoFocus margin="dense" id="course-name" fullWidth onChange={this.handleTitleChange} /> */}
                 <TextField
                   onChange={this.handleTitleChange}
                   className={classes.input}
@@ -152,6 +173,7 @@ class CreateCourse extends Component {
           <ViewMyCourse />
         </Grid>
       </Grid>
+      </div>
     );
   }
 }

@@ -92,7 +92,7 @@ state = {
           {activeStep === steps.length ? (
             <div>
               <Typography className={classes.instructions}>
-                All steps completed - you&quot;re finished
+                All steps are completed -Section has been added
               </Typography>
             </div>
           ) : (
