@@ -5,7 +5,7 @@ const styles = theme => ({
     main: {
         display: 'flex',
         justifyContent: 'center',
-        margin: '1em',
+        marginTop: '1em',
     },
     card: {
         width: 400,
@@ -22,7 +22,7 @@ class Login extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <Grid container className={classes.main} spacing={24}>
+            <Grid container className={classes.main}>
                 <Grid item>
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>

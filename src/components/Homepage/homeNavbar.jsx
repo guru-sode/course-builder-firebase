@@ -7,6 +7,7 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
+        margin: 0
     },
     header: {
         alignSelf: 'center',
