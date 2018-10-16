@@ -58,6 +58,7 @@ class AddVideos extends Component {
             url: url
         };
         // this.props.ADD_SECTION(add);
+        this.props.addVideo(videoInfo);
     }
 
     render() {

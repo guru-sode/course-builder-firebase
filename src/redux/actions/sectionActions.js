@@ -69,6 +69,8 @@ export const addAdditionalResourse = (resoursesInfo) => {
         const app = store.firebase.data.app;
         const sid = store.sections.current_section;
         const currentSection = app.sections[sid];
+        console.log('addtional resourse >> ', resoursesInfo);
+        console.log('currentSection >> ', currentSection);
         const firebase = getFirebase();
         firebase.database().ref(`app/sections/${currentSection.sid}`).update({
             additional_resourses: [...currentSection.additional_resourses, resoursesInfo]
