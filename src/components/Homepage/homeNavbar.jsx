@@ -90,6 +90,7 @@ class HomeNavbar extends Component {
                     </AppBar>
                 </Grid>
             </Grid >
+
         );
     }
 }

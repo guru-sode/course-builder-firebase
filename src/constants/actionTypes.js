@@ -16,4 +16,6 @@ export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 export const SIGNUP_FAIL = 'SIGNUP_FAIL';
 export const AUHT = 'AUHT';
+export const ADD_SECTION_INFO = 'ADD_SECTION_INFO';
+export const ADD_SECTION_ID = 'ADD_SECTION_ID';
 

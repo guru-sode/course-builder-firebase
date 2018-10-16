@@ -42,9 +42,9 @@ const styles = theme => ({
         height: 200,
         wordWrap: 'break-word',
     },
-    heading:{
+    heading: {
         margin: '1em',
-        width:'100%'
+        width: '100%'
     }
 });
 
@@ -83,7 +83,7 @@ class AddVideos extends Component {
 
     render() {
         const { classes, section } = this.props;
-        if(section!==undefined)
+        if (section !== undefined)
             console.log('section >> ', section);
 
         return (
@@ -136,8 +136,8 @@ class AddVideos extends Component {
                 <Grid className={classes.videoCards} item>
                     {section !== undefined ?
                         section.resourses.map((video, index) => {
-                            if(index != 0) {
-                                return(
+                            if (index != 0) {
+                                return (
                                     <div>
                                         <ExpansionPanel>
                                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>

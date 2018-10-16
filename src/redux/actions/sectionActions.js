@@ -1,4 +1,8 @@
-import { ADD_SECTION, ADD_VIDEO, ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT } from '../../constants/actionTypes';
+import {
+    ADD_SECTION, ADD_SECTION_ID,
+    ADD_VIDEO,
+    ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT
+} from '../../constants/actionTypes';
 
 export const addSection = (section) => {
 
@@ -33,6 +37,33 @@ export const addSection = (section) => {
     };
 };
 
+export const addSectionToStore = (section) => {
+    return (dispatch, getState, { getFirebase }) => {
+        const store = getState();
+        const app = store.firebase.data.app;
+        const cid = store.courses.current_course;
+        const currentCourse = app.courses[cid];
+        const sid = `${cid}_${section.title}`;
+        section = {
+            ...section,
+            cid,
+            sid,
+            resourses: [''],
+            additional_resourses: [''],
+            plan_of_attack: ''
+        };
+        const firebase = getFirebase();
+        firebase.database().ref(`app/courses/${cid}`).update({
+            section: [...currentCourse.section, sid]
+        }).then(() => {
+            dispatch({ type: ADD_SECTION_ID, payload: section.sid });
+            dispatch({ type: ADD_SECTION, payload: section });
+        }).catch((err) => {
+            return err;
+        });
+
+    };
+};
 
 export const addVideo = (videoInfo) => {
     /*   return function to redux-thunk */
@@ -51,6 +82,10 @@ export const addVideo = (videoInfo) => {
             return err;
         });
     };
+};
+
+export const addVideoToStore = (videoInfo) => {
+    return ({ type: ADD_VIDEO, payload: videoInfo });
 };
 
 export const addAdditionalResourse = (resoursesInfo) => {
@@ -72,6 +107,9 @@ export const addAdditionalResourse = (resoursesInfo) => {
     };
 };
 
+export const addAdditionalResourseToStore = (resoursesInfo) => {
+    return ({ type: ADD_ADDITIONAL_RESOURSE, payload: resoursesInfo });
+};
 
 export const addPlanOfAttack = (plan_of_attack) => {
     /*   return function to redux-thunk */
@@ -90,4 +128,7 @@ export const addPlanOfAttack = (plan_of_attack) => {
             return err;
         });
     };
+};
+export const addPlanOfAttackToStore = (plan_of_attack) => {
+    return ({ type: ADD_PLAN_OF_ATTACT, payload: plan_of_attack });
 };
