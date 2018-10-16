@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
+import { addSection } from '../redux/actions/sectionActions';
 // import { func } from 'prop-types';
 
 const styles = theme => ({
@@ -15,28 +16,29 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
         width: '100%',
     },
-    button:{
-        marginLeft:'45%'
+    button: {
+        marginLeft: '45%'
     }
 });
 
 class SectionTitle extends Component {
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
-        const add = {
-            sectionName: title,
-            sectionDescription: description 
+        const section = {
+            title,
+            description
         };
-        this.props.ADD_SECTION(add);
+
+        this.props.addSection(section);
     }
 
     render() {
         const { classes } = this.props;
 
         return (
-            <form className={classes.container} id="titleForm"noValidate autoComplete="off">
+            <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
                     id="title"
                     label="Section title"
@@ -62,17 +64,13 @@ class SectionTitle extends Component {
 
 const mapStateToProps = state => {
     return {
-        data: state.data,
-    };
-};
-  
-const mapDispatchToProps = dispatch => {
-    return {
-        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
-            name:'addTitle',
-            section:add
-        }}),
     };
 };
 
-export default  connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(SectionTitle)); 
+const mapDispatchToProps = dispatch => {
+    return {
+        addSection: (section) => dispatch(addSection(section)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(SectionTitle)); 

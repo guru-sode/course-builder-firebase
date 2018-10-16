@@ -1,4 +1,4 @@
-import { CREATE_COURSE } from '../../constants/actionTypes';
+import { CREATE_COURSE, SELECT_COURSE } from '../../constants/actionTypes';
 
 export const createCourse = (course) => {
 
@@ -20,10 +20,10 @@ export const createCourse = (course) => {
         course = {
             ...course, uid, cid
         };
-        const firbase = getFirebase();
-        firbase.database().ref(`app/courses/${course.cid}`).set(course)
+        const firebase = getFirebase();
+        firebase.database().ref(`app/courses/${course.cid}`).set(course)
             .then(() => {
-                firbase.database().ref(`app/users/${uid}`).update({ course: [...userCourse, cid] })
+                firebase.database().ref(`app/users/${uid}`).update({ course: [...userCourse, cid] })
                     .then(() => {
                         return dispatch({ type: CREATE_COURSE, payload: course });
                     });
@@ -33,3 +33,5 @@ export const createCourse = (course) => {
             });
     };
 };
+
+export const selectCourse = (courseId) => ({ type: SELECT_COURSE, payload: courseId });

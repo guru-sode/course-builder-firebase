@@ -59,13 +59,7 @@
                     "url": "https: //blog.philipphauer.de/restful-api-design-best-practices/"
                 }
             ],
-            "plan_of_attack": [
-                "First we go through javaScript syntax",
-                "we practice javaScript function",
-                "Arrow function",
-                "High order function",
-                "Object oriented javaScript"
-            ]
+            "plan_of_attack": "First we go through javaScript syntax"
         }
     },
     "course_catagorys": [

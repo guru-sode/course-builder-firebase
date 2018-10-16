@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, TextField, Card, CardHeader, CardContent, Button, CardActions, withStyles, Typography } from '@material-ui/core';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
+import { signIn } from '../../redux/actions/authActions';
 
 const styles = theme => ({
     main: {
@@ -37,7 +41,8 @@ class Login extends Component {
     }
 
     submitLoginForm = () => {
-        console.log(this.state);
+        // console.log(this.state);
+        this.props.signIn(this.state);
     }
 
     render() {
@@ -48,7 +53,7 @@ class Login extends Component {
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>
                             <Typography variant="title" align="center" gutterBottom>
-                               Enter Email
+                                Enter Email
                             </Typography>
                             <TextField
                                 id="email-input"
@@ -85,4 +90,14 @@ class Login extends Component {
     }
 }
 
-export default withStyles(styles)(Login);
+const mapDispatchToProps = dispatch => {
+    return {
+        signIn: (userInfo) => dispatch(signIn(userInfo)),
+    };
+};
+
+export default compose(
+    connect(null, mapDispatchToProps),
+    withStyles(styles),
+)(Login);
+// export default withStyles(styles)(Login);

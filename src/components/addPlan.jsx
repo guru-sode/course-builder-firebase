@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
+import { addPlanOfAttack } from '../redux/actions/sectionActions';
+import { compose } from 'redux';
 
 const styles = theme => ({
     container: {
@@ -14,19 +16,17 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
         width: '100%',
     },
-    button:{
-        marginLeft:'45%',
+    button: {
+        marginLeft: '45%',
         marginTop: '2%'
     }
 });
 
 class AddPlan extends Component {
-    componentWillUnmount(){
+    componentWillUnmount() {
         const description = document.getElementById('description').value;
-        const add = {
-            plan: description 
-        };
-        this.props.ADD_SECTION(add);
+        const planInfo = description;
+        this.props.addPlanOfAttack(planInfo);
 
     }
 
@@ -34,7 +34,7 @@ class AddPlan extends Component {
         const { classes } = this.props;
 
         return (
-            <form className={classes.container} id="titleForm"noValidate autoComplete="off">
+            <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
                     id="description"
                     multiline={true}
@@ -51,19 +51,14 @@ class AddPlan extends Component {
 }
 
 
-const mapStateToProps = state => {
-    return {
-        data: state.data,
-    };
-};
-  
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: (add) => dispatch({ type: 'ADD_SECTION', payload:{
-            name:'addPlan',
-            plan:add,
-        }}),
+        addPlanOfAttack: (planInfo) => dispatch(addPlanOfAttack(planInfo))
     };
 };
 
-export default  connect(mapStateToProps,mapDispatchToProps)(withStyles(styles)(AddPlan));
+export default compose(
+    connect(null, mapDispatchToProps),
+    withStyles(styles)
+)(AddPlan);
+

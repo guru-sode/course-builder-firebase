@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withStyles, Grid, Button, TextField, Dialog, DialogContent, DialogContentText, DialogTitle, Divider, List, Drawer } from '@material-ui/core';
-import ViewMyCourse  from './viewMyCourse';
+import ViewMyCourse from './viewMyCourse';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
@@ -15,6 +15,7 @@ const styles = theme => ({
         textDecoration: 'none',
         padding: '0.50em',
         backgroundColor: 'white',
+        display: 'block',
     },
     dialogBox: {
         padding: '0.5em',
@@ -66,8 +67,12 @@ class CreateCourse extends Component {
     }
 
     render() {
-        const { classes } = this.props;
-        console.log(this.props.courses);
+        const { classes, course_category } = this.props;
+        let select_category = '';
+        // console.log(this.props.courses);
+        select_category = course_category.map((name) => {
+            return <option value={name} > {name}</option >
+        })
         return (
             <Grid className={classes.main} container>
                 <Grid item md={2}>
@@ -85,9 +90,7 @@ class CreateCourse extends Component {
                                 <TextField autoFocus margin="dense" id="course-name" fullWidth onChange={this.handleTitleChange} />
                                 <DialogContentText>Select Category</DialogContentText>
                                 <select onClick={this.handleDropdownChange} className={classes.selectDropdown} required>
-                                    <option value="Software Development">Software Development</option>
-                                    <option value="Science">Science</option>
-                                    <option value="Art">Art</option>
+                                    {select_category}
                                 </select>
                                 <DialogContentText>Enter Course Description</DialogContentText>
                                 <TextField margin="dense" id="course-description" fullWidth onChange={this.handleDescriptionChange} />
@@ -113,6 +116,7 @@ const mapStateToProps = state => {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
         courses: state.firebase.data.app ? state.firebase.data.app['courses'] : state.courses,
         users: state.firebase.data.app ? state.firebase.data.app['users'] : state.users,
+        course_category: state.firebase.data.app ? state.firebase.data.app['course_category'] : []
     };
 };
 const mapDispatchToProps = (dispatch) => {

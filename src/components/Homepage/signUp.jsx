@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, TextField, Card, CardHeader, CardContent, Button, CardActions, withStyles, Typography } from '@material-ui/core';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
+import { signUp } from '../../redux/actions/authActions';
 
 const styles = theme => ({
     main: {
@@ -41,7 +45,7 @@ class SignUp extends Component {
     }
 
     submitSignupForm = () => {
-        console.log(this.state);
+        this.props.signUp(this.state)
     }
 
     render() {
@@ -52,7 +56,7 @@ class SignUp extends Component {
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>
                             <Typography variant="title" align="center" gutterBottom>
-                               Enter Your Email Id
+                                Enter Your Email Id
                             </Typography>
                             <TextField
                                 id="email-input"
@@ -66,7 +70,7 @@ class SignUp extends Component {
                                 variant="outlined"
                             />
                             <Typography variant="title" align="center" gutterBottom>
-                               Enter A Username
+                                Enter A Username
                             </Typography>
                             <TextField
                                 id="username-input"
@@ -102,4 +106,18 @@ class SignUp extends Component {
     }
 }
 
-export default withStyles(styles)(SignUp);
+const mapDispatchToProps = dispatch => {
+    return {
+        signUp: (userInfo) => dispatch(signUp(userInfo)),
+    };
+};
+
+export default compose(
+    connect(null, mapDispatchToProps),
+    withStyles(styles),
+    /* connecting firebase redux store */
+    firebaseConnect([{
+        path: '/app'
+    }])
+)(SignUp);
+// export default withStyles(styles)(SignUp);

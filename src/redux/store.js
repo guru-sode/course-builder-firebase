@@ -9,7 +9,7 @@ import { getFirebase, reactReduxFirebase } from 'react-redux-firebase';
 /* enhance the store with reactReduxFirebase */
 const createStoreWithMiddleware = compose(
     applyMiddleware(thunkMiddleware.withExtraArgument({ getFirebase })),
-    reactReduxFirebase(firebaseConfig)
+    reactReduxFirebase(firebaseConfig, { useFirebaseProfile: true, userProfile: 'users' })
 )(createStore);
 
 const store = createStoreWithMiddleware(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

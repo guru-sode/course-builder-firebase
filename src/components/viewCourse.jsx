@@ -7,7 +7,7 @@ const ViewCourse = (props) => {
 };
 
 const mapStateToProps = state => {
-    console.log("in viewCOurse >>", state);
+    // console.log("in viewCOurse >>", state);
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
         courses: state.firebase.data.courses

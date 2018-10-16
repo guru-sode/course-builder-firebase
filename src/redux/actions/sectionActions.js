@@ -1,17 +1,103 @@
-import { ADD_SECTION } from '../../constants/actionTypes';
+import { ADD_SECTION, ADD_VIDEO, ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT } from '../../constants/actionTypes';
 
 export const addSection = (section) => {
 
     /*   return function to redux-thunk */
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add section object with id to sections */
-        const firbase = getFirebase();
-        firbase.database().ref(`app/sections/${section.id}`).set(section)
+
+        const store = getState();
+        const app = store.firebase.data.app;
+        const cid = store.courses.current_course;
+        // const cid = 'gZOTI0SWDkZAtYziC0yiKrWuXGK2_react';
+        const currentCourse = app.courses[cid];
+
+        const sid = `${cid}_${section.title}`;
+        section = {
+            ...section,
+            cid,
+            sid,
+            resourses: [''],
+            additional_resourses: [''],
+            plan_of_attack: ''
+
+        };
+
+        // console.log('section Action  store >> ', userCourse);
+        const firebase = getFirebase();
+        firebase.database().ref(`app/sections/${section.sid}`).set(section)
             .then(() => {
-                return dispatch({ type: ADD_SECTION, payload: section });
+                firebase.database().ref(`app/courses/${cid}`).update({
+                    section: [...currentCourse.section, sid]
+                }).then(() => {
+                    return dispatch({ type: ADD_SECTION, payload: section.sid });
+                });
+
             }).catch((err) => {
-                console.log(err);
+                return err;
             });
     };
 };
 
+
+export const addVideo = (videoInfo) => {
+    /*   return function to redux-thunk */
+    return (dispatch, getState, { getFirebase }) => {
+        /* asyn call to firbase  to add course object with id to courses */
+        const store = getState();
+        const app = store.firebase.data.app;
+        const sid = store.sections.current_section;
+        const currentSection = app.sections[sid];
+        console.log('section Action  addVideo >> ', app.sections);
+        console.log('section Action  sid >> ', sid);
+        const firebase = getFirebase();
+        firebase.database().ref(`app/sections/${currentSection.sid}`).update({
+            resourses: [...currentSection.resourses, videoInfo]
+        }).then(() => {
+            return dispatch({ type: ADD_VIDEO, payload: videoInfo });
+        }).catch((err) => {
+            return err;
+        });
+    };
+};
+
+export const addAdditionalResourse = (resoursesInfo) => {
+    /*   return function to redux-thunk */
+    return (dispatch, getState, { getFirebase }) => {
+        /* asyn call to firbase  to add course object with id to courses */
+        const store = getState();
+        const app = store.firebase.data.app;
+        const sid = store.sections.current_section;
+        const currentSection = app.sections[sid];
+        console.log('addtional resourse >> ', resoursesInfo);
+        console.log('currentSection >> ', currentSection);
+        const firebase = getFirebase();
+        firebase.database().ref(`app/sections/${currentSection.sid}`).update({
+            additional_resourses: [...currentSection.additional_resourses, resoursesInfo]
+        }).then(() => {
+            return dispatch({ type: ADD_ADDITIONAL_RESOURSE, payload: resoursesInfo });
+        }).catch((err) => {
+            return err;
+        });
+    };
+};
+
+
+export const addPlanOfAttack = (plan_of_attack) => {
+    /*   return function to redux-thunk */
+    return (dispatch, getState, { getFirebase }) => {
+        /* asyn call to firbase  to add course object with id to courses */
+        const store = getState();
+        const app = store.firebase.data.app;
+        const sid = store.sections.current_section;
+        const currentSection = app.sections[sid];
+        const firebase = getFirebase();
+        firebase.database().ref(`app/sections/${currentSection.sid}`).update({
+            ...currentSection, plan_of_attack
+        }).then(() => {
+            return dispatch({ type: ADD_PLAN_OF_ATTACT, payload: plan_of_attack });
+        }).catch((err) => {
+            return err;
+        });
+    };
+};

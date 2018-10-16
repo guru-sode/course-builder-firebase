@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
+import { addVideo } from '../redux/actions/sectionActions';
+
 
 const styles = theme => ({
     container: {
@@ -32,29 +35,30 @@ class AddVideos extends Component {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const url = document.getElementById('url').value;
-        const add = {
-            videoName: title,
-            videoDescription: description,
-            videoUrl: url
+        const videoInfo = {
+            name: title,
+            description: description,
+            url: url
         };
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
 
-        console.log(add);
-        this.props.ADD_SECTION(add);
+        // console.log(add);
+        this.props.addVideo(videoInfo);
     }
 
     componentWillUnmount() {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const url = document.getElementById('url').value;
-        const add = {
-            videoName: title,
-            videoDescription: description,
-            videoUrl: url
+        const videoInfo = {
+            name: title,
+            description: description,
+            url: url
         };
-        this.props.ADD_SECTION(add);
+        // this.props.ADD_SECTION(add);
+        this.props.addVideo(videoInfo);
     }
 
     render() {
@@ -102,7 +106,7 @@ class AddVideos extends Component {
                             className={classes.button}
                             onClick={this.handleAdd}
                         >
-              Add another video
+                            Add another video
                         </Button>
                     </form>
                 </Grid>
@@ -114,25 +118,24 @@ class AddVideos extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log(' in addVideo >> ', state);
     return {
-        data: state.data
+        /* getting data from firebase redux store { firebaseReducer as firebase } */
+        sections: state.firebase.data.app.sections ? state.firebase.data.app['sections'] : {}
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        ADD_SECTION: add =>
-            dispatch({
-                type: 'ADD_SECTION',
-                payload: {
-                    name: 'addVideo',
-                    video: add
-                }
-            })
+        addVideo: videoInfo => dispatch(addVideo(videoInfo))
     };
 };
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withStyles(styles)(AddVideos));
+/*  composing multiple connecter  */
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withStyles(styles),
+    firebaseConnect([{
+        path: '/app'
+    }])
+)(AddVideos);
