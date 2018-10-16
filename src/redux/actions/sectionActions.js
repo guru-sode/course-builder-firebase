@@ -1,6 +1,5 @@
 import { ADD_SECTION, ADD_VIDEO, ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT } from '../../constants/actionTypes';
 
-
 export const addSection = (section) => {
 
     /*   return function to redux-thunk */
@@ -34,9 +33,6 @@ export const addSection = (section) => {
     };
 };
 
-export const addSectionToStore = (section) => {
-
-};
 
 export const addVideo = (videoInfo) => {
     /*   return function to redux-thunk */

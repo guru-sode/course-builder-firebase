@@ -102,8 +102,6 @@ class AddResources extends Component {
 }
 
 
-
-
 const mapDispatchToProps = dispatch => {
     return {
         addAdditionalResourse: (resoursesInfo) => dispatch(addAdditionalResourse(resoursesInfo))
