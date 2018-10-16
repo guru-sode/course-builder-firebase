@@ -1,12 +1,10 @@
-import {
+gitimport {
     LOGIN_FAIL,
-    SIGNIN_SUCCESS,
-    SIGNIN_ERROR,
-    SIGNOUT_SUCCESS,
-    SIGNOUT,
-    SIGNOUT_FAIL,
-    SIGNUP_ERROR, SIGNUP_SUCCESS
-
+        SIGNIN_SUCCESS,
+        SIGNIN_ERROR,
+        SIGNOUT_SUCCESS,
+        SIGNOUT,
+        SIGNOUT_FAIL
 } from '../../constants/actionTypes';
 
 export const signIn = (userInfo) => {
@@ -26,7 +24,7 @@ export const signIn = (userInfo) => {
             firebase.database().ref(`app/users/${uid}`).set(userInfo);
             return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
-            dispatch({ type: SIGNIN_ERROR, payload: err });
+            dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
         });
     };
 };
@@ -42,10 +40,14 @@ export const signOut = () => {
             .then(() => {
                 dispatch({ type: SIGNOUT, payload: SIGNOUT_SUCCESS });
             }).catch((err) => {
-                dispatch({ type: SIGNIN_ERROR, payload: err });
+                dispatch({ type: SIGNIN_ERROR, payload: SIGNOUT_FAIL });
             });
     };
 };
+
+
+
+import { SIGNUP_ERROR, SIGNUP_SUCCESS, SIGNUP_FAIL, } from '../../constants/actionTypes';
 
 export const signUp = (newUserInfo) => {
 
@@ -71,6 +73,3 @@ export const signUp = (newUserInfo) => {
         });
     };
 };
-
-
-
