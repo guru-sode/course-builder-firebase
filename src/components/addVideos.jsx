@@ -94,6 +94,7 @@ class AddVideos extends Component {
                         />
                         <TextField
                             id="url"
+                            multiline={true}
                             label="Video URL"
                             className={classes.textField}
                             type="url"

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './styles/App.css';
 import CreateCourse from './components/createACourse';
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router';

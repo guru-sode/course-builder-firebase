@@ -24,7 +24,7 @@ const styles = theme => ({
     },
     media: {
         height: 140,
-        backgroundColor: '#b22a00',
+        backgroundColor: '#3f51b5',
     }
 });
 

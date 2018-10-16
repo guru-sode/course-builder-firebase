@@ -17,10 +17,11 @@ const authReducer = (state = initState, action) => {
     case SIGNIN_ERROR:
         return {
             ...state,
-            authError: action.payload.err.message
+            authError: action.payload.err
         };
 
     case SIGNIN_SUCCESS:
+        console.log('Sign successfull');
         return {
             ...state,
             userInfo: action.payload
@@ -33,12 +34,13 @@ const authReducer = (state = initState, action) => {
         };
 
     case SIGNUP_SUCCESS:
+        console.log('in auth action signup >> ', action);
         return state;
 
     case SIGNUP_ERROR:
         return {
             ...state,
-            authError: action.payload.err.message
+            authError: action.payload.err
         };
 
     default:
