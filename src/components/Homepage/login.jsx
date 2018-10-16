@@ -19,6 +19,27 @@ const styles = theme => ({
 });
 
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+        };
+    }
+
+    handleEmailChange = (e) => {
+        this.setState({ email: e.target.value })
+    }
+
+
+    handlePasswordChange = (e) => {
+        this.setState({ password: e.target.value })
+    }
+
+    submitLoginForm = () => {
+        console.log(this.state);
+    }
+
     render() {
         const { classes } = this.props;
         return (
@@ -31,6 +52,7 @@ class Login extends Component {
                             </Typography>
                             <TextField
                                 id="email-input"
+                                onChange={this.handleEmailChange}
                                 label="Email"
                                 className={classes.textField}
                                 type="email"
@@ -44,6 +66,7 @@ class Login extends Component {
                             </Typography>
                             <TextField
                                 id="password-input"
+                                onChange={this.handlePasswordChange}
                                 label="password"
                                 className={classes.textField}
                                 type="password"
@@ -53,7 +76,7 @@ class Login extends Component {
                             />
                         </CardContent>
                         <CardActions>
-                            <Button variant="contained" color="primary" align="end">Login</Button>
+                            <Button onClick={this.submitLoginForm} variant="contained" color="primary" align="end">Login</Button>
                         </CardActions>
                     </Card>
                 </Grid>

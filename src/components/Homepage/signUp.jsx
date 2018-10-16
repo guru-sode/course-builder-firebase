@@ -19,6 +19,31 @@ const styles = theme => ({
 });
 
 class SignUp extends Component {
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            username: '',
+            password: '',
+        }
+    }
+
+    handleEmailChange = (e) => {
+        this.setState({ email: e.target.value })
+    }
+
+    handleUsernameChange = (e) => {
+        this.setState({ username: e.target.value })
+    }
+
+    handlePasswordChange = (e) => {
+        this.setState({ password: e.target.value })
+    }
+
+    submitSignupForm = () => {
+        console.log(this.state);
+    }
+
     render() {
         const { classes } = this.props;
         return (
@@ -32,6 +57,7 @@ class SignUp extends Component {
                             <TextField
                                 id="email-input"
                                 label="Email"
+                                onChange={this.handleEmailChange}
                                 className={classes.textField}
                                 type="email"
                                 name="email"
@@ -44,6 +70,7 @@ class SignUp extends Component {
                             </Typography>
                             <TextField
                                 id="username-input"
+                                onChange={this.handleUsernameChange}
                                 label="Username"
                                 className={classes.textField}
                                 type="text"
@@ -56,6 +83,7 @@ class SignUp extends Component {
                             </Typography>
                             <TextField
                                 id="password-input"
+                                onChange={this.handlePasswordChange}
                                 label="password"
                                 className={classes.textField}
                                 type="password"
@@ -65,7 +93,7 @@ class SignUp extends Component {
                             />
                         </CardContent>
                         <CardActions>
-                            <Button variant="contained" color="primary" align="end">Sign Up</Button>
+                            <Button onClick={this.submitSignupForm} variant="contained" color="primary" align="end">Sign Up</Button>
                         </CardActions>
                     </Card>
                 </Grid>
