@@ -95,7 +95,6 @@ class CreateCourse extends Component {
 
   render() {
     const { classes } = this.props;
-    // console.log(this.props.courses);
     return (
       <div>
         <AppBar position="relative" className={classes.appBar}>

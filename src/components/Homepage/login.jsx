@@ -44,13 +44,13 @@ class Login extends Component {
 
     submitLoginForm = () => {
         const emailRegex = /[a-z0-9!#$%&'*+\/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9][a-z0-9-]*[a-z0-9]/;
-        if(this.state.email === '' || !emailRegex.test(this.state.email)) {
-            this.setState({ errorFlagEmail: true});
+        if (this.state.email === '' || !emailRegex.test(this.state.email)) {
+            this.setState({ errorFlagEmail: true });
         }
-        if(this.state.password === '') {
-            this.setState({ errorFlagPassword: true});
+        if (this.state.password === '') {
+            this.setState({ errorFlagPassword: true });
         }
-        if(this.state.errorFlagEmail === false && this.state.errorFlagPassword === false) {
+        if (this.state.errorFlagEmail === false && this.state.errorFlagPassword === false) {
             const loginDetails = {
                 email: this.state.email,
                 password: this.state.password,
@@ -60,7 +60,8 @@ class Login extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+
+        const { classes, authError } = this.props;
         return (
             <Grid container className={classes.main}>
                 <Grid item>
@@ -94,13 +95,23 @@ class Login extends Component {
                         </CardContent>
                         <CardActions>
                             <Button onClick={this.submitLoginForm} variant="contained" color="primary" align="end">Login</Button>
+                            <div>
+                                {authError ? <p>{authError}</p> : null}
+                            </div>
                         </CardActions>
+
                     </Card>
                 </Grid>
             </Grid>
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        authError: state.auth.authError
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -109,7 +120,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default compose(
-    connect(null, mapDispatchToProps),
+    connect(mapStateToProps, mapDispatchToProps),
     withStyles(styles),
 )(Login);
 // export default withStyles(styles)(Login);

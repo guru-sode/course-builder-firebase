@@ -23,7 +23,8 @@ export const signIn = (userInfo) => {
             const { auth } = getState().firebase;
             return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
-            dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
+            console.log(err);
+            return dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
         });
     };
 };

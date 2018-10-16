@@ -15,6 +15,7 @@ const authReducer = (state = initState, action) => {
     switch (action.type) {
 
     case SIGNIN_ERROR:
+        console.log(action.payload);
         return {
             ...state,
             authError: action.payload
@@ -24,6 +25,7 @@ const authReducer = (state = initState, action) => {
         console.log('Sign successfull');
         return {
             ...state,
+            authError: null,
             userInfo: action.payload
         };
 
