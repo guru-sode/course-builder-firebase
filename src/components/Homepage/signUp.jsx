@@ -13,7 +13,7 @@ const styles = theme => ({
     },
     card: {
         width: 400,
-        height: 400,
+        height: 450,
         padding: '1em',
     },
     content: {
@@ -29,23 +29,43 @@ class SignUp extends Component {
             email: '',
             username: '',
             password: '',
+            errorFlagEmail: false,
+            errorFlagUsername: false,
+            errorFlagPassword: false,
         }
     }
 
     handleEmailChange = (e) => {
-        this.setState({ email: e.target.value })
+        this.setState({ email: e.target.value, errorFlagEmail: false })
     }
 
     handleUsernameChange = (e) => {
-        this.setState({ username: e.target.value })
+        this.setState({ username: e.target.value, errorFlagUsername: false })
     }
 
     handlePasswordChange = (e) => {
-        this.setState({ password: e.target.value })
+        this.setState({ password: e.target.value, errorFlagPassword: false })
     }
 
     submitSignupForm = () => {
-        this.props.signUp(this.state)
+        const emailRegex = /[a-z0-9!#$%&'*+\/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9][a-z0-9-]*[a-z0-9]/
+        if(this.state.username === '') {
+            this.setState({ errorFlagUsername: true});
+        }
+        if(this.state.email === '' || !emailRegex.test(this.state.email)) {
+            this.setState({ errorFlagEmail: true});
+        }
+        if(this.state.password === '') {
+            this.setState({ errorFlagPassword: true});
+        }
+        if(this.state.errorFlagEmail === false && this.state.errorFlagUsername === false && this.state.errorFlagPassword === false) {
+            const signUpDetails = {
+                email: this.state.email,
+                username: this.state.username,
+                password: this.state.password,
+            }
+            this.props.signUp(signUpDetails);
+        }
     }
 
     render() {
@@ -68,6 +88,8 @@ class SignUp extends Component {
                                 autoComplete="email"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagEmail}
+                                helperText={this.state.errorFlagEmail ? 'invalid email' : ''}
                             />
                             <Typography variant="title" align="center" gutterBottom>
                                 Enter A Username
@@ -81,6 +103,8 @@ class SignUp extends Component {
                                 name="username"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagUsername}
+                                helperText={this.state.errorFlagUsername ? 'Required' : ''}
                             />
                             <Typography variant="title" align="center" gutterBottom>
                                 Enter a Password
@@ -94,6 +118,8 @@ class SignUp extends Component {
                                 name="password"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagPassword}
+                                helperText={this.state.errorFlagPassword ? 'Required' : ''}
                             />
                         </CardContent>
                         <CardActions>
