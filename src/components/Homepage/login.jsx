@@ -27,7 +27,7 @@ class Login extends Component {
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>
                             <Typography variant="title" align="center" gutterBottom>
-                               Enter Username
+                               Enter Email
                             </Typography>
                             <TextField
                                 id="email-input"

@@ -55,12 +55,7 @@ class HomeNavbar extends Component {
                                         </Typography>
                                     </Button>
                                     </NavLink>
-                                    <Button>
-                                        <Typography className={classes.headerFontColor} variant="h6" noWrap>
-                                            Logout
-                                        </Typography>
-                                    </Button>
-                                    <NavLink to="/signup">><Button>
+                                    <NavLink to="/signup"><Button>
                                         <Typography className={classes.headerFontColor} variant="h6" noWrap>
                                             Sign-Up
                                         </Typography>
