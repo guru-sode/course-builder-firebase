@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { addVideo } from '../redux/actions/sectionActions';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import FolderIcon from '@material-ui/icons/Image';
 
 
 const styles = theme => ({
@@ -22,6 +28,20 @@ const styles = theme => ({
     button: {
         marginLeft: '45%',
         marginTop: '2%'
+    },
+    videoCards: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        flexWrap: 'wrap'
+    },
+    card: {
+        margin: '1em',
+        width: 200,
+        height: 200,
+        wordWrap: 'break-word',
+    },
+    expand:{
+        width:'100%',
     }
 });
 
@@ -43,8 +63,6 @@ class AddVideos extends Component {
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
-
-        // console.log(add);
         this.props.addVideo(videoInfo);
     }
 
@@ -57,13 +75,13 @@ class AddVideos extends Component {
             description: description,
             url: url
         };
-        // this.props.ADD_SECTION(add);
         this.props.addVideo(videoInfo);
     }
 
     render() {
         const { classes, section } = this.props;
-        console.log('section >> ', section);
+        if(section!==undefined)
+            console.log('section >> ', section);
 
         return (
             <Grid container>
@@ -111,7 +129,25 @@ class AddVideos extends Component {
                         </Button>
                     </form>
                 </Grid>
-                <Grid item>
+                <Grid className={classes.videoCards} item>
+                    {section !== undefined ?
+                        section.resourses.map((video, index) => {
+                            if(index != 0) {
+                                return(
+                                    <List>
+                                        <ListItem>
+                                            <Avatar>
+                                                <FolderIcon />
+                                            </Avatar>
+                                            <ListItemText primary={video.name} secondary={video.description} />
+                                        </ListItem>
+                                    </List>
+                                );
+                            }
+                        }) :
+                        <Avatar>
+                            <FolderIcon />
+                        </Avatar>}
                 </Grid>
             </Grid>
         );
