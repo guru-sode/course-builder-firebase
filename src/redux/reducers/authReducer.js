@@ -30,6 +30,7 @@ const authReducer = (state = initState, action) => {
         };
 
     case SIGNOUT:
+        console.log('in auth action signout >> ', action);
         return {
             ...state,
             userInfo: null

@@ -66,11 +66,9 @@ class CreateCourse extends Component {
 
 
   viewMyCourses = () => {
-    console.log(this.state.allCourseFlag)
     this.setState({ allCourseFlag: false });
   };
   viewAllCourses = () => {
-    console.log(this.state.allCourseFlag)
     this.setState({ allCourseFlag: true });
   }
   handleClickOpen = () => {

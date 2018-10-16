@@ -30,7 +30,7 @@ export const signIn = (userInfo) => {
 
 
 export const signOut = () => {
-
+    console.log('sign out successfull');
     /*   return function to redux-thunk */
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add course object with id to courses */

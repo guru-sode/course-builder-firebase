@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Grid, AppBar, Toolbar, Typography, withStyles, Button } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { signOut } from '../../redux/actions/authActions';
 
 const styles = theme => ({
     appBar: {
@@ -25,8 +28,40 @@ const styles = theme => ({
 });
 
 class HomeNavbar extends Component {
+
+    handleSingOut = () => {
+        this.props.signOut();
+        return (<Redirect to="/" />)
+    };
+
     render() {
-        const { classes } = this.props;
+        const { classes, userInfo } = this.props;
+        const navigation = userInfo ? (
+            <Toolbar>
+                <NavLink to="/">
+                    < Button onClick={this.handleSingOut}>
+                        <Typography className={classes.headerFontColor} variant="h6" noWrap>
+                            Sing Out
+                    </Typography>
+                    </Button>
+                </NavLink >
+            </Toolbar >
+        ) : (
+                <Toolbar>
+                    <NavLink to="/login"><Button>
+                        <Typography className={classes.headerFontColor} variant="h6" noWrap>
+                            Login
+                    </Typography>
+                    </Button>
+                    </NavLink>
+                    <NavLink to="/signup"><Button>
+                        <Typography className={classes.headerFontColor} variant="h6" noWrap>
+                            Sign-Up
+                    </Typography>
+                    </Button>
+                    </NavLink>
+                </Toolbar>
+            );
         return (
             <Grid className={classes.appBar} container>
                 <Grid item>
@@ -49,27 +84,30 @@ class HomeNavbar extends Component {
                                 </Toolbar>
                             </Grid>
                             <Grid item>
-                                <Toolbar>
-                                    <NavLink to="/login"><Button>
-                                        <Typography className={classes.headerFontColor} variant="h6" noWrap>
-                                            Login
-                                        </Typography>
-                                    </Button>
-                                    </NavLink>
-                                    <NavLink to="/signup"><Button>
-                                        <Typography className={classes.headerFontColor} variant="h6" noWrap>
-                                            Sign-Up
-                                        </Typography>
-                                    </Button>
-                                    </NavLink>
-                                </Toolbar>
+                                {navigation}
                             </Grid>
                         </Grid>
                     </AppBar>
                 </Grid>
-            </Grid>
+            </Grid >
         );
     }
 }
-
-export default withStyles(styles)(HomeNavbar);
+const mapStateToProps = state => {
+    return {
+        userInfo: state.auth.userInfo
+    };
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut()),
+    };
+};
+export default compose(
+    withStyles(styles),
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    ),
+)(HomeNavbar);
+// export default withStyles(styles)(HomeNavbar);

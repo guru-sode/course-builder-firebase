@@ -7,13 +7,12 @@ import HomeNavbar from './components/Homepage/homeNavbar';
 import Login from './components/Homepage/login';
 import SignUp from './components/Homepage/signUp';
 import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
 
 class App extends Component {
     render() {
         const { userInfo } = this.props;
-        console.log(userInfo);
         return (
-
             <BrowserRouter>
                 <div>
                     <Route path="/" component={HomeNavbar} />
@@ -27,8 +26,6 @@ class App extends Component {
                     )} />
                 </div>
             </BrowserRouter>
-
-
         );
     }
 }
