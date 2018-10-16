@@ -13,6 +13,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import FolderIcon from '@material-ui/icons/Image';
+import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const styles = theme => ({
@@ -40,8 +42,9 @@ const styles = theme => ({
         height: 200,
         wordWrap: 'break-word',
     },
-    expand:{
-        width:'100%',
+    heading:{
+        margin: '1em',
+        width:'100%'
     }
 });
 
@@ -134,14 +137,18 @@ class AddVideos extends Component {
                         section.resourses.map((video, index) => {
                             if(index != 0) {
                                 return(
-                                    <List>
-                                        <ListItem>
-                                            <Avatar>
-                                                <FolderIcon />
-                                            </Avatar>
-                                            <ListItemText primary={video.name} secondary={video.description} />
-                                        </ListItem>
-                                    </List>
+                                    <div>
+                                        <ExpansionPanel>
+                                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                                <Typography className={classes.heading}>{video.name}</Typography>
+                                            </ExpansionPanelSummary>
+                                            <ExpansionPanelDetails>
+                                                <Typography>
+                                                    {video.description}
+                                                </Typography>
+                                            </ExpansionPanelDetails>
+                                        </ExpansionPanel>
+                                    </div>
                                 );
                             }
                         }) :
