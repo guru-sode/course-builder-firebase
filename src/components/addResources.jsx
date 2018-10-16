@@ -60,8 +60,8 @@ class AddResources extends Component {
     }
 
     render() {
-        const { classes } = this.props;
-
+        const { classes, section } = this.props;
+        console.log('section in addResourse ', section);
         return (
             <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
@@ -100,6 +100,16 @@ class AddResources extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    // console.log(' in AddResources >> ', state.sections.current_section);
+    const sid = state.sections.current_section;
+    const sections = state.firebase.data.app.sections;
+    const section = sections ? sections[sid] : null;
+    return {
+        /* getting data from firebase redux store { firebaseReducer as firebase } */
+        section: section,
+    };
+};
 
 
 
@@ -111,5 +121,5 @@ const mapDispatchToProps = dispatch => {
 
 export default compose(
     withStyles(styles),
-    connect(null, mapDispatchToProps),
+    connect(mapStateToProps, mapDispatchToProps),
 )(AddResources);
