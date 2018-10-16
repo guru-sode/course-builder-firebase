@@ -84,6 +84,7 @@ class AddResources extends Component {
                 />
                 <TextField
                     id="url"
+                    multiline={true}
                     label="Resource URL"
                     className={classes.textField}
                     type="url"
