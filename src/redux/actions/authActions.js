@@ -5,7 +5,8 @@ import {
     SIGNOUT_SUCCESS,
     SIGNOUT,
     SIGNOUT_FAIL,
-    SIGNUP_ERROR, SIGNUP_SUCCESS
+    SIGNUP_SUCCESS,
+    SIGNUP_ERROR
 
 } from '../../constants/actionTypes';
 
@@ -20,13 +21,9 @@ export const signIn = (userInfo) => {
             userInfo.password
         ).then(() => {
             const { auth } = getState().firebase;
-            const { uid } = auth;
-            userInfo['uid'] = uid;
-            userInfo['course'] = ['courseId-1', 'courseId-2'];
-            firebase.database().ref(`app/users/${uid}`).set(userInfo);
             return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
-            dispatch({ type: SIGNIN_ERROR, payload: err });
+            dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
         });
     };
 };
@@ -42,10 +39,11 @@ export const signOut = () => {
             .then(() => {
                 dispatch({ type: SIGNOUT, payload: SIGNOUT_SUCCESS });
             }).catch((err) => {
-                dispatch({ type: SIGNIN_ERROR, payload: err });
+                dispatch({ type: SIGNIN_ERROR, payload: SIGNOUT_FAIL });
             });
     };
 };
+
 
 export const signUp = (newUserInfo) => {
 
@@ -58,10 +56,8 @@ export const signUp = (newUserInfo) => {
             newUserInfo.password
         ).then((response) => {
             return firebase.database().ref(`app/users/${response.user.uid}`).set({
+                ...newUserInfo,
                 uid: response.user.uid,
-                firstName: newUserInfo.firstName,
-                lastName: newUserInfo.lastName,
-                email: newUserInfo.email,
                 course: ['']
             });
         }).then(() => {
@@ -71,6 +67,5 @@ export const signUp = (newUserInfo) => {
         });
     };
 };
-
 
 
