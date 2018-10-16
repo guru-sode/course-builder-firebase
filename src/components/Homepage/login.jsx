@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Grid, TextField, Card, CardHeader, CardContent, Button, CardActions, withStyles, Typography } from '@material-ui/core';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firebaseConnect } from 'react-redux-firebase';
+import { signIn } from '../../redux/actions/authActions';
 
 const styles = theme => ({
     main: {
         display: 'flex',
         justifyContent: 'center',
-        margin: '1em',
+        marginTop: '1em',
     },
     card: {
         width: 400,
@@ -19,18 +23,52 @@ const styles = theme => ({
 });
 
 class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+            errorFlagEmail: false,
+            errorFlagPassword: false,
+        };
+    }
+
+    handleEmailChange = (e) => {
+        this.setState({ email: e.target.value, errorFlagEmail: false })
+    }
+
+
+    handlePasswordChange = (e) => {
+        this.setState({ password: e.target.value, errorFlagPassword: false })
+    }
+
+    submitLoginForm = () => {
+        const emailRegex = /[a-z0-9!#$%&'*+\/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9][a-z0-9-]*[a-z0-9]/;
+        if(this.state.email === '' || !emailRegex.test(this.state.email)) {
+            this.setState({ errorFlagEmail: true});
+        }
+        if(this.state.password === '') {
+            this.setState({ errorFlagPassword: true});
+        }
+        if(this.state.errorFlagEmail === false && this.state.errorFlagPassword === false) {
+            const loginDetails = {
+                email: this.state.email,
+                password: this.state.password,
+            }
+            this.props.signIn(loginDetails);
+        }
+    }
+
     render() {
         const { classes } = this.props;
         return (
-            <Grid container className={classes.main} spacing={24}>
+            <Grid container className={classes.main}>
                 <Grid item>
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>
-                            <Typography variant="title" align="center" gutterBottom>
-                               Enter Email
-                            </Typography>
                             <TextField
                                 id="email-input"
+                                onChange={this.handleEmailChange}
                                 label="Email"
                                 className={classes.textField}
                                 type="email"
@@ -38,22 +76,24 @@ class Login extends Component {
                                 autoComplete="email"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagEmail}
+                                helperText={this.state.errorFlagEmail ? 'Invalid Email' : ''}
                             />
-                            <Typography variant="title" align="center" gutterBottom>
-                                Enter Password
-                            </Typography>
                             <TextField
                                 id="password-input"
-                                label="password"
+                                onChange={this.handlePasswordChange}
+                                label="Password"
                                 className={classes.textField}
                                 type="password"
                                 name="password"
                                 margin="normal"
                                 variant="outlined"
+                                error={this.state.errorFlagPassword}
+                                helperText={this.state.errorFlagPassword ? 'Password Required' : ''}
                             />
                         </CardContent>
                         <CardActions>
-                            <Button variant="contained" color="primary" align="end">Login</Button>
+                            <Button onClick={this.submitLoginForm} variant="contained" color="primary" align="end">Login</Button>
                         </CardActions>
                     </Card>
                 </Grid>
@@ -62,4 +102,14 @@ class Login extends Component {
     }
 }
 
-export default withStyles(styles)(Login);
+const mapDispatchToProps = dispatch => {
+    return {
+        signIn: (userInfo) => dispatch(signIn(userInfo)),
+    };
+};
+
+export default compose(
+    connect(null, mapDispatchToProps),
+    withStyles(styles),
+)(Login);
+// export default withStyles(styles)(Login);

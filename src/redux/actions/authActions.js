@@ -1,10 +1,13 @@
-gitimport {
+import {
     LOGIN_FAIL,
-        SIGNIN_SUCCESS,
-        SIGNIN_ERROR,
-        SIGNOUT_SUCCESS,
-        SIGNOUT,
-        SIGNOUT_FAIL
+    SIGNIN_SUCCESS,
+    SIGNIN_ERROR,
+    SIGNOUT_SUCCESS,
+    SIGNOUT,
+    SIGNOUT_FAIL,
+    SIGNUP_SUCCESS,
+    SIGNUP_ERROR
+
 } from '../../constants/actionTypes';
 
 export const signIn = (userInfo) => {
@@ -18,10 +21,6 @@ export const signIn = (userInfo) => {
             userInfo.password
         ).then(() => {
             const { auth } = getState().firebase;
-            const { uid } = auth;
-            userInfo['uid'] = uid;
-            userInfo['course'] = ['courseId-1', 'courseId-2'];
-            firebase.database().ref(`app/users/${uid}`).set(userInfo);
             return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
             dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
@@ -46,9 +45,6 @@ export const signOut = () => {
 };
 
 
-
-import { SIGNUP_ERROR, SIGNUP_SUCCESS, SIGNUP_FAIL, } from '../../constants/actionTypes';
-
 export const signUp = (newUserInfo) => {
 
     /*   return function to redux-thunk */
@@ -60,10 +56,8 @@ export const signUp = (newUserInfo) => {
             newUserInfo.password
         ).then((response) => {
             return firebase.database().ref(`app/users/${response.user.uid}`).set({
+                ...newUserInfo,
                 uid: response.user.uid,
-                firstName: newUserInfo.firstName,
-                lastName: newUserInfo.lastName,
-                email: newUserInfo.email,
                 course: ['']
             });
         }).then(() => {
@@ -73,3 +67,5 @@ export const signUp = (newUserInfo) => {
         });
     };
 };
+
+
