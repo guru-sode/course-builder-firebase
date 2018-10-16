@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { addVideo } from '../redux/actions/sectionActions';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import FolderIcon from '@material-ui/icons/Image';
+import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
 const styles = theme => ({
@@ -22,6 +30,21 @@ const styles = theme => ({
     button: {
         marginLeft: '45%',
         marginTop: '2%'
+    },
+    videoCards: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        flexWrap: 'wrap'
+    },
+    card: {
+        margin: '1em',
+        width: 200,
+        height: 200,
+        wordWrap: 'break-word',
+    },
+    heading:{
+        margin: '1em',
+        width:'100%'
     }
 });
 
@@ -43,8 +66,6 @@ class AddVideos extends Component {
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
-
-        // console.log(add);
         this.props.addVideo(videoInfo);
     }
 
@@ -57,11 +78,13 @@ class AddVideos extends Component {
             description: description,
             url: url
         };
-        // this.props.ADD_SECTION(add);
+        this.props.addVideo(videoInfo);
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, section } = this.props;
+        if(section!==undefined)
+            console.log('section >> ', section);
 
         return (
             <Grid container>
@@ -110,7 +133,29 @@ class AddVideos extends Component {
                         </Button>
                     </form>
                 </Grid>
-                <Grid item>
+                <Grid className={classes.videoCards} item>
+                    {section !== undefined ?
+                        section.resourses.map((video, index) => {
+                            if(index != 0) {
+                                return(
+                                    <div>
+                                        <ExpansionPanel>
+                                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                                <Typography className={classes.heading}>{video.name}</Typography>
+                                            </ExpansionPanelSummary>
+                                            <ExpansionPanelDetails>
+                                                <Typography>
+                                                    {video.description}
+                                                </Typography>
+                                            </ExpansionPanelDetails>
+                                        </ExpansionPanel>
+                                    </div>
+                                );
+                            }
+                        }) :
+                        <Avatar>
+                            <FolderIcon />
+                        </Avatar>}
                 </Grid>
             </Grid>
         );
@@ -118,12 +163,16 @@ class AddVideos extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(' in addVideo >> ', state);
+    // console.log(' in addVideo >> ', state.sections.current_section);
+    const sid = state.sections.current_section;
+    const sections = state.firebase.data.app.sections;
+    const section = sections ? sections[sid] : null;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
-        sections: state.firebase.data.app.sections ? state.firebase.data.app['sections'] : {}
+        section: section,
     };
 };
+
 
 const mapDispatchToProps = dispatch => {
     return {

@@ -39,10 +39,11 @@ class AddResources extends Component {
             description,
             url,
         };
+        this.props.addAdditionalResourse(resoursesInfo);
         document.getElementById('name').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
-        this.props.addAdditionalResourse(resoursesInfo);
+
 
     }
 
@@ -99,8 +100,6 @@ class AddResources extends Component {
         );
     }
 }
-
-
 
 
 const mapDispatchToProps = dispatch => {

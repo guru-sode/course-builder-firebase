@@ -1,10 +1,10 @@
-import {
+gitimport {
     LOGIN_FAIL,
-    SIGNIN_SUCCESS,
-    SIGNIN_ERROR,
-    SIGNOUT_SUCCESS,
-    SIGNOUT,
-    SIGNOUT_FAIL
+        SIGNIN_SUCCESS,
+        SIGNIN_ERROR,
+        SIGNOUT_SUCCESS,
+        SIGNOUT,
+        SIGNOUT_FAIL
 } from '../../constants/actionTypes';
 
 export const signIn = (userInfo) => {
@@ -46,3 +46,30 @@ export const signOut = () => {
 };
 
 
+
+import { SIGNUP_ERROR, SIGNUP_SUCCESS, SIGNUP_FAIL, } from '../../constants/actionTypes';
+
+export const signUp = (newUserInfo) => {
+
+    /*   return function to redux-thunk */
+    return (dispatch, getState, { getFirebase }) => {
+        /* asyn call to firbase  to add course object with id to courses */
+        const firebase = getFirebase();
+        firebase.auth().createUserWithEmailAndPassword(
+            newUserInfo.email,
+            newUserInfo.password
+        ).then((response) => {
+            return firebase.database().ref(`app/users/${response.user.uid}`).set({
+                uid: response.user.uid,
+                firstName: newUserInfo.firstName,
+                lastName: newUserInfo.lastName,
+                email: newUserInfo.email,
+                course: ['']
+            });
+        }).then(() => {
+            return dispatch({ type: SIGNUP_SUCCESS });
+        }).catch((err) => {
+            dispatch({ type: SIGNUP_ERROR, payload: err });
+        });
+    };
+};
