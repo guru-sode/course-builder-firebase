@@ -16,6 +16,7 @@ import {
   Typography
 } from '@material-ui/core';
 import ViewMyCourse from './viewMyCourse';
+import ViewAllCourses from './viewAllCourse'
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
@@ -55,6 +56,7 @@ class CreateCourse extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      allCourseFlag: false,
       open: false,
       courseTitle: '',
       category: '',
@@ -62,6 +64,15 @@ class CreateCourse extends Component {
     };
   }
 
+
+  viewMyCourses = () => {
+    console.log(this.state.allCourseFlag)
+    this.setState({ allCourseFlag: false });
+  };
+  viewAllCourses = () => {
+    console.log(this.state.allCourseFlag)
+    this.setState({ allCourseFlag: true });
+  }
   handleClickOpen = () => {
     this.setState({ open: true });
   };
@@ -95,6 +106,8 @@ class CreateCourse extends Component {
 
   render() {
     const { classes } = this.props;
+    const { allCourseFlag } = this.state
+    const courseList = allCourseFlag ? <ViewAllCourses /> : <ViewMyCourse />
     return (
       <div>
         <AppBar position="relative" className={classes.appBar}>
@@ -169,7 +182,7 @@ class CreateCourse extends Component {
             </Drawer>
           </Grid>
           <Grid item md={10}>
-            <ViewMyCourse />
+            {courseList}
           </Grid>
         </Grid>
       </div>
