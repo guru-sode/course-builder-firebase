@@ -6,17 +6,12 @@ export const createCourse = (course) => {
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add course object with id to courses */
 
-        // console.log('in createCourse >> ', getState());
-        // const { userInfo } = getState().auth;
-        // const app = getState().firebase.data.app;
-
-        // const uid = userInfo ? userInfo['uid'] : null;
-        const uid = 'gZOTI0SWDkZAtYziC0yiKrWuXGK2';
-        // const user = app.users ? app.users[uid] : null;
-        // const userCourse= user.course;
-        const userCourse = [];
+        const { userInfo } = getState().auth;
+        const app = getState().firebase.data.app;
+        const uid = userInfo ? userInfo['uid'] : null;
+        const user = app.users ? app.users[uid] : null;
+        const userCourse = user.course;
         const cid = `${uid}_${course.title}`;
-        // console.log('in createCourse >> ', getState().firbase.data);
         course = {
             ...course, uid, cid
         };
