@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { signUp } from '../../redux/actions/authActions';
+import HomeNavbar from './homeNavbar';
 
 const styles = theme => ({
     main: {
@@ -71,6 +72,8 @@ class SignUp extends Component {
     render() {
         const { classes } = this.props;
         return (
+            <Grid container>
+            <HomeNavbar />
             <Grid container className={classes.main}>
                 <Grid item>
                     <Card className={classes.card}>
@@ -117,6 +120,7 @@ class SignUp extends Component {
                             <Button onClick={this.submitSignupForm} variant="contained" color="primary" align="end">Sign Up</Button>
                         </CardActions>
                     </Card>
+                </Grid>
                 </Grid>
             </Grid>
         );

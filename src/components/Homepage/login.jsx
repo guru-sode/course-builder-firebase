@@ -4,6 +4,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { signIn } from '../../redux/actions/authActions';
+import HomeNavbar from './homeNavbar';
 
 const styles = theme => ({
     main: {
@@ -19,7 +20,7 @@ const styles = theme => ({
     content: {
         display: 'flex',
         flexDirection: 'column',
-    }
+    },
 });
 
 class Login extends Component {
@@ -62,6 +63,8 @@ class Login extends Component {
     render() {
         const { classes } = this.props;
         return (
+            <Grid container>
+            <HomeNavbar />
             <Grid container className={classes.main}>
                 <Grid item>
                     <Card className={classes.card}>
@@ -98,10 +101,16 @@ class Login extends Component {
                     </Card>
                 </Grid>
             </Grid>
+            </Grid>
         );
     }
 }
 
+const mapStateToProps=(state)=>{
+    return{
+        authError:state.auth.authError,
+    }
+}
 const mapDispatchToProps = dispatch => {
     return {
         signIn: (userInfo) => dispatch(signIn(userInfo)),
@@ -109,7 +118,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default compose(
-    connect(null, mapDispatchToProps),
+    connect(mapStateToProps, mapDispatchToProps),
     withStyles(styles),
 )(Login);
 // export default withStyles(styles)(Login);
