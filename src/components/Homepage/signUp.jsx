@@ -75,9 +75,6 @@ class SignUp extends Component {
                 <Grid item>
                     <Card className={classes.card}>
                         <CardContent className={classes.content}>
-                            <Typography variant="title" align="center" gutterBottom>
-                                Enter Your Email Id
-                            </Typography>
                             <TextField
                                 id="email-input"
                                 label="Email"
@@ -91,9 +88,6 @@ class SignUp extends Component {
                                 error={this.state.errorFlagEmail}
                                 helperText={this.state.errorFlagEmail ? 'invalid email' : ''}
                             />
-                            <Typography variant="title" align="center" gutterBottom>
-                                Enter A Username
-                            </Typography>
                             <TextField
                                 id="username-input"
                                 onChange={this.handleUsernameChange}
@@ -106,13 +100,10 @@ class SignUp extends Component {
                                 error={this.state.errorFlagUsername}
                                 helperText={this.state.errorFlagUsername ? 'Required' : ''}
                             />
-                            <Typography variant="title" align="center" gutterBottom>
-                                Enter a Password
-                            </Typography>
                             <TextField
                                 id="password-input"
                                 onChange={this.handlePasswordChange}
-                                label="password"
+                                label="Password"
                                 className={classes.textField}
                                 type="password"
                                 name="password"
