@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
@@ -19,7 +21,12 @@ const styles = theme => ({
     },
     button: {
         marginLeft: '45%',
-        marginTop: '2%'
+        marginTop: '2%',
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        }
     }
 });
 
@@ -54,14 +61,7 @@ class AddPlan extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <Button
-                    variant="contained" 
-                    color="primary"
-                    onClick={this.handleSubmit}
-                    className={classes.button}
-                >
-                  Submit
-                </Button>
+                <NavLink to="/createCourse" style={{ textDecoration: 'none' }}><Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
             </form>
         );
     }

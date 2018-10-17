@@ -12,7 +12,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import FolderIcon from '@material-ui/icons/Image';
 import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -30,17 +29,13 @@ const styles = theme => ({
     },
     button: {
         marginLeft: '45%',
-        marginTop: '2%'
+        marginTop: '2%',
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        }
     },
-    // videoCards: {
-    //     display: 'flex',
-    //     justifyContent: 'flex-start',
-    //     flexWrap: 'wrap'
-    // },
-    // heading: {
-    //     margin: '1em',
-    //     width: '100%'
-    // }
 });
 
 class AddVideos extends Component {
@@ -80,8 +75,6 @@ class AddVideos extends Component {
 
     render() {
         const { classes, section } = this.props;
-        if (section !== undefined)
-            console.log('section >> ', section);
 
         return (
             <div className={classes.container}>
@@ -120,13 +113,7 @@ class AddVideos extends Component {
                         margin="normal"
                         variant="outlined"
                     />
-                    <Button
-                        variant="contained"
-                        className={classes.button}
-                        onClick={this.handleAdd}
-                    >
-                            Add another video
-                    </Button>
+                    <Button onClick={this.handleAdd} variant="contained" className={classes.button} align="end">Add another video</Button>
                 </form>
                 <Grid className={classes.videoCards} item>
                     {section !== undefined ?

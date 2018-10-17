@@ -19,8 +19,13 @@ const styles = theme => ({
     },
     button: {
         marginLeft: '45%',
-        marginTop: '2%'
-    }
+        marginTop: '2%',
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        }
+    },
 });
 
 class AddResources extends Component {
@@ -95,9 +100,7 @@ class AddResources extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <Button variant="contained" className={classes.button} onClick={this.handleAdd}>
-                    Add another URL
-                </Button>
+                <Button onClick={this.handleAdd} variant="contained" className={classes.button} align="end">Add another URL</Button>
             </form>
         );
     }
