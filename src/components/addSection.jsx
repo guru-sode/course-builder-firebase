@@ -92,6 +92,7 @@ class AddSection extends Component {
       completed,
     });
     this.handleNext();
+    // this.props.submitSection()
   };
 
   handleReset = () => {
@@ -146,7 +147,7 @@ class AddSection extends Component {
             <div>
               <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
               <div>
-                <Button
+                {/* <Button
                   disabled={activeStep === 0}
                   onClick={this.handleBack}
                   className={classes.button}
@@ -168,9 +169,9 @@ class AddSection extends Component {
                     </Typography>
                   ) : (
                     <Button variant="contained" color="primary" onClick={this.handleComplete}>
-                      {this.completedSteps() === this.totalSteps() - 1 ? 'Finish' : 'Complete Step'}
-                    </Button>
-                  ))}
+                      {this.completedSteps() === this.totalSteps() - 1 ? 'Finish' : 'Submit'}
+                    </Button> */}
+                  {/* ))} */}
               </div>
             </div>
           )}

@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { addAdditionalResourse, addAdditionalResourseToStore } from '../redux/actions/sectionActions';
+import { addAdditionalResourseToStore } from '../redux/actions/sectionActions';
 
 const styles = theme => ({
     container: {
@@ -40,7 +40,7 @@ class AddResources extends Component {
             url,
         };
         if(name!==''&&url!==''&&description!=='')
-            this.props.addAdditionalResourse(resoursesInfo);
+            this.props.addAdditionalResourseToStore(resoursesInfo);
         document.getElementById('name').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
@@ -58,7 +58,7 @@ class AddResources extends Component {
             url,
         };
         if(name!==''&&url!==''&&description!=='')
-            this.props.addAdditionalResourse(resoursesInfo);
+            this.props.addAdditionalResourseToStore(resoursesInfo);
     }
 
     render() {
@@ -106,7 +106,6 @@ class AddResources extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addAdditionalResourse: (resoursesInfo) => dispatch(addAdditionalResourse(resoursesInfo)),
         addAdditionalResourseToStore: (resoursesInfo) => dispatch(addAdditionalResourseToStore(resoursesInfo))
     };
 };

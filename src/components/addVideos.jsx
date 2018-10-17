@@ -6,7 +6,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import { addVideo, addVideoToStore } from '../redux/actions/sectionActions';
+import { addVideoToStore } from '../redux/actions/sectionActions';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -59,7 +59,7 @@ class AddVideos extends Component {
             url: url
         };
         if(title!==''&& description!==''&& url!=='')
-            this.props.addVideo(videoInfo);
+            this.props.addVideoToStore(videoInfo);
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
@@ -75,7 +75,7 @@ class AddVideos extends Component {
             url: url
         };
         if(title!==''&& description!==''&& url!=='')
-            this.props.addVideo(videoInfo);
+            this.props.addVideoToStore(videoInfo);
     }
 
     render() {
@@ -160,7 +160,8 @@ class AddVideos extends Component {
 const mapStateToProps = state => {
     // console.log(' in addVideo >> ', state.sections.current_section);
     const sid = state.sections.current_section;
-    const sections = state.firebase.data.app.sections;
+    // const sections = state.firebase.data.app.sections;
+    const sections = state.sections.sections;
     const section = sections ? sections[sid] : null;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
@@ -171,7 +172,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addVideo: videoInfo => dispatch(addVideo(videoInfo)),
         addVideoToStore: videoInfo => dispatch(addVideoToStore(videoInfo))
     };
 };

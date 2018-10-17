@@ -145,8 +145,9 @@ export const submitSection = () => {
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add section object with id to sections */
         const store = getState();
-        const sid = store.sections.sections.current_section;
+        const sid = store.sections.current_section;
         const section = store.sections.sections[sid];
+        console.log(" section >> ", section);
         const firebase = getFirebase();
         firebase.database().ref(`app/sections/${section.sid}`).set(section)
             .then(() => {

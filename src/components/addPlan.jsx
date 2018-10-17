@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
-import { addPlanOfAttack, addPlanOfAttackToStore } from '../redux/actions/sectionActions';
+import { addPlanOfAttackToStore,submitSection } from '../redux/actions/sectionActions';
 import { compose } from 'redux';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     container: {
@@ -23,12 +24,20 @@ const styles = theme => ({
 });
 
 class AddPlan extends Component {
+    constructor(props){
+        super(props);
+        this.handleSubmit=this.handleSubmit.bind(this);
+    }
     componentWillUnmount() {
         const description = document.getElementById('description').value;
         const planInfo = description;
         if(description!=='')
-            this.props.addPlanOfAttack(planInfo);
+            this.props.addPlanOfAttackToStore(planInfo);
 
+    }
+
+    handleSubmit(){
+        this.props.submitSection();
     }
 
     render() {
@@ -45,6 +54,14 @@ class AddPlan extends Component {
                     margin="normal"
                     variant="outlined"
                 />
+                <Button
+                    variant="contained" 
+                    color="primary"
+                    onClick={this.handleSubmit}
+                    className={classes.button}
+                >
+                  Submit
+                </Button>
             </form>
         );
     }
@@ -53,8 +70,8 @@ class AddPlan extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPlanOfAttack: (planInfo) => dispatch(addPlanOfAttack(planInfo)),
-        addPlanOfAttackToStore: (planInfo) => dispatch(addPlanOfAttackToStore(planInfo))
+        addPlanOfAttackToStore: (planInfo) => dispatch(addPlanOfAttackToStore(planInfo)),
+        submitSection:()=> dispatch(submitSection())
     };
 };
 
