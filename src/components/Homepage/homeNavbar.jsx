@@ -41,7 +41,7 @@ class HomeNavbar extends Component {
                 <NavLink to="/">
                     < Button onClick={this.handleSingOut}>
                         <Typography className={classes.headerFontColor} variant="h6" noWrap>
-                            Sing Out
+                            Sign Out
                     </Typography>
                     </Button>
                 </NavLink >
