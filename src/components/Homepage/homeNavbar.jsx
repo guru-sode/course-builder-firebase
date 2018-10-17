@@ -12,8 +12,6 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        margin: 0,
-        background: 'black',
     },
     header: {
         display: 'flex',
@@ -97,7 +95,7 @@ const styles = theme => ({
     navlink: {
         textDecoration: 'none',
         color: 'white',
-    }
+    },
 });
 
 class HomeNavbar extends Component {
