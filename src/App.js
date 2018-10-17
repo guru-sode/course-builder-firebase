@@ -19,7 +19,7 @@ class App extends Component {
                     <Route exact path="/" component={HomeNavbar} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={SignUp} />
-                    <Route exact path='/addResources' component={AddSection} />
+                    <Route exact path='/addResources' component={DrawerSection} />
                     <Route exact path='/sectionTitle' component={DrawerSection} />
                     <Route exact path='/createCourse' component={CreateCourse} />
                     <Route path="/" render={() => (
