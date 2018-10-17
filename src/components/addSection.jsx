@@ -30,18 +30,16 @@ const styles = theme => ({
   });
   
   function getSteps() {
-    return ['Section title and description', 'Add videos', 'Add resources','Add plan of attack'];
+    return ['Add videos', 'Add resources','Add plan of attack'];
   }
   
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return (<SectionTitle />);
-      case 1:
         return (<AddVideos />);
-      case 2:
+      case 1:
         return (<AddResources />);
-        case 3:
+        case 2:
         return (<AddPlan />);
       default:
         return 'Unknown step';

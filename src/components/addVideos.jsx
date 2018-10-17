@@ -20,7 +20,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const styles = theme => ({
     container: {
         display: 'flex',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        width:'100%'
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -31,21 +32,15 @@ const styles = theme => ({
         marginLeft: '45%',
         marginTop: '2%'
     },
-    videoCards: {
-        display: 'flex',
-        justifyContent: 'flex-start',
-        flexWrap: 'wrap'
-    },
-    card: {
-        margin: '1em',
-        width: 200,
-        height: 200,
-        wordWrap: 'break-word',
-    },
-    heading: {
-        margin: '1em',
-        width: '100%'
-    }
+    // videoCards: {
+    //     display: 'flex',
+    //     justifyContent: 'flex-start',
+    //     flexWrap: 'wrap'
+    // },
+    // heading: {
+    //     margin: '1em',
+    //     width: '100%'
+    // }
 });
 
 class AddVideos extends Component {
@@ -87,52 +82,50 @@ class AddVideos extends Component {
             console.log('section >> ', section);
 
         return (
-            <Grid container>
-                <Grid item>
-                    <form
-                        className={classes.container}
-                        id="titleForm"
-                        noValidate
-                        autoComplete="off"
+            <div className={classes.container}>
+                <form
+                    className={classes.container}
+                    id="titleForm"
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField
+                        id="title"
+                        label="Video title"
+                        className={classes.textField}
+                        type="title"
+                        name="title"
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="description"
+                        multiline={true}
+                        label="Video description"
+                        className={classes.textField}
+                        type="description"
+                        name="description"
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="url"
+                        multiline={true}
+                        label="Video URL"
+                        className={classes.textField}
+                        type="url"
+                        name="url"
+                        margin="normal"
+                        variant="outlined"
+                    />
+                    <Button
+                        variant="contained"
+                        className={classes.button}
+                        onClick={this.handleAdd}
                     >
-                        <TextField
-                            id="title"
-                            label="Video title"
-                            className={classes.textField}
-                            type="title"
-                            name="title"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        <TextField
-                            id="description"
-                            multiline={true}
-                            label="Video description"
-                            className={classes.textField}
-                            type="description"
-                            name="description"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        <TextField
-                            id="url"
-                            multiline={true}
-                            label="Video URL"
-                            className={classes.textField}
-                            type="url"
-                            name="url"
-                            margin="normal"
-                            variant="outlined"
-                        />
-                        <Button
-                            variant="contained"
-                            className={classes.button}
-                            onClick={this.handleAdd}
-                        >
                             Add another video
-                        </Button>
-                    </form>
-                </Grid>
+                    </Button>
+                </form>
                 <Grid className={classes.videoCards} item>
                     {section !== undefined ?
                         section.resourses.map((video, index) => {
@@ -153,11 +146,11 @@ class AddVideos extends Component {
                                 );
                             }
                         }) :
-                        <Avatar>
-                            <FolderIcon />
-                        </Avatar>}
+                        <div>
+                            No videos has been added so far
+                        </div>}
                 </Grid>
-            </Grid>
+            </div>
         );
     }
 }

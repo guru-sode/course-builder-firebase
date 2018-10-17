@@ -58,9 +58,6 @@ class ViewAllCourse extends Component {
                                         {courses[key].description}
                                     </Typography>
                                 </CardContent>
-                                <CardActions>
-                                    <NavLink to='/addSection'><Button id={key} color="primary" size="small" onClick={this.addSection.bind(this, key)}>Add Sections</Button></NavLink>
-                                </CardActions>
                             </Card>
                         </Grid>);
 
