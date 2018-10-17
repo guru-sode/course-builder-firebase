@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import { addSection, addSectionToStore } from '../redux/actions/sectionActions';
-// import { func } from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     container: {
@@ -23,7 +24,12 @@ const styles = theme => ({
 
 class SectionTitle extends Component {
 
-    componentWillUnmount() {
+    constructor(props){
+        super(props);
+        this.handleSubmit=this.handleSubmit.bind(this);
+    }
+
+    handleSubmit() {
         const title = document.getElementById('title').value;
         const description = document.getElementById('description').value;
         const section = {
@@ -32,7 +38,6 @@ class SectionTitle extends Component {
         };
 
         this.props.addSection(section);
-        this.props.addSectionToStore(section);
     }
 
     render() {
@@ -58,12 +63,22 @@ class SectionTitle extends Component {
                     margin="normal"
                     variant="outlined"
                 />
+                <NavLink to='/addResources'>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={this.handleSubmit}
+                        className={classes.button}
+                    >
+                  Submit
+                    </Button>
+                </NavLink>
             </form>
         );
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
     };
 };
@@ -75,4 +90,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(SectionTitle)); 
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(SectionTitle)); 

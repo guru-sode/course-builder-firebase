@@ -39,8 +39,8 @@ class AddResources extends Component {
             description,
             url,
         };
-        // this.props.addAdditionalResourse(resoursesInfo);
-        this.props.addAdditionalResourseToStore(resoursesInfo);
+        if(name!==''&&url!==''&&description!=='')
+            this.props.addAdditionalResourse(resoursesInfo);
         document.getElementById('name').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
@@ -57,8 +57,8 @@ class AddResources extends Component {
             description,
             url,
         };
-        // this.props.addAdditionalResourse(add);
-        this.props.addAdditionalResourseToStore(resoursesInfo);
+        if(name!==''&&url!==''&&description!=='')
+            this.props.addAdditionalResourse(resoursesInfo);
     }
 
     render() {

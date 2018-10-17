@@ -7,7 +7,8 @@ import HomeNavbar from './components/Homepage/homeNavbar';
 import Login from './components/Homepage/login';
 import SignUp from './components/Homepage/signUp';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
+import AddSection from './components/addSection';
+import sectionTitle from './components/sectionTitle';
 
 class App extends Component {
     render() {
@@ -18,7 +19,8 @@ class App extends Component {
                     <Route exact path="/" component={HomeNavbar} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={SignUp} />
-                    <Route exact path='/addSection' component={DrawerSection} />
+                    <Route exact path='/addResources' component={DrawerSection} />
+                    <Route exact path='/sectionTitle' component={sectionTitle} />
                     <Route exact path='/createCourse' component={CreateCourse} />
                     <Route path="/" render={() => (
                         userInfo ? (<Redirect to="/createCourse" />)
