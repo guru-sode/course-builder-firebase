@@ -3,6 +3,7 @@ import { Grid, AppBar, Toolbar, Typography, withStyles, Button, Select, InputBas
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
 import { NavLink, Redirect } from 'react-router-dom';
+import { firebaseConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { signOut } from '../../redux/actions/authActions';
@@ -132,6 +133,7 @@ class HomeNavbar extends Component {
     };
 
     render() {
+        console.log(this.props.app);
         const { classes, userInfo } = this.props;
         const navigation = userInfo ? (
             <Toolbar>
@@ -227,7 +229,8 @@ class HomeNavbar extends Component {
 }
 const mapStateToProps = state => {
     return {
-        userInfo: state.auth.userInfo
+        userInfo: state.auth.userInfo,
+        app: state.firebase.data.app ? state.firebase.data.app : ''
     };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -241,5 +244,8 @@ export default compose(
         mapStateToProps,
         mapDispatchToProps
     ),
+    firebaseConnect([{
+        path: '/app'
+    }])
 )(HomeNavbar);
 // export default withStyles(styles)(HomeNavbar);
