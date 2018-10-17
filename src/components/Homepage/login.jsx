@@ -37,6 +37,7 @@ const styles = theme => ({
         },
         textDecoration: 'none',
         marginRight: '0.65em',
+        marginTop: '0.5em',
     },
     loginButtonsContainer: {
         display: 'flex',
@@ -123,8 +124,7 @@ class Login extends Component {
                             />
                         </CardContent>
                         <CardActions className={classes.loginButtonsContainer}>
-                            <Button onClick={this.submitLoginForm} variant="contained" className={classes.loginButton} align="end">Login as User</Button>
-                            <Button onClick={this.submitLoginForm} variant="contained" className={classes.loginButton} align="end">Login as Creator</Button>
+                            <Button onClick={this.submitLoginForm} variant="contained" className={classes.loginButton} align="end">Login</Button>
                             <div>
                                 {authError ? <p>{authError}</p> : null}
                             </div>
@@ -133,7 +133,7 @@ class Login extends Component {
                                 <Typography component="h6" variant="h5">
                                     New User? 
                                 </Typography> 
-                            <NavLink className={classes.navlink} to="/signup"><Button variant="container" className={classes.registerButton}>Register</Button></NavLink>
+                                <NavLink className={classes.navlink} to="/signup"><Button variant="container" className={classes.registerButton}>Register</Button></NavLink>
                         </CardContent>
                     </Card>
                 </Grid>
