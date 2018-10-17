@@ -49,6 +49,9 @@ const styles = theme => ({
     position: 'relative',
     width: drawerWidth,
     height: '925px'
+  },
+  appBar:{
+    backgroundColor:'#000a12',
   }
 });
 

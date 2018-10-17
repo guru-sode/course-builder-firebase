@@ -18,7 +18,12 @@ const styles = theme => ({
         width: '100%',
     },
     button: {
-        marginLeft: '45%'
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        },
+        marginLeft: '50%'
     }
 });
 
@@ -63,16 +68,7 @@ class SectionTitle extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <NavLink to='/addResources'>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={this.handleSubmit}
-                        className={classes.button}
-                    >
-                  Submit
-                    </Button>
-                </NavLink>
+                    <NavLink to='/addResources' style={{ textDecoration: 'none' }}><Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
             </form>
         );
     }

@@ -92,6 +92,7 @@ class Login extends Component {
         const { classes, authError } = this.props;
         return (
             <Grid container className={classes.main}>
+            <HomeNavbar />
                 <Grid item>
                     <Card className={classes.card}>
                         <Typography component="h1" variant="h4">

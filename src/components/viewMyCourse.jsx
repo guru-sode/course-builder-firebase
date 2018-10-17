@@ -24,7 +24,15 @@ const styles = theme => ({
     },
     media: {
         height: 140,
-        backgroundColor: '#3f51b5',
+        backgroundColor: '#000a12',
+    },
+    button:{
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        },
+        textDecoration:'none',
     }
 });
 
@@ -60,7 +68,7 @@ class ViewMyCourse extends Component {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <NavLink to='/sectionTitle'><Button id={key} color="primary" size="small" onClick={this.addSection.bind(this, key)}>Add Sections</Button></NavLink>
+                                        <NavLink to='/sectionTitle' style={{ textDecoration: 'none' }}><Button id={key} onClick={this.addSection.bind(this, key)} variant="contained" className={classes.button} align="end">Add Sections</Button></NavLink>
                                     </CardActions>
                                 </Card>
                             </Grid>);

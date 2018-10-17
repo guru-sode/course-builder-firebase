@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Typography, Card, CardContent, CardActions, CardMedia, withStyles, Grid, Button } from '@material-ui/core';
+import { Typography, Card, CardContent, CardMedia, withStyles, Grid, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import { NavLink } from 'react-router-dom';
-import { Route } from 'react-router';
-import DrawerSection from './drawerSection';
 import { selectCourse } from '../redux/actions/courseActions';
 
 
@@ -24,7 +21,7 @@ const styles = theme => ({
     },
     media: {
         height: 140,
-        backgroundColor: '#3f51b5',
+        backgroundColor: '#000a12',
     }
 });
 
