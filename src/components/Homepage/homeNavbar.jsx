@@ -6,7 +6,10 @@ import { NavLink, Redirect } from 'react-router-dom';
 import { firebaseConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import HomePageCourseView from './homepageCourseView';
 import { signOut } from '../../redux/actions/authActions';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const styles = theme => ({
     appBar: {
@@ -97,6 +100,15 @@ const styles = theme => ({
         textDecoration: 'none',
         color: 'white',
     },
+    progressContainer: {
+        display: 'flex',
+        justifyContent: 'center'
+    },
+    progress: {
+        margin: theme.spacing.unit * 2,
+        textAlign: 'center',
+        color: '#000a12'
+    },
 });
 
 class HomeNavbar extends Component {
@@ -133,7 +145,7 @@ class HomeNavbar extends Component {
     };
 
     render() {
-        console.log(this.props.app);
+        console.log(this.props.app === undefined);
         const { classes, userInfo } = this.props;
         const navigation = userInfo ? (
             <Toolbar>
@@ -222,15 +234,20 @@ class HomeNavbar extends Component {
                         </Grid>
                     </AppBar>
                 </Grid>
-            </Grid >
-
+                {this.props.app === undefined ? 
+                <Grid className={classes.progressContainer} container><CircularProgress className={classes.progress} size={100} /> </Grid>
+                :
+                <HomePageCourseView />}
+            </Grid >                            
         );
     }
 }
+
 const mapStateToProps = state => {
+    console.log("data in state >> ", state)
     return {
-        userInfo: state.auth.userInfo,
-        app: state.firebase.data.app ? state.firebase.data.app : ''
+        // userInfo: state.auth.userInfo,
+        app: state.firebase.data ? state.firebase.data.app : ''
     };
 };
 const mapDispatchToProps = (dispatch) => {
