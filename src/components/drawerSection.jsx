@@ -6,9 +6,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import AddSection from './addSection';
+import SectionTitle from './sectionTitle';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import {connect} from 'react-redux';
+import {compose} from 'react';
+import {firebaseConnect} from 'react-redux-firebase';
 
 const drawerWidth = 240;
 
@@ -22,7 +25,8 @@ const styles = theme => ({
         display: 'flex'
     },
     appBar: {
-        zIndex: theme.zIndex.drawer + 1
+        zIndex: theme.zIndex.drawer + 1,
+        backgroundColor: '#000a12'
     },
     drawerPaper: {
         position: 'relative',
@@ -44,7 +48,7 @@ class DrawerSection extends Component {
         this.renderList=this.renderList.bind(this);
     }
     renderList(){
-        let sectionArray=['section 1','secton 2','section 3','section 4'];
+        let sectionArray=['section name'];
         return (
             sectionArray.map(section=>{
                 return (<List component="nav">
@@ -57,7 +61,9 @@ class DrawerSection extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
+        const{current_course,store_sections,sid,cid,classes} = this.props;
+
         return (
             <div className={classes.root}>
                 <AppBar position="absolute" className={classes.appBar}>
@@ -78,7 +84,7 @@ class DrawerSection extends Component {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <AddSection />
+                    <SectionTitle />
                 </main>
             </div>
         );
@@ -89,4 +95,38 @@ DrawerSection.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(DrawerSection);
+
+
+const mapStateToProps = state => {
+    // console.log(' in addVideo >> ', state.sections.current_section);
+    const sid = state.sections.current_section;
+    // const sections = state.firebase.data.app.sections;
+    const sections = state.sections.sections;
+    const cid = state.courses.current_course;
+    const app = state.firebase.data?state.firebase.data.app:null;
+    const current_course = app ? app.courses[cid]:null;
+    return {
+        /* getting data from firebase redux store { firebaseReducer as firebase } */
+        course:current_course ? current_course :'',
+        sections: state.firebase.data.app
+            ? state.firebase.data.app['sections']
+            : state.courses,
+        store_sections:sections?sections:'',
+        sid:sid?sid:'',
+        cid:cid?cid:''
+    };
+};
+ 
+/*  composing multiple connecter  */
+export default compose(
+    withStyles(styles),
+    connect(
+        mapStateToProps,
+        null
+    ),
+    firebaseConnect([
+        {
+            path: '/app'
+        }
+    ])
+)(DrawerSection);
