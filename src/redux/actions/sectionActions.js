@@ -1,6 +1,6 @@
 import {
     ADD_SECTION, ADD_SECTION_ID,
-    ADD_VIDEO,
+    ADD_VIDEO, SUBMIT_SECTION, SUBMIT_SECTION_ERROR,
     ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT
 } from '../../constants/actionTypes';
 
@@ -137,4 +137,22 @@ export const addAdditionalResourseToStore = (resoursesInfo) => {
 
 export const addPlanOfAttackToStore = (plan_of_attack) => {
     return ({ type: ADD_PLAN_OF_ATTACT, payload: plan_of_attack });
+};
+
+export const submitSection = () => {
+
+    /*   return function to redux-thunk */
+    return (dispatch, getState, { getFirebase }) => {
+        /* asyn call to firbase  to add section object with id to sections */
+        const store = getState();
+        const sid = store.sections.sections.current_section;
+        const section = store.sections.sections[sid];
+        const firebase = getFirebase();
+        firebase.database().ref(`app/sections/${section.sid}`).set(section)
+            .then(() => {
+                return dispatch({ type: SUBMIT_SECTION });
+            }).catch((err) => {
+                return dispatch({ type: SUBMIT_SECTION_ERROR, payload: err });
+            });
+    };
 };
