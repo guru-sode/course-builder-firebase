@@ -10,8 +10,10 @@ import SectionTitle from './sectionTitle';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {connect} from 'react-redux';
-import {compose} from 'react';
+import {compose} from 'redux';
 import {firebaseConnect} from 'react-redux-firebase';
+import AddSection from './addSection';
+import { Route } from 'react-router';
 
 const drawerWidth = 240;
 
@@ -91,9 +93,9 @@ class DrawerSection extends Component {
     }
 }
 
-DrawerSection.propTypes = {
-    classes: PropTypes.object.isRequired
-};
+// DrawerSection.propTypes = {
+//     classes: PropTypes.object.isRequired
+// };
 
 
 

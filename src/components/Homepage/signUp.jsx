@@ -14,12 +14,25 @@ const styles = theme => ({
     },
     card: {
         width: 400,
-        height: 450,
+        height: 'auto',
         padding: '1em',
+        textAlign: 'center',
     },
     content: {
         display: 'flex',
         flexDirection: 'column',
+    },
+    registerButton: {
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        }
+    },
+    signupButtons: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginRight: '0.25em',
     }
 });
 
@@ -77,6 +90,9 @@ class SignUp extends Component {
             <Grid container className={classes.main}>
                 <Grid item>
                     <Card className={classes.card}>
+                        <Typography component="h1" variant="h4">
+                            Signup
+                        </Typography>
                         <CardContent className={classes.content}>
                             <TextField
                                 id="email-input"
@@ -116,8 +132,9 @@ class SignUp extends Component {
                                 helperText={this.state.errorFlagPassword ? 'Required' : ''}
                             />
                         </CardContent>
-                        <CardActions>
-                            <Button onClick={this.submitSignupForm} variant="contained" color="primary" align="end">Sign Up</Button>
+                        <CardActions className={classes.signupButtons}>
+                            <Button onClick={this.submitSignupForm} variant="contained" className={classes.registerButton} align="end">Sign Up as User</Button>
+                            <Button onClick={this.submitSignupForm} variant="contained" className={classes.registerButton} align="end">Sign Up as Creator</Button>
                         </CardActions>
                     </Card>
                 </Grid>
