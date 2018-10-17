@@ -14,43 +14,38 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import StepButton from '@material-ui/core/StepButton';
 import PropTypes from 'prop-types';
-import { submitSection } from '../redux/actions/sectionActions';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
 
 const styles = theme => ({
-  root: {
-    width: '100%',
-  },
-  button: {
-    marginRight: theme.spacing.unit,
-    marginLeft: '75%'
-  },
-  instructions: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
-  },
-});
-
-function getSteps() {
-  return ['Section title and description', 'Add videos', 'Add resources', 'Add plan of attack'];
-}
-
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return (<SectionTitle />);
-    case 1:
-      return (<AddVideos />);
-    case 2:
-      return (<AddResources />);
-    case 3:
-      return (<AddPlan />);
-    default:
-      return 'Unknown step';
+    root: {
+      width: '100%',
+    },
+    button: {
+      marginRight: theme.spacing.unit,
+      marginLeft: '75%'
+    },
+    instructions: {
+      marginTop: theme.spacing.unit,
+      marginBottom: theme.spacing.unit,
+    },
+  });
+  
+  function getSteps() {
+    return ['Add videos', 'Add resources','Add plan of attack'];
   }
-}
-
+  
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return (<AddVideos />);
+      case 1:
+        return (<AddResources />);
+        case 2:
+        return (<AddPlan />);
+      default:
+        return 'Unknown step';
+    }
+  }
+  
 
 class AddSection extends Component {
   state = {
@@ -97,7 +92,6 @@ class AddSection extends Component {
       completed,
     });
     this.handleNext();
-    this.props.submitSection();
   };
 
   handleReset = () => {
@@ -144,42 +138,42 @@ class AddSection extends Component {
           {this.allStepsCompleted() ? (
             <div>
               <Typography className={classes.instructions}>
-                All steps completed
+                All steps completed - you&quot;re finished
               </Typography>
               <Button onClick={this.handleReset}>Reset</Button>
             </div>
           ) : (
+            <div>
+              <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
               <div>
-                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                <div>
-                  <Button
-                    disabled={activeStep === 0}
-                    onClick={this.handleBack}
-                    className={classes.button}
-                  >
-                    Back
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={this.handleBack}
+                  className={classes.button}
+                >
+                  Back
                 </Button>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={this.handleNext}
-                    className={classes.button}
-                  >
-                    Next
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={this.handleNext}
+                  className={classes.button}
+                >
+                  Next
                 </Button>
-                  {activeStep !== steps.length &&
-                    (this.state.completed[this.state.activeStep] ? (
-                      <Typography variant="caption" className={classes.completed}>
-                        Step {activeStep + 1} already completed
+                {activeStep !== steps.length &&
+                  (this.state.completed[this.state.activeStep] ? (
+                    <Typography variant="caption" className={classes.completed}>
+                      Step {activeStep + 1} already completed
                     </Typography>
-                    ) : (
-                        <Button variant="contained" color="primary" onClick={this.handleComplete}>
-                          {this.completedSteps() === this.totalSteps() - 1 ? 'Finish' : 'Complete Step'}
-                        </Button>
-                      ))}
-                </div>
+                  ) : (
+                    <Button variant="contained" color="primary" onClick={this.handleComplete}>
+                      {this.completedSteps() === this.totalSteps() - 1 ? 'Finish' : 'Complete Step'}
+                    </Button>
+                  ))}
               </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -190,14 +184,4 @@ AddSection.propTypes = {
   classes: PropTypes.object,
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    submitSection: () => dispatch(submitSection()),
-  };
-};
-
-export default compose(
-  withStyles(styles),
-  connect(null, mapDispatchToProps),
-)(AddSection);
-// export default withStyles(styles)(AddSection);
+export default withStyles(styles)(AddSection);
