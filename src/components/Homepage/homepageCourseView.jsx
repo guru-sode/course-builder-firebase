@@ -9,7 +9,7 @@ const styles = theme => ({
     introCard: {
         maxWidth: 600,
         margin: '0 auto',
-        padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+        padding: '2em',
     }
 });
 
@@ -24,7 +24,7 @@ class HomePageCourseView extends Component {
             <Grid container>
                 <Grid className={classes.introCard} item>
                     <Typography component="h2" variant="h2">
-                        About
+                        About Us
                     </Typography>
                     <Typography component="h6" variant="h6">
                     Course builder is a global marketplace for learning and teaching online where students are mastering new skills and achieving their goals by learning from an extensive library of over 80,000 courses taught by expert instructors.

@@ -7,6 +7,7 @@ import { firebaseConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import HomePageCourseView from './homepageCourseView';
+import AccountSetting from './accountSetting';
 import { signOut } from '../../redux/actions/authActions';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -230,6 +231,7 @@ class HomeNavbar extends Component {
                                         </Icon>
                                     </NavLink>
                                 </div>
+                                <AccountSetting />
                             </Toolbar>
                         </Grid>
                     </AppBar>
