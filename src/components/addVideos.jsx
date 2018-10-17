@@ -6,7 +6,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
-import { addVideo } from '../redux/actions/sectionActions';
+import { addVideo, addVideoToStore } from '../redux/actions/sectionActions';
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -66,7 +66,8 @@ class AddVideos extends Component {
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
-        this.props.addVideo(videoInfo);
+        // this.props.addVideo(videoInfo);
+        this.props.addVideoToStore(videoInfo);
     }
 
     componentWillUnmount() {
@@ -79,6 +80,7 @@ class AddVideos extends Component {
             url: url
         };
         // this.props.addVideo(videoInfo);
+        this.props.addVideoToStore(videoInfo);
     }
 
     render() {
@@ -176,7 +178,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addVideo: videoInfo => dispatch(addVideo(videoInfo))
+        addVideo: videoInfo => dispatch(addVideo(videoInfo)),
+        addVideoToStore: videoInfo => dispatch(addVideoToStore(videoInfo))
     };
 };
 

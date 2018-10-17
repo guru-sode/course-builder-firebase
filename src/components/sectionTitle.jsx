@@ -32,7 +32,7 @@ class SectionTitle extends Component {
         };
 
         this.props.addSection(section);
-        // this.props.addSectionToStore(section);
+        this.props.addSectionToStore(section);
     }
 
     render() {
@@ -75,4 +75,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(SectionTitle)); 
+export default connect(null, mapDispatchToProps)(withStyles(styles)(SectionTitle)); 
