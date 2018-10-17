@@ -38,7 +38,6 @@ class SectionTitle extends Component {
         };
 
         this.props.addSection(section);
-        // this.props.addSectionToStore(section);
     }
 
     render() {

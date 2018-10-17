@@ -44,16 +44,19 @@ class DrawerSection extends Component {
         this.renderList=this.renderList.bind(this);
     }
     renderList(){
+        let sectionArray=['section 1','secton 2','section 3','section 4'];
         return (
-            <List component="nav">
-                <ListItem button>
-                    <ListItemText primary="Section" />
-                </ListItem>
-            </List>
+            sectionArray.map(section=>{
+                return (<List component="nav">
+                    <ListItem button>
+                        <ListItemText primary={section} />
+                    </ListItem>
+                </List>);
+            })
         );
     }
 
-  render() {
+    render() {
         const { classes } = this.props;
         return (
             <div className={classes.root}>

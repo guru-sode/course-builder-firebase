@@ -58,10 +58,11 @@ class AddVideos extends Component {
             description: description,
             url: url
         };
+        if(title!==''&& description!==''&& url!=='')
+            this.props.addVideo(videoInfo);
         document.getElementById('title').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
-        this.props.addVideo(videoInfo);
     }
 
     componentWillUnmount() {
@@ -73,7 +74,8 @@ class AddVideos extends Component {
             description: description,
             url: url
         };
-        this.props.addVideo(videoInfo);
+        if(title!==''&& description!==''&& url!=='')
+            this.props.addVideo(videoInfo);
     }
 
     render() {

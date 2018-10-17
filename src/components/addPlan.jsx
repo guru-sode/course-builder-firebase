@@ -26,7 +26,8 @@ class AddPlan extends Component {
     componentWillUnmount() {
         const description = document.getElementById('description').value;
         const planInfo = description;
-        this.props.addPlanOfAttack(planInfo);
+        if(description!=='')
+            this.props.addPlanOfAttack(planInfo);
 
     }
 

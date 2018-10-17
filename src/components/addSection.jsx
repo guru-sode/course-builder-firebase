@@ -138,7 +138,7 @@ class AddSection extends Component {
           {this.allStepsCompleted() ? (
             <div>
               <Typography className={classes.instructions}>
-                All steps completed - you&quot;re finished
+                All steps completed
               </Typography>
               <Button onClick={this.handleReset}>Reset</Button>
             </div>
@@ -168,7 +168,7 @@ class AddSection extends Component {
                     </Typography>
                   ) : (
                     <Button variant="contained" color="primary" onClick={this.handleComplete}>
-                      {this.completedSteps() === this.totalSteps() - 1 ? 'Finish' : 'Complete Step'}
+                      {this.completedSteps() === this.totalSteps() - 1 ? 'Finish' : 'Complete step'}
                     </Button>
                   ))}
               </div>
