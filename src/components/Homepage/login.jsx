@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Grid, TextField, Card, CardHeader, CardContent, Button, CardActions, withStyles, Typography } from '@material-ui/core';
+import { Grid, TextField, Card, Paper, CardContent, Button, CardActions, withStyles, Typography } from '@material-ui/core';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
+import { NavLink, Redirect } from 'react-router-dom';
 import { signIn } from '../../redux/actions/authActions';
 
 const styles = theme => ({
@@ -15,10 +16,35 @@ const styles = theme => ({
         width: 400,
         height: 'auto',
         padding: '1em',
+        textAlign: 'center',
     },
     content: {
         display: 'flex',
         flexDirection: 'column',
+    },
+    loginButton: {
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        }
+    },
+    registerButton: {
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        },
+        textDecoration: 'none',
+        marginRight: '0.65em',
+    },
+    loginButtonsContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+    navlink: {
+        textDecoration: 'none',
+        color: 'white',
     }
 });
 
@@ -66,6 +92,9 @@ class Login extends Component {
             <Grid container className={classes.main}>
                 <Grid item>
                     <Card className={classes.card}>
+                        <Typography component="h1" variant="h4">
+                            Login
+                        </Typography>
                         <CardContent className={classes.content}>
                             <TextField
                                 id="email-input"
@@ -93,13 +122,19 @@ class Login extends Component {
                                 helperText={this.state.errorFlagPassword ? 'Password Required' : ''}
                             />
                         </CardContent>
-                        <CardActions>
-                            <Button onClick={this.submitLoginForm} variant="contained" color="primary" align="end">Login</Button>
+                        <CardActions className={classes.loginButtonsContainer}>
+                            <Button onClick={this.submitLoginForm} variant="contained" className={classes.loginButton} align="end">Login as User</Button>
+                            <Button onClick={this.submitLoginForm} variant="contained" className={classes.loginButton} align="end">Login as Creator</Button>
                             <div>
                                 {authError ? <p>{authError}</p> : null}
                             </div>
                         </CardActions>
-
+                        <CardContent>
+                                <Typography component="h6" variant="h5">
+                                    New User? 
+                                </Typography> 
+                            <NavLink className={classes.navlink} to="/signup"><Button variant="container" className={classes.registerButton}>Register</Button></NavLink>
+                        </CardContent>
                     </Card>
                 </Grid>
             </Grid>

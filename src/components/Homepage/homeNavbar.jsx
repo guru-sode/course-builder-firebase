@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, AppBar, Toolbar, Typography, withStyles, Button, Select, InputBase, MenuItem, FormControl } from '@material-ui/core';
+import { Grid, AppBar, Toolbar, Typography, withStyles, Button, Select, InputBase, MenuItem, FormControl, Icon } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
 import { NavLink, Redirect } from 'react-router-dom';
@@ -13,6 +13,7 @@ const styles = theme => ({
         flexDirection: 'column',
         width: '100%',
         margin: 0,
+        background: 'black',
     },
     header: {
         display: 'flex',
@@ -23,6 +24,7 @@ const styles = theme => ({
     },
     navbar: {
         position: 'relative',
+        backgroundColor: '#000a12'
     },
     title: {
         display: 'flex',
@@ -83,12 +85,18 @@ const styles = theme => ({
         margin: theme.spacing.unit,
         minWidth: 120,
         borderRadius: '0',
-        // display: 'none',
     },
     select: {
         visibility: 'hidden',
         width: 200,
         borderRadius: '0'
+    },
+    icon: {
+        margin: theme.spacing.unit * 2,
+    },
+    navlink: {
+        textDecoration: 'none',
+        color: 'white',
     }
 });
 
@@ -202,7 +210,14 @@ class HomeNavbar extends Component {
                                         }}
                                     />
                                 </form>
-                                {navigation}
+                                {/* {navigation} */}
+                                <div>
+                                    <NavLink className={classes.navlink} to="/login">
+                                        <Icon className={classes.icon} fontSize="large">
+                                            account_circle
+                                        </Icon>
+                                    </NavLink>
+                                </div>
                             </Toolbar>
                         </Grid>
                     </AppBar>
