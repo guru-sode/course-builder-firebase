@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { addAdditionalResourse } from '../redux/actions/sectionActions';
+import { addAdditionalResourse, addAdditionalResourseToStore } from '../redux/actions/sectionActions';
 
 const styles = theme => ({
     container: {
@@ -39,7 +39,8 @@ class AddResources extends Component {
             description,
             url,
         };
-        this.props.addAdditionalResourse(resoursesInfo);
+        // this.props.addAdditionalResourse(resoursesInfo);
+        this.props.addAdditionalResourseToStore(resoursesInfo);
         document.getElementById('name').value = '';
         document.getElementById('description').value = '';
         document.getElementById('url').value = '';
@@ -51,12 +52,13 @@ class AddResources extends Component {
         const name = document.getElementById('name').value;
         const url = document.getElementById('url').value;
         const description = document.getElementById('description').value;
-        const add = {
+        const resoursesInfo = {
             name,
             description,
             url,
         };
         // this.props.addAdditionalResourse(add);
+        this.props.addAdditionalResourseToStore(resoursesInfo);
     }
 
     render() {
@@ -104,7 +106,8 @@ class AddResources extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addAdditionalResourse: (resoursesInfo) => dispatch(addAdditionalResourse(resoursesInfo))
+        addAdditionalResourse: (resoursesInfo) => dispatch(addAdditionalResourse(resoursesInfo)),
+        addAdditionalResourseToStore: (resoursesInfo) => dispatch(addAdditionalResourseToStore(resoursesInfo))
     };
 };
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
-import { addPlanOfAttack } from '../redux/actions/sectionActions';
+import { addPlanOfAttack, addPlanOfAttackToStore } from '../redux/actions/sectionActions';
 import { compose } from 'redux';
 
 const styles = theme => ({
@@ -26,13 +26,13 @@ class AddPlan extends Component {
     componentWillUnmount() {
         const description = document.getElementById('description').value;
         const planInfo = description;
-        this.props.addPlanOfAttack(planInfo);
+        // this.props.addPlanOfAttack(planInfo);
+        this.props.addPlanOfAttackToStore(planInfo);
 
     }
 
     render() {
         const { classes } = this.props;
-
         return (
             <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
@@ -53,7 +53,8 @@ class AddPlan extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPlanOfAttack: (planInfo) => dispatch(addPlanOfAttack(planInfo))
+        addPlanOfAttack: (planInfo) => dispatch(addPlanOfAttack(planInfo)),
+        addPlanOfAttackToStore: (planInfo) => dispatch(addPlanOfAttackToStore(planInfo))
     };
 };
 

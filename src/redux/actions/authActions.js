@@ -23,14 +23,14 @@ export const signIn = (userInfo) => {
             const { auth } = getState().firebase;
             return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
         }).catch((err) => {
-            dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
+            return dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
         });
     };
 };
 
 
 export const signOut = () => {
-
+    console.log('sign out successfull');
     /*   return function to redux-thunk */
     return (dispatch, getState, { getFirebase }) => {
         /* asyn call to firbase  to add course object with id to courses */
@@ -61,7 +61,8 @@ export const signUp = (newUserInfo) => {
                 course: ['']
             });
         }).then(() => {
-            return dispatch({ type: SIGNUP_SUCCESS });
+            const { auth } = getState().firebase;
+            return dispatch({ type: SIGNUP_SUCCESS, payload: auth });
         }).catch((err) => {
             dispatch({ type: SIGNUP_ERROR, payload: err });
         });

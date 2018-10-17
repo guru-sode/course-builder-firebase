@@ -45,13 +45,13 @@ class Login extends Component {
 
     submitLoginForm = () => {
         const emailRegex = /[a-z0-9!#$%&'*+\/=?^_{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9][a-z0-9-]*[a-z0-9]/;
-        if(this.state.email === '' || !emailRegex.test(this.state.email)) {
-            this.setState({ errorFlagEmail: true});
+        if (this.state.email === '' || !emailRegex.test(this.state.email)) {
+            this.setState({ errorFlagEmail: true });
         }
-        if(this.state.password === '') {
-            this.setState({ errorFlagPassword: true});
+        if (this.state.password === '') {
+            this.setState({ errorFlagPassword: true });
         }
-        if(this.state.errorFlagEmail === false && this.state.errorFlagPassword === false) {
+        if (this.state.errorFlagEmail === false && this.state.errorFlagPassword === false) {
             const loginDetails = {
                 email: this.state.email,
                 password: this.state.password,
@@ -61,56 +61,62 @@ class Login extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+
+        const { classes, authError } = this.props;
         return (
             <Grid container>
-            <HomeNavbar />
-            <Grid container className={classes.main}>
-                <Grid item>
-                    <Card className={classes.card}>
-                        <CardContent className={classes.content}>
-                            <TextField
-                                id="email-input"
-                                onChange={this.handleEmailChange}
-                                label="Email"
-                                className={classes.textField}
-                                type="email"
-                                name="email"
-                                autoComplete="email"
-                                margin="normal"
-                                variant="outlined"
-                                error={this.state.errorFlagEmail}
-                                helperText={this.state.errorFlagEmail ? 'Invalid Email' : ''}
-                            />
-                            <TextField
-                                id="password-input"
-                                onChange={this.handlePasswordChange}
-                                label="Password"
-                                className={classes.textField}
-                                type="password"
-                                name="password"
-                                margin="normal"
-                                variant="outlined"
-                                error={this.state.errorFlagPassword}
-                                helperText={this.state.errorFlagPassword ? 'Password Required' : ''}
-                            />
-                        </CardContent>
-                        <CardActions>
-                            <Button onClick={this.submitLoginForm} variant="contained" color="primary" align="end">Login</Button>
-                        </CardActions>
-                    </Card>
+                <HomeNavbar />
+                <Grid container className={classes.main}>
+                    <Grid item>
+                        <Card className={classes.card}>
+                            <CardContent className={classes.content}>
+                                <TextField
+                                    id="email-input"
+                                    onChange={this.handleEmailChange}
+                                    label="Email"
+                                    className={classes.textField}
+                                    type="email"
+                                    name="email"
+                                    autoComplete="email"
+                                    margin="normal"
+                                    variant="outlined"
+                                    error={this.state.errorFlagEmail}
+                                    helperText={this.state.errorFlagEmail ? 'Invalid Email' : ''}
+                                />
+                                <TextField
+                                    id="password-input"
+                                    onChange={this.handlePasswordChange}
+                                    label="Password"
+                                    className={classes.textField}
+                                    type="password"
+                                    name="password"
+                                    margin="normal"
+                                    variant="outlined"
+                                    error={this.state.errorFlagPassword}
+                                    helperText={this.state.errorFlagPassword ? 'Password Required' : ''}
+                                />
+                            </CardContent>
+                            <CardActions>
+                                <Button onClick={this.submitLoginForm} variant="contained" color="primary" align="end">Login</Button>
+                                <div>
+                                    {authError ? <p>{authError}</p> : null}
+                                </div>
+                            </CardActions>
+
+                        </Card>
+                    </Grid>
                 </Grid>
-            </Grid>
             </Grid>
         );
     }
 }
 
-const mapStateToProps=(state)=>{
-    return{
-        authError:state.auth.authError,
-    }
-}
+const mapStateToProps = state => {
+    return {
+        authError: state.auth.authError
+    };
+};
+
 const mapDispatchToProps = dispatch => {
     return {
         signIn: (userInfo) => dispatch(signIn(userInfo)),

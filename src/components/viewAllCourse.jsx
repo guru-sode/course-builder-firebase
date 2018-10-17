@@ -28,7 +28,7 @@ const styles = theme => ({
     }
 });
 
-class ViewMyCourse extends Component {
+class ViewAllCourse extends Component {
     constructor() {
         super();
         this.addSection = this.addSection.bind(this);
@@ -38,33 +38,32 @@ class ViewMyCourse extends Component {
         this.props.selectCourse(key);
     }
     render() {
-        const { classes, courses, user } = this.props;
-        const { course } = user;
+        const { classes, courses, } = this.props;
+        const courseKeys = Object.keys(courses);
         return (
             <Grid className={classes.myCourseContainer} container>
-                {course !== undefined && courses !== undefined ?
-                    course.map((key, index) => {
-                        if (index !== 0) {
-                            return (<Grid item md={4}>
-                                <Card className={classes.card}>
-                                    <CardMedia className={classes.media} />
-                                    <CardContent>
-                                        <Typography component="h2">
-                                            {courses[key].title}
-                                        </Typography>
-                                        <Typography component="h4">
-                                            {courses[key].category}
-                                        </Typography>
-                                        <Typography component="p">
-                                            {courses[key].description}
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions>
-                                        <NavLink to='/addSection'><Button id={key} color="primary" size="small" onClick={this.addSection.bind(this, key)}>Add Sections</Button></NavLink>
-                                    </CardActions>
-                                </Card>
-                            </Grid>);
-                        }
+                {courses !== undefined ?
+                    courseKeys.map((key) => {
+                        return (<Grid item md={4}>
+                            <Card className={classes.card}>
+                                <CardMedia className={classes.media} />
+                                <CardContent>
+                                    <Typography component="h2">
+                                        {courses[key].title}
+                                    </Typography>
+                                    <Typography component="h4">
+                                        {courses[key].category}
+                                    </Typography>
+                                    <Typography component="p">
+                                        {courses[key].description}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <NavLink to='/addSection'><Button id={key} color="primary" size="small" onClick={this.addSection.bind(this, key)}>Add Sections</Button></NavLink>
+                                </CardActions>
+                            </Card>
+                        </Grid>);
+
                     }) :
                     <Typography component="h1">No Courses Created</Typography>}
             </Grid>
@@ -73,12 +72,9 @@ class ViewMyCourse extends Component {
 }
 
 const mapStateToProps = state => {
-    // console.log(' in addVideo >> ', state.sections.current_section);
-    const { uid } = state.auth.userInfo;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
         courses: state.firebase.data.app ? state.firebase.data.app['courses'] : state.courses,
-        user: state.firebase.data.app ? state.firebase.data.app.users[uid] : ''
     };
 };
 
@@ -95,4 +91,4 @@ export default compose(
     firebaseConnect([{
         path: '/app'
     }])
-)(ViewMyCourse);
+)(ViewAllCourse);
