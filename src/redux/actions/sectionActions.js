@@ -28,7 +28,7 @@ export const addSection = (section) => {
                 firebase.database().ref(`app/courses/${cid}`).update({
                     section: [...currentCourse.section, sid]
                 }).then(() => {
-                    return dispatch({ type: ADD_SECTION, payload: section.sid });
+                    return dispatch({ type: ADD_SECTION_ID, payload: section.sid });
                 });
 
             }).catch((err) => {
