@@ -138,11 +138,12 @@ class CreateCourse extends Component {
               anchor="left"
             >
               <Divider />
-              <Button onClick={this.viewMyCourses}>View My Courses</Button>
+              <Button onClick={this.viewMyCourses}>My Courses</Button>
               <Divider />
-              <Button onClick={this.viewAllCourses}>View All Courses</Button>
+              <Button onClick={this.viewAllCourses}>All Courses</Button>
               <Divider />
-              <Button onClick={this.handleClickOpen}>Create a Course</Button>
+              <Button onClick={this.handleClickOpen}>Create Course</Button>
+              <Divider />
               <Dialog
                 className={classes.dialogBox}
                 open={this.state.open}
