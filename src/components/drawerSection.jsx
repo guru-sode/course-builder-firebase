@@ -45,22 +45,6 @@ const styles = theme => ({
 });
 
 class DrawerSection extends Component {
-    // constructor(props){
-    //     super(props);
-    //     this.renderList=this.renderList.bind(this);
-    // }
-    // renderList(){
-    //     let sectionArray=['section name'];
-    //     return (
-    //         sectionArray.map(section=>{
-    //             return (<List component="nav">
-    //                 <ListItem button>
-    //                     <ListItemText primary={section} />
-    //                 </ListItem>
-    //             </List>);
-    //         })
-    //     );
-    // }
 
     render() {
         // const { classes } = this.props;
