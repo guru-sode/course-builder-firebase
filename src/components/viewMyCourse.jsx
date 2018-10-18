@@ -57,7 +57,7 @@ class ViewMyCourse extends Component {
                                 <Card className={classes.card}>
                                     <CardMedia className={classes.media} />
                                     <CardContent>
-                                        <Typography component="h2">
+                                        <Typography variant="h6">
                                             {courses[key].title}
                                         </Typography>
                                         <Typography component="h4">
@@ -68,7 +68,7 @@ class ViewMyCourse extends Component {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <NavLink to='/sectionTitle' style={{ textDecoration: 'none' }}><Button id={key} onClick={this.addSection.bind(this, key)} variant="contained" className={classes.button} align="end">Add Sections</Button></NavLink>
+                                        <NavLink to='/sectionTitle' style={{ textDecoration: 'none' }}><Button id={key} onClick={this.addSection.bind(this, key)} variant="contained" className={classes.button} align="end">View</Button></NavLink>
                                     </CardActions>
                                 </Card>
                             </Grid>);
