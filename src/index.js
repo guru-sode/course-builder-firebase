@@ -11,7 +11,7 @@ store.firebaseAuthIsReady.then(() => {
         <Provider store={store}>
             <App />
         </Provider>
-        , document.getElementById('div'));
+        , document.getElementById('root'));
     serviceWorker.unregister();
 });
 
