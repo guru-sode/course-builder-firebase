@@ -91,7 +91,7 @@ class SignUp extends Component {
                 <Grid item>
                     <Card className={classes.card}>
                         <Typography component="h1" variant="h4">
-                            Signup
+                            Register
                         </Typography>
                         <CardContent className={classes.content}>
                             <TextField
@@ -133,8 +133,8 @@ class SignUp extends Component {
                             />
                         </CardContent>
                         <CardActions className={classes.signupButtons}>
-                            <Button onClick={this.submitSignupForm} variant="contained" className={classes.registerButton} align="end">Sign Up as User</Button>
-                            <Button onClick={this.submitSignupForm} variant="contained" className={classes.registerButton} align="end">Sign Up as Creator</Button>
+                            <Button onClick={this.submitSignupForm} variant="contained" className={classes.registerButton} align="end">Register as User</Button>
+                            <Button onClick={this.submitSignupForm} variant="contained" className={classes.registerButton} align="end">Register as Creator</Button>
                         </CardActions>
                     </Card>
                 </Grid>

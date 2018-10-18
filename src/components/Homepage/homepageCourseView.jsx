@@ -116,18 +116,18 @@ class HomePageCourseView extends Component {
                                                     {courses[course].description}
                                                 </Typography>
                                             </CardContent>
-                                            {/* <CardContent>
-                                            <ExpansionPanel>
-                                                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                                    <Typography className={classes.heading}>{sections[courseString].title}</Typography>
-                                                </ExpansionPanelSummary>
-                                                <ExpansionPanelDetails>
-                                                    <Typography>
-                                                        {sections[courseString].description}
+                                            <CardContent>
+                                                <ExpansionPanel>
+                                                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                                        <Typography className={classes.heading}>Section title</Typography>
+                                                    </ExpansionPanelSummary>
+                                                    <ExpansionPanelDetails>
+                                                        <Typography>
+                                                            section description
                                                 </Typography>
-                                                </ExpansionPanelDetails>
-                                            </ExpansionPanel>
-                                        </CardContent> */}
+                                                    </ExpansionPanelDetails>
+                                                </ExpansionPanel>
+                                            </CardContent>
                                             <CardActions>
                                                 <Button size="small" color="primary">
                                                     Enroll Now
