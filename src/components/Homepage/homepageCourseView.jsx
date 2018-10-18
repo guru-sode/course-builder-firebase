@@ -9,6 +9,8 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import CourseSections from './courseSection';
+
 
 const styles = theme => ({
     introCard: {
@@ -55,6 +57,13 @@ const styles = theme => ({
         textAlign: 'center',
         color: '#000a12'
     },
+    heading: {
+        fontSize: '1em'
+    },
+    navlink: {
+        textDecoration: 'none',
+        color: 'white',
+    }
 });
 
 class HomePageCourseView extends Component {
@@ -72,9 +81,9 @@ class HomePageCourseView extends Component {
         if (app !== undefined) {
             courses = Object.assign({}, app.courses);
             courseIds = Object.keys(courses);
-            console.log('course', courses);
+            // console.log('course', courses);
             sections = Object.assign({}, app.sections);
-            console.log('sections', sections);
+            // console.log('sections', sections);s
             sectionIds = Object.keys(sections);
         }
         let courseString;
@@ -119,19 +128,20 @@ class HomePageCourseView extends Component {
                                             <CardContent>
                                                 <ExpansionPanel>
                                                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                                        <Typography className={classes.heading}>Section title</Typography>
+                                                        <Typography component="h1" variant="h6" className={classes.heading}>Sections</Typography>
                                                     </ExpansionPanelSummary>
-                                                    <ExpansionPanelDetails>
-                                                        <Typography>
-                                                            section description
-                                                </Typography>
-                                                    </ExpansionPanelDetails>
+                                                    <CourseSections
+                                                        sids={courses[course].section}
+                                                        sections={sections}
+                                                    />
                                                 </ExpansionPanel>
                                             </CardContent>
                                             <CardActions>
-                                                <Button size="small" color="primary">
-                                                    Enroll Now
-                                                </Button>
+                                                <NavLink className={classes.navlink} to="/login"
+                                                ><Button size="small" color="primary">
+                                                        Enroll Now
+                                                    </Button>
+                                                </NavLink>
                                             </CardActions>
                                         </Card>
                                     </Grid>;
@@ -147,7 +157,7 @@ class HomePageCourseView extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("data in state >> ", state);
+    // console.log('data in state >> ', state);
     return {
         app: state.firebase.data ? state.firebase.data.app : ''
     };
