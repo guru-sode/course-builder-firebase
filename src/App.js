@@ -9,6 +9,7 @@ import SignUp from './components/Homepage/signUp';
 import { connect } from 'react-redux';
 import AddSection from './components/addSection';
 import sectionTitle from './components/sectionTitle';
+import HomePageCourseView from './components/Homepage/homepageCourseView';
 
 class App extends Component {
     render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <BrowserRouter>
                 <div>
                     <Route exact path="/" component={HomeNavbar} />
+                    <Route exact path="/" component={HomePageCourseView} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={SignUp} />
                     <Route exact path='/addResources' component={DrawerSection} />

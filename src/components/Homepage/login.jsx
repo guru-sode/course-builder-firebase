@@ -11,12 +11,13 @@ const styles = theme => ({
     main: {
         display: 'flex',
         justifyContent: 'center',
-        marginTop: '1em',
+        // marginTop: '1em',
     },
     card: {
         width: 400,
         height: 'auto',
         padding: '1em',
+        marginTop: '2em',
         textAlign: 'center',
     },
     content: {

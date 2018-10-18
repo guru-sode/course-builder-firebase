@@ -146,7 +146,6 @@ class HomeNavbar extends Component {
     };
 
     render() {
-        console.log(this.props.app === undefined);
         const { classes, userInfo } = this.props;
         const navigation = userInfo ? (
             <Toolbar>
@@ -198,13 +197,13 @@ class HomeNavbar extends Component {
                                             value={this.state.categorySearch}
                                             onChange={this.handleCategoryChange}
                                         >
-                                            <MenuItem value="JavaScript">JavaScript</MenuItem>
-                                            <MenuItem value="HTML">HTML</MenuItem>
-                                            <MenuItem value="CSS">CSS</MenuItem>
-                                            <MenuItem value="CSS">CSS</MenuItem>
-                                            <MenuItem value="CSS">CSS</MenuItem>
-                                            <MenuItem value="CSS">CSS</MenuItem>
-                                            <MenuItem value="CSS">CSS</MenuItem>
+                                            {this.props.app !== undefined ? 
+                                            this.props.app.course_category.map((category) => {
+                                                return (
+                                                    <MenuItem value={category}>{category}</MenuItem>
+                                                )
+                                            }):
+                                            console.log('wait')}
                                         </Select>
                                     </FormControl>
                                 </Toolbar>
@@ -236,17 +235,16 @@ class HomeNavbar extends Component {
                         </Grid>
                     </AppBar>
                 </Grid>
-                {this.props.app === undefined ? 
+                {/* {this.props.app === undefined ? 
                 <Grid className={classes.progressContainer} container><CircularProgress className={classes.progress} size={100} /> </Grid>
                 :
-                <HomePageCourseView />}
+                <HomePageCourseView />} */}
             </Grid >                            
         );
     }
 }
 
 const mapStateToProps = state => {
-    console.log("data in state >> ", state)
     return {
         // userInfo: state.auth.userInfo,
         app: state.firebase.data ? state.firebase.data.app : ''
