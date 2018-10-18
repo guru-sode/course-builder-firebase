@@ -18,11 +18,11 @@ class Home extends Component {
                             <ul className="nav navbar-nav">
                                 <li><button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Categories
                                     <span className="caret"></span></button>
-                                <ul className="dropdown-menu">
-                                    <li>HTML</li>
-                                    <li>CSS</li>
-                                    <li>JavaScript</li>
-                                </ul>
+                                    <ul className="dropdown-menu">
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                    </ul>
                                 </li>
                                 <li><NavLink to='/create/course'>Create a course</NavLink></li>
                                 <li><NavLink to='/view/all/course'>View all courses</NavLink></li>

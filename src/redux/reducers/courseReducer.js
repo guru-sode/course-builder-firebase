@@ -1,22 +1,15 @@
-import { CREATE_COURSE, SELECT_COURSE } from '../../constants/actionTypes';
+import { CREATE_COURSE } from '../constants/actionTypes';
 
-const initialState = {
-    current_course: '',
-};
+const initialState = [];
 
 function createCourse(state = initialState, action) {
-    switch (action.type) {
+    switch(action.type) {
 
     case CREATE_COURSE: {
-        // let newState = [...state];
-        // newState.push(action.data);
-        return state;
+        let newState = [...state];
+        newState.push(action.data);
+        return newState;
     }
-    case SELECT_COURSE:
-        // console.log(action.payload);
-        return {
-            ...state, current_course: action.payload
-        };
     default: return state;
     }
 }
