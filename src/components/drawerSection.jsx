@@ -45,26 +45,39 @@ const styles = theme => ({
 });
 
 class DrawerSection extends Component {
-    constructor(props){
-        super(props);
-        this.renderList=this.renderList.bind(this);
-    }
-    renderList(){
-        let sectionArray=['section name'];
-        return (
-            sectionArray.map(section=>{
-                return (<List component="nav">
-                    <ListItem button>
-                        <ListItemText primary={section} />
-                    </ListItem>
-                </List>);
-            })
-        );
-    }
+    // constructor(props){
+    //     super(props);
+    //     this.renderList=this.renderList.bind(this);
+    // }
+    // renderList(){
+    //     let sectionArray=['section name'];
+    //     return (
+    //         sectionArray.map(section=>{
+    //             return (<List component="nav">
+    //                 <ListItem button>
+    //                     <ListItemText primary={section} />
+    //                 </ListItem>
+    //             </List>);
+    //         })
+    //     );
+    // }
 
     render() {
         // const { classes } = this.props;
-        const{current_course,store_sections,sid,cid,classes} = this.props;
+        const{course,store_sections,sid,cid,sections,classes} = this.props;
+        const sids = course.section;
+
+        let  section_list;
+        section_list=sids.map((sid)=>{
+            if(sections[sid]!==undefined){
+                return(
+                    <List component="nav">
+                        <ListItem button>
+                            <ListItemText primary={sections[sid].title} />
+                        </ListItem>
+                    </List>);
+            }
+        });
 
         return (
             <div className={classes.root}>
@@ -82,7 +95,7 @@ class DrawerSection extends Component {
                     }}
                 >
                     <div className={classes.toolbar} />
-                    {this.renderList()}
+                    {section_list}
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
@@ -103,14 +116,14 @@ class DrawerSection extends Component {
 const mapStateToProps = state => {
     // console.log(' in addVideo >> ', state.sections.current_section);
     const sid = state.sections.current_section;
-    // const sections = state.firebase.data.app.sections;
-    const sections = state.sections.sections;
+    const sections = state.firebase.data.app.sections;
+    const local_sections = state.sections.sections;
     const cid = state.courses.current_course;
     const app = state.firebase.data?state.firebase.data.app:null;
     const current_course = app ? app.courses[cid]:null;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
-        course:current_course ? current_course :'',
+        course: current_course ? current_course :'',
         sections: state.firebase.data.app
             ? state.firebase.data.app['sections']
             : state.courses,

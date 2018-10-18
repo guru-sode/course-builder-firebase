@@ -32,10 +32,13 @@ const styles = theme => ({
         marginTop: '2%',
         backgroundColor: '#000a12',
         color: 'white',
-        "&:hover": {
-            backgroundColor: "#000a12"
+        '&:hover': {
+            backgroundColor: '#000a12'
         }
     },
+    expandDiv:{
+        width:'100%'
+    }
 });
 
 class AddVideos extends Component {
@@ -115,30 +118,30 @@ class AddVideos extends Component {
                     />
                     <Button onClick={this.handleAdd} variant="contained" className={classes.button} align="end">Add another video</Button>
                 </form>
-                <Grid className={classes.videoCards} item>
-                    {section !== undefined ?
-                        section.resourses.map((video, index) => {
-                            if (index != 0) {
-                                return (
-                                    <div>
-                                        <ExpansionPanel>
-                                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                                <Typography className={classes.heading}>{video.name}</Typography>
-                                            </ExpansionPanelSummary>
-                                            <ExpansionPanelDetails>
-                                                <Typography>
-                                                    {video.description}
-                                                </Typography>
-                                            </ExpansionPanelDetails>
-                                        </ExpansionPanel>
-                                    </div>
-                                );
-                            }
-                        }) :
-                        <div>
+                {/* <Grid className={classes.videoCards} item> */}
+                {section !== undefined ?
+                    section.resourses.map((video, index) => {
+                        if (index != 0) {
+                            return (
+                                <div className={classes.expandDiv}>
+                                    <ExpansionPanel className={classes.expandDiv}>
+                                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                            <Typography className={classes.heading}>Video Title:{video.name}</Typography>
+                                        </ExpansionPanelSummary>
+                                        <ExpansionPanelDetails>
+                                            <Typography>
+                                                <iframe width="600" height="100%" src={video.url} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                            </Typography>
+                                        </ExpansionPanelDetails>
+                                    </ExpansionPanel>
+                                </div>
+                            );
+                        }
+                    }) :
+                    <div>
                             No videos has been added so far
-                        </div>}
-                </Grid>
+                    </div>}
+                {/* </Grid> */}
             </div>
         );
     }

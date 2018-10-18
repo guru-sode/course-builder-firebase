@@ -52,7 +52,15 @@ const styles = theme => ({
   },
   appBar:{
     backgroundColor:'#000a12',
-  }
+  },
+  button: {
+    backgroundColor: '#000a12',
+    color: 'white',
+    "&:hover": {
+        backgroundColor: "#000a12"
+    },
+    marginLeft: '40%'
+}
 });
 
 class CreateCourse extends Component {
@@ -106,9 +114,12 @@ class CreateCourse extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes,course_category } = this.props;
     const { allCourseFlag } = this.state
     const courseList = allCourseFlag ? <ViewAllCourses /> : <ViewMyCourse />
+    const category = course_category.map((course)=>{
+      return(<option value={course}>{course}</option>)
+    })
     return (
       <div>
         <AppBar position="relative" className={classes.appBar}>
@@ -158,11 +169,12 @@ class CreateCourse extends Component {
                     className={classes.selectDropdown}
                     required
                   >
-                    <option value="Software Development">
+                  {category}
+                    {/* <option value="Software Development">
                       Software Development
                   </option>
                     <option value="Science">Science</option>
-                    <option value="Art">Art</option>
+                    <option value="Art">Art</option> */}
                   </select>
                   <DialogContentText>Enter Course Description</DialogContentText>
                   <TextField
@@ -175,9 +187,7 @@ class CreateCourse extends Component {
                     margin="normal"
                     variant="outlined"
                   />
-                  <Button onClick={this.handleSubmit} color="primary">
-                    Create
-                </Button>
+                <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
                 </DialogContent>
               </Dialog>
             </Drawer>
@@ -200,7 +210,9 @@ const mapStateToProps = state => {
       : state.courses,
     users: state.firebase.data.app
       ? state.firebase.data.app['users']
-      : state.users
+      : state.users,
+    course_category:state.firebase.data.app['course_category'],
+    
   };
 };
 const mapDispatchToProps = dispatch => {

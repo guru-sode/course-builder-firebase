@@ -20,8 +20,8 @@ const styles = theme => ({
     button: {
         backgroundColor: '#000a12',
         color: 'white',
-        "&:hover": {
-            backgroundColor: "#000a12"
+        '&:hover': {
+            backgroundColor: '#000a12'
         },
         marginLeft: '50%'
     }
@@ -68,7 +68,7 @@ class SectionTitle extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                    <NavLink to='/addResources' style={{ textDecoration: 'none' }}><Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
+                <NavLink to='/addResources' style={{ textDecoration: 'none' }}><Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
             </form>
         );
     }
