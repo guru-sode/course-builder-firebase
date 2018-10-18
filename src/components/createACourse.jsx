@@ -21,6 +21,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { createCourse } from '../redux/actions/courseActions';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 200;
 
@@ -60,6 +61,14 @@ const styles = theme => ({
         backgroundColor: "#000a12"
     },
     marginLeft: '40%'
+},
+logOutbutton:{
+  backgroundColor: '#000a12',
+  color: 'white',
+  "&:hover": {
+      backgroundColor: "#000a12"
+  },
+  marginLeft: '85%'
 }
 });
 
@@ -127,6 +136,7 @@ class CreateCourse extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Courses
           </Typography>
+          <NavLink to="/" style={{ textDecoration: 'none',marginLeft: '80%' }}><Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button></NavLink>
           </Toolbar>
         </AppBar>
         <Grid className={classes.main} container>
@@ -170,11 +180,6 @@ class CreateCourse extends Component {
                     required
                   >
                   {category}
-                    {/* <option value="Software Development">
-                      Software Development
-                  </option>
-                    <option value="Science">Science</option>
-                    <option value="Art">Art</option> */}
                   </select>
                   <DialogContentText>Enter Course Description</DialogContentText>
                   <TextField
@@ -202,7 +207,6 @@ class CreateCourse extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('in createCourse >>', state);
   return {
     /* getting data from firebase redux store { firebaseReducer as firebase } */
     courses: state.firebase.data.app

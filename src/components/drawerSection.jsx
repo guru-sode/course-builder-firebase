@@ -81,7 +81,7 @@ class DrawerSection extends Component {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Route exact path='/sectionTitle' component={SectionTitle} />
+                    <Route exact path='/:key/sectionTitle' component={SectionTitle} />
                     <Route exact path='/addResources' component={AddSection} />
                 </main>
             </div>
