@@ -2,7 +2,7 @@ import { CREATE_COURSE, SELECT_COURSE, SELECT_COURSE_CATEGROY } from '../../cons
 
 const initialState = {
     current_course: '',
-    selected_course_category: ''
+    selected_course_category: null
 };
 
 function createCourse(state = initialState, action) {

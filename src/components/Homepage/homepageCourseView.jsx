@@ -10,6 +10,7 @@ import {
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import CourseSections from './courseSection';
+import { ALL } from '../../constants/actionTypes';
 
 
 const styles = theme => ({
@@ -72,7 +73,7 @@ class HomePageCourseView extends Component {
     }
 
     render() {
-        const { classes, app } = this.props;
+        const { classes, app, selected_course_category } = this.props;
         let courses;
         let courseIds;
         let sections;
@@ -106,40 +107,42 @@ class HomePageCourseView extends Component {
                         <Grid container className={classes.card}>
                             {courses !== undefined ?
                                 courseIds.map((course) => {
-                                    return <Grid item>
-                                        <Card className={classes.cardItem}>
-                                            <CardMedia
-                                                className={classes.cardMedia}
-                                                title="Image title"
-                                            />
-                                            <CardContent className={classes.cardContent}>
-                                                <Typography gutterBottom variant="h5" component="h2">
-                                                    {courses[course].title}
-                                                </Typography>
-                                                <Typography>
-                                                    {courses[course].description}
-                                                </Typography>
-                                            </CardContent>
-                                            <CardContent>
-                                                <ExpansionPanel>
-                                                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                                        <Typography component="h1" variant="h6" className={classes.heading}>Sections</Typography>
-                                                    </ExpansionPanelSummary>
-                                                    <CourseSections
-                                                        sids={courses[course].section}
-                                                        sections={sections}
-                                                    />
-                                                </ExpansionPanel>
-                                            </CardContent>
-                                            <CardActions>
-                                                <NavLink className={classes.navlink} to="/login"
-                                                ><Button size="small" color="primary">
-                                                        Enroll Now
+                                    if (courses[course].category === selected_course_category || selected_course_category === ALL) {
+                                        return <Grid item>
+                                            <Card className={classes.cardItem}>
+                                                <CardMedia
+                                                    className={classes.cardMedia}
+                                                    title="Image title"
+                                                />
+                                                <CardContent className={classes.cardContent}>
+                                                    <Typography gutterBottom variant="h5" component="h2">
+                                                        {courses[course].title}
+                                                    </Typography>
+                                                    <Typography>
+                                                        {courses[course].description}
+                                                    </Typography>
+                                                </CardContent>
+                                                <CardContent>
+                                                    <ExpansionPanel>
+                                                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                                            <Typography component="h1" variant="h6" className={classes.heading}>Sections</Typography>
+                                                        </ExpansionPanelSummary>
+                                                        <CourseSections
+                                                            sids={courses[course].section}
+                                                            sections={sections}
+                                                        />
+                                                    </ExpansionPanel>
+                                                </CardContent>
+                                                <CardActions>
+                                                    <NavLink className={classes.navlink} to="/login"
+                                                    ><Button size="small" color="primary">
+                                                            Enroll Now
                                                     </Button>
-                                                </NavLink>
-                                            </CardActions>
-                                        </Card>
-                                    </Grid>;
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Card>
+                                        </Grid>;
+                                    }
                                 }) :
                                 <div>Empty</div>
                             }
@@ -153,7 +156,8 @@ class HomePageCourseView extends Component {
 
 const mapStateToProps = state => {
     return {
-        app: state.firebase.data ? state.firebase.data.app : ''
+        app: state.firebase.data ? state.firebase.data.app : '',
+        selected_course_category: state.courses.selected_course_category ? state.courses.selected_course_category : ALL
     };
 };
 
