@@ -171,11 +171,6 @@ class CreateCourse extends Component {
                     required
                   >
                     {category}
-                    {/* <option value="Software Development">
-                      Software Development
-                  </option>
-                    <option value="Science">Science</option>
-                    <option value="Art">Art</option> */}
                   </select>
                   <DialogContentText>Enter Course Description</DialogContentText>
                   <TextField
@@ -203,7 +198,6 @@ class CreateCourse extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('in createCourse >>', state);
   return {
     /* getting data from firebase redux store { firebaseReducer as firebase } */
     courses: state.firebase.data.app
