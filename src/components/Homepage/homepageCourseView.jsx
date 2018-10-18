@@ -73,7 +73,6 @@ class HomePageCourseView extends Component {
 
     render() {
         const { classes, app } = this.props;
-        console.log('this is app', app);
         let courses;
         let courseIds;
         let sections;
@@ -81,14 +80,10 @@ class HomePageCourseView extends Component {
         if (app !== undefined) {
             courses = Object.assign({}, app.courses);
             courseIds = Object.keys(courses);
-            // console.log('course', courses);
             sections = Object.assign({}, app.sections);
-            // console.log('sections', sections);s
             sectionIds = Object.keys(sections);
         }
         let courseString;
-
-
         return (
             <Grid container>
                 {this.props.app === undefined ?
@@ -157,7 +152,6 @@ class HomePageCourseView extends Component {
 }
 
 const mapStateToProps = state => {
-    // console.log('data in state >> ', state);
     return {
         app: state.firebase.data ? state.firebase.data.app : ''
     };
