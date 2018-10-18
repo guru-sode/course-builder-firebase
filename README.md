@@ -1,4 +1,4 @@
-About Us
+About Us:
 Course builder is a global marketplace for learning and teaching online where students are mastering new skills and achieving their goals by learning from an extensive library of over 80,000 courses taught by expert instructors.
 
 This project is for educational purpose . We are giving source code for free . 
@@ -28,3 +28,7 @@ Usage:
 3) Creator can add courses and access the courses as well .
 
 4) Click on register if you are a new user . 
+
+
+
+Happy Learning !!!!!
