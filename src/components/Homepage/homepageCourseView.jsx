@@ -35,7 +35,7 @@ const styles = theme => ({
         flexWrap: 'wrap',
         flexBasis: '100%',
         marginTop: '2em',
-        justifyContent: 'center !important',
+        justifyContent: 'space-around !important',
     },
     cardMedia: {
         paddingTop: '20%', // 16:9
@@ -108,7 +108,7 @@ class HomePageCourseView extends Component {
                                 </Grid>
                             </Grid>
                         </Card>
-                        <Grid container className={classes.card} spacing={40}>
+                        <Grid container className={classes.card}>
                             {courses !== undefined ?
                                 courseIds.map((course) => {
                                     return <Grid item>
