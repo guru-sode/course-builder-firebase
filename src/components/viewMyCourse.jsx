@@ -26,13 +26,13 @@ const styles = theme => ({
         height: 140,
         backgroundColor: '#000a12',
     },
-    button:{
+    button: {
         backgroundColor: '#000a12',
         color: 'white',
-        "&:hover": {
-            backgroundColor: "#000a12"
+        '&:hover': {
+            backgroundColor: '#000a12'
         },
-        textDecoration:'none',
+        textDecoration: 'none',
     }
 });
 
@@ -81,7 +81,6 @@ class ViewMyCourse extends Component {
 }
 
 const mapStateToProps = state => {
-    // console.log(' in addVideo >> ', state.sections.current_section);
     const { uid } = state.auth.userInfo;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */

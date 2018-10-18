@@ -15,6 +15,7 @@ export const createCourse = (course) => {
         course = {
             ...course, uid, cid
         };
+        console.log("course >> ", course)
         const firebase = getFirebase();
         firebase.database().ref(`app/courses/${course.cid}`).set(course)
             .then(() => {

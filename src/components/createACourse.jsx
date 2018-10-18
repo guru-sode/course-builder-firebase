@@ -50,17 +50,17 @@ const styles = theme => ({
     width: drawerWidth,
     height: '925px'
   },
-  appBar:{
-    backgroundColor:'#000a12',
+  appBar: {
+    backgroundColor: '#000a12',
   },
   button: {
     backgroundColor: '#000a12',
     color: 'white',
     "&:hover": {
-        backgroundColor: "#000a12"
+      backgroundColor: "#000a12"
     },
     marginLeft: '40%'
-}
+  }
 });
 
 class CreateCourse extends Component {
@@ -114,11 +114,11 @@ class CreateCourse extends Component {
   };
 
   render() {
-    const { classes,course_category } = this.props;
+    const { classes, course_category } = this.props;
     const { allCourseFlag } = this.state
     const courseList = allCourseFlag ? <ViewAllCourses /> : <ViewMyCourse />
-    const category = course_category.map((course)=>{
-      return(<option value={course}>{course}</option>)
+    const category = course_category.map((course) => {
+      return (<option value={course}>{course}</option>)
     })
     return (
       <div>
@@ -166,10 +166,11 @@ class CreateCourse extends Component {
                   <DialogContentText>Select Category</DialogContentText>
                   <select
                     onClick={this.handleDropdownChange}
+                    onOpen={this.handleDropdownChange}
                     className={classes.selectDropdown}
                     required
                   >
-                  {category}
+                    {category}
                     {/* <option value="Software Development">
                       Software Development
                   </option>
@@ -187,7 +188,7 @@ class CreateCourse extends Component {
                     margin="normal"
                     variant="outlined"
                   />
-                <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
+                  <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
                 </DialogContent>
               </Dialog>
             </Drawer>
@@ -211,13 +212,13 @@ const mapStateToProps = state => {
     users: state.firebase.data.app
       ? state.firebase.data.app['users']
       : state.users,
-    course_category:state.firebase.data.app['course_category'],
-    
+    course_category: state.firebase.data.app['course_category'],
+
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    createCourse: course => dispatch(createCourse(course))
+    createCourse: course => dispatch(createCourse(course)),
   };
 };
 
