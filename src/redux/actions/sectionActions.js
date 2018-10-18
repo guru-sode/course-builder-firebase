@@ -1,7 +1,7 @@
 import {
     ADD_SECTION, ADD_SECTION_ID,
     ADD_VIDEO, SUBMIT_SECTION, SUBMIT_SECTION_ERROR,
-    ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT, SELECT_COURSE, SELECT_COURSE_CATEGROY
+    ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT, SELECT_COURSE, ADD_DELIVERABLE
 } from '../../constants/actionTypes';
 
 export const addSection = (section) => {
@@ -139,6 +139,10 @@ export const addPlanOfAttackToStore = (plan_of_attack) => {
     return ({ type: ADD_PLAN_OF_ATTACT, payload: plan_of_attack });
 };
 
+export const addDeliverableToStore = (deliverable) => {
+    return ({ type: ADD_DELIVERABLE, payload: deliverable });
+};
+
 export const submitSection = () => {
 
     /*   return function to redux-thunk */
@@ -157,7 +161,3 @@ export const submitSection = () => {
             });
     };
 };
-
-// export const selectCategory = (category) => {
-//     return ({ type: SELECT_COURSE_CATEGROY, payload: category })
-// };
