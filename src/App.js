@@ -26,7 +26,7 @@ class App extends Component {
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)
                         )}/> 
-                    <Route exact path="/sectionTitle" 
+                    <Route exact path="/:key/sectionTitle" 
                         render={() => (
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)
