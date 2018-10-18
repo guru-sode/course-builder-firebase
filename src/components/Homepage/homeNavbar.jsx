@@ -110,6 +110,10 @@ const styles = theme => ({
         textAlign: 'center',
         color: '#000a12'
     },
+    navlink: {
+        textDecoration: 'none',
+        color: 'white',
+    }
 });
 
 class HomeNavbar extends Component {
@@ -180,9 +184,9 @@ class HomeNavbar extends Component {
                         <Grid className={classes.header} container>
                             <Grid item>
                                 <Toolbar className={classes.title}>
-                                    <Typography className={classes.heading} variant="h4" color="inherit" noWrap>
+                                    <NavLink to="/" className={classes.navlink}><Typography className={classes.heading} variant="h4" color="inherit" noWrap>
                                         Course Creator
-                                    </Typography>
+                                    </Typography></NavLink>
                                     <Button className={classes.categories} onClick={this.handleCategoryOpen}>
                                         <Typography className={classes.headerFontColor} variant="p" noWrap>
                                             Categories
@@ -197,13 +201,13 @@ class HomeNavbar extends Component {
                                             value={this.state.categorySearch}
                                             onChange={this.handleCategoryChange}
                                         >
-                                            {this.props.app !== undefined ? 
-                                            this.props.app.course_category.map((category) => {
-                                                return (
-                                                    <MenuItem value={category}>{category}</MenuItem>
-                                                )
-                                            }):
-                                            console.log('wait')}
+                                            {this.props.app !== undefined ?
+                                                this.props.app.course_category.map((category) => {
+                                                    return (
+                                                        <MenuItem value={category}>{category}</MenuItem>
+                                                    )
+                                                }) :
+                                                console.log('wait')}
                                         </Select>
                                     </FormControl>
                                 </Toolbar>
@@ -239,7 +243,7 @@ class HomeNavbar extends Component {
                 <Grid className={classes.progressContainer} container><CircularProgress className={classes.progress} size={100} /> </Grid>
                 :
                 <HomePageCourseView />} */}
-            </Grid >                            
+            </Grid >
         );
     }
 }
