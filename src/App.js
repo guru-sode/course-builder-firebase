@@ -7,7 +7,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Home />
-                <AddVideos videos/>
+                <AddResources />
             </div>
         );
     }
