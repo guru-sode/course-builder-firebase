@@ -23,18 +23,18 @@ export const addSection = (section) => {
             plan_of_attack: ''
         };
         const firebase = getFirebase();
-        //     firebase.database().ref(`app/sections/${section.sid}`).set(section)
-        //         .then(() => {
-        //             firebase.database().ref(`app/courses/${cid}`).update({
-        //                 section: [...currentCourse.section, sid]
-        //             }).then(() => {
-        //                 return dispatch({ type: ADD_SECTION_ID, payload: section.sid });
-        //             });
+            firebase.database().ref(`app/sections/${section.sid}`).set(section)
+                .then(() => {
+                    firebase.database().ref(`app/courses/${cid}`).update({
+                        section: [...currentCourse.section, sid]
+                    }).then(() => {
+                        return dispatch({ type: ADD_SECTION_ID, payload: section.sid });
+                    });
 
-        //         }).catch((err) => {
-        //             return err;
-        //         });
-        // };
+                }).catch((err) => {
+                    return err;
+                });
+        };
     };
 
     export const addVideo = (videoInfo) => {
