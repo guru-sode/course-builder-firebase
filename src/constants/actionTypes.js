@@ -21,4 +21,4 @@ export const ADD_SECTION_ID = 'ADD_SECTION_ID';
 export const SUBMIT_SECTION = 'SUBMIT_SECTION';
 export const SUBMIT_SECTION_ERROR = 'SUBMIT_SECTION';
 export const SELECT_COURSE_CATEGROY = "SELECT_COURSE_CATEGROY";
-export const ALL = "ALL";
+export const ALL = "All";

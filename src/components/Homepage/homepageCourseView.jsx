@@ -157,7 +157,7 @@ class HomePageCourseView extends Component {
 const mapStateToProps = state => {
     return {
         app: state.firebase.data ? state.firebase.data.app : '',
-        selected_course_category: state.courses.selected_course_category ? state.courses.selected_course_category : ALL
+        selected_course_category: state.courses.selected_course_category
     };
 };
 

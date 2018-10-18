@@ -1,8 +1,11 @@
-import { CREATE_COURSE, SELECT_COURSE, SELECT_COURSE_CATEGROY } from '../../constants/actionTypes';
+import {
+    CREATE_COURSE, ALL,
+    SELECT_COURSE, SELECT_COURSE_CATEGROY
+} from '../../constants/actionTypes';
 
 const initialState = {
     current_course: '',
-    selected_course_category: null
+    selected_course_category: ALL
 };
 
 function createCourse(state = initialState, action) {
