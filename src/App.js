@@ -21,8 +21,17 @@ class App extends Component {
                     <Route exact path="/" component={HomePageCourseView} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={SignUp} />
-                    <Route exact path="/addResources" component={DrawerSection} />
-                    <Route exact path="/sectionTitle" component={DrawerSection} />
+                    <Route exact path="/addResources"
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )}/> 
+                    {/* component={DrawerSection} /> */}
+                    <Route exact path="/sectionTitle" 
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )}/>
                     <Route exact path="/createCourse"
                         render={() => (
                             userInfo ? (<CreateCourse />)
