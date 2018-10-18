@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -47,7 +46,6 @@ const styles = theme => ({
 class DrawerSection extends Component {
 
     render() {
-        // const { classes } = this.props;
         const{course,store_sections,sid,cid,sections,classes} = this.props;
         const sids = course.section;
 
@@ -91,14 +89,7 @@ class DrawerSection extends Component {
     }
 }
 
-// DrawerSection.propTypes = {
-//     classes: PropTypes.object.isRequired
-// };
-
-
-
 const mapStateToProps = state => {
-    // console.log(' in addVideo >> ', state.sections.current_section);
     const sid = state.sections.current_section;
     const sections = state.firebase.data.app.sections;
     const local_sections = state.sections.sections;
