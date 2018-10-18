@@ -1,0 +1,632 @@
+{
+    "app" : {
+      "course_category" : [ "JavaScript", "React", "IPL DATA SET VISUALIZATION", "Redux" ],
+      "courses" : {
+        "1F6uNB8dcPWIByo4gwFaBjk9Dh22_java" : {
+          "category" : "Science",
+          "cid" : "1F6uNB8dcPWIByo4gwFaBjk9Dh22_java",
+          "description" : "hello",
+          "section" : [ "", "1F6uNB8dcPWIByo4gwFaBjk9Dh22_java_" ],
+          "title" : "java",
+          "uid" : "1F6uNB8dcPWIByo4gwFaBjk9Dh22"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp" : {
+          "category" : "",
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp",
+          "description" : "two months",
+          "section" : [ "", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_HTML and CSS", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_kadh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_Video embed", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_akhd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_kasd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_kajds", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_kadsh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_alkdsh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_kashd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_kajsd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_hello" ],
+          "title" : "Boot camp",
+          "uid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java" : {
+          "category" : "Software Development",
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "java basic",
+          "section" : [ "", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_java sentax", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_demo", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ajsddg", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akjsd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akdh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_uqtey", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_as", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_asd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_as", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_AS", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ajdsh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kajsdh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kjasd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akldh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_test", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_as", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akjdh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akjdh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kajsd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ads", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_aas", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kajd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_alkdsj", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_lkdd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jsdgjah", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jqwhge", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_qywer", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kajdg", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_java section", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jhg", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_asd" ],
+          "title" : "java",
+          "uid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux" : {
+          "category" : "",
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux",
+          "description" : "help people",
+          "section" : [ "", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_linux", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_ajdh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_dgamnd", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_akjsdg", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_gfds", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_asdkh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_qkwjkh", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_asdkhj" ],
+          "title" : "linux",
+          "uid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react" : {
+          "category" : "",
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react",
+          "description" : "react course",
+          "section" : [ "", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_test section", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_java", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_asd", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_aasd", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_pawan", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_pawan", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_msjdh", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_aksdh", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_pawan", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_pawan", "gZOTI0SWDkZAtYziC0yiKrWuXGK2_react_kasjdh" ],
+          "title" : "react",
+          "uid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello" : {
+          "category" : "",
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "sad",
+          "section" : [ "", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_heeloo", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_as", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_pab", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_ad", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_test", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_test", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_sad", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_asd" ],
+          "title" : "hello",
+          "uid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java" : {
+          "category" : "",
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java",
+          "description" : "javac",
+          "section" : [ "", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java_kajsh" ],
+          "title" : "java",
+          "uid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test" : {
+          "category" : "Science",
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test",
+          "description" : "hi",
+          "section" : [ "", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_title", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_sd", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello" ],
+          "title" : "test",
+          "uid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3"
+        }
+      },
+      "sections" : {
+        "1F6uNB8dcPWIByo4gwFaBjk9Dh22_java_" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "1F6uNB8dcPWIByo4gwFaBjk9Dh22_java",
+          "description" : "",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "1F6uNB8dcPWIByo4gwFaBjk9Dh22_java_",
+          "title" : ""
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_HTML and CSS" : {
+          "additional_resourses" : [ "", {
+            "description" : "Blog link for HTML",
+            "name" : "Blog ",
+            "url" : "URL"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp",
+          "description" : "Learn basics of HTML and CSS",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "Basic into ",
+            "name" : "HTML video",
+            "url" : "URL"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp_HTML and CSS",
+          "title" : "HTML and CSS"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_",
+          "title" : ""
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_AS" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "AS",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_AS",
+          "title" : "AS"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ads" : {
+          "additional_resourses" : [ "", {
+            "description" : "asd",
+            "name" : "ad",
+            "url" : "asd"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "asd",
+            "name" : "asd",
+            "url" : "asd"
+          }, {
+            "description" : "asd",
+            "name" : "asd",
+            "url" : "asd"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ads",
+          "title" : "ads"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ajdsh" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "adsjh",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ajdsh",
+          "title" : "ajdsh"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ajsddg" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "akdsh",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_ajsddg",
+          "title" : "ajsddg"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akdh" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "akjds",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akdh",
+          "title" : "akdh"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akjsd" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "asjdg",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akjsd",
+          "title" : "akjsd"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akldh" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "aaksdj",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_akldh",
+          "title" : "akldh"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_as" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_as",
+          "title" : "as"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_asd" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_asd",
+          "title" : "asd"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_demo" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "important",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_demo",
+          "title" : "demo"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_java sentax" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "you will basic of java",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_java sentax",
+          "title" : "java sentax"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jqwhge" : {
+          "additional_resourses" : [ "", {
+            "description" : "kasdjh",
+            "name" : ",sadh",
+            "url" : "aksjd"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "kdjh",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "asdjh",
+            "name" : "oasdy",
+            "url" : "asdkjh"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jqwhge",
+          "title" : "jqwhge"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jsdgjah" : {
+          "additional_resourses" : [ "", {
+            "description" : "alsdh",
+            "name" : "asdkjh",
+            "url" : "lasdkh"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "aksdjh",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "asdh",
+            "name" : "alsdh",
+            "url" : "alsdkh"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_jsdgjah",
+          "title" : "jsdgjah"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kajsdh" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "kajdh",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kajsdh",
+          "title" : "kajsdh"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kjasd" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "akdhs",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_kjasd",
+          "title" : "kjasd"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_lkdd" : {
+          "additional_resourses" : [ "", {
+            "description" : "alskjalld",
+            "name" : "aksdj",
+            "url" : "ldjalskdj"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "lakdj",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "alkjd",
+            "name" : "akdj",
+            "url" : "lqdkj"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_lkdd",
+          "title" : "lkdd"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_qywer" : {
+          "additional_resourses" : [ "", {
+            "description" : "masjd",
+            "name" : "klsjdh",
+            "url" : "asjdg"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "ajsdg",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "uisd",
+            "name" : "iwuegd",
+            "url" : "askdfg"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_qywer",
+          "title" : "qywer"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_test" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "test",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_test",
+          "title" : "test"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_uqtey" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java",
+          "description" : "kajsdh",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_java_uqtey",
+          "title" : "uqtey"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_akjsdg" : {
+          "additional_resourses" : [ "", {
+            "description" : "alkdh",
+            "name" : ",ahkds",
+            "url" : "kahfd"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux",
+          "description" : "kasdjh",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "kajdh",
+            "name" : "kajsh",
+            "url" : "akjdh"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_akjsdg",
+          "title" : "akjsdg"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_linux" : {
+          "additional_resourses" : [ "", {
+            "description" : "asd",
+            "name" : "sd",
+            "url" : "asd"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux",
+          "description" : "linux",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "linux",
+            "name" : "linux",
+            "url" : "linux"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_linux",
+          "title" : "linux"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_qkwjkh" : {
+          "additional_resourses" : [ "", {
+            "description" : "akdjh",
+            "name" : "kweh",
+            "url" : "akwdh"
+          } ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux",
+          "description" : "kqwejh",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "kqej",
+            "name" : "wekjh",
+            "url" : "qkweh"
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux_qkwjkh",
+          "title" : "qkwjkh"
+        },
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2_vv_akSH" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_vv",
+          "description" : "AKDH",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "youtube",
+            "name" : "youtube",
+            "url" : "youtube"
+          }, {
+            "description" : "",
+            "name" : "",
+            "url" : ""
+          } ],
+          "sid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2_vv_akSH",
+          "title" : "akSH"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_asdda" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java",
+          "description" : "sdasadda",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_asdda",
+          "title" : "asdda"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_asddads" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java",
+          "description" : "adad",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "asdads",
+            "name" : "asdads",
+            "url" : "adads"
+          } ],
+          "sid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_asddads",
+          "title" : "asddads"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_basic" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java",
+          "description" : "basic desc",
+          "plan_of_attack" : "",
+          "resourses" : [ "", {
+            "description" : "basic video desc",
+            "name" : "basic video ",
+            "url" : "basic url"
+          }, {
+            "description" : "assa",
+            "name" : "one",
+            "url" : "wweasdads"
+          } ],
+          "sid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_basic",
+          "title" : "basic"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_das" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java",
+          "description" : "asdads",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_das",
+          "title" : "das"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_dsa" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java",
+          "description" : "asdads",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_dsa",
+          "title" : "dsa"
+        },
+        "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_hi" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java",
+          "description" : "hi",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "gZOTI0SWDkZAtYziC0yiKrWuXGK2_java_hi",
+          "title" : "hi"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_",
+          "title" : ""
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_ad" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_ad",
+          "title" : "ad"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_as" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_as",
+          "title" : "as"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_asd" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_asd",
+          "title" : "asd"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_heeloo" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "hello",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_heeloo",
+          "title" : "heeloo"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_hello" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "hello",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_hello",
+          "title" : "hello"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_pab" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "oap",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_pab",
+          "title" : "pab"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_sad" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "asd",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_sad",
+          "title" : "sad"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_test" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello",
+          "description" : "test",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello_test",
+          "title" : "test"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java_kajsh" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java",
+          "description" : "akdj",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java_kajsh",
+          "title" : "kajsh"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test",
+          "description" : "",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_",
+          "title" : ""
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test",
+          "description" : "hello",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_hello",
+          "title" : "hello"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_title" : {
+          "additional_resourses" : [ "" ],
+          "cid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test",
+          "description" : "title",
+          "plan_of_attack" : "",
+          "resourses" : [ "" ],
+          "sid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test_title",
+          "title" : "title"
+        }
+      },
+      "users" : {
+        "4BYk1Spt85gDu9qW31YHa3SlP0p2" : {
+          "course" : [ "", "4BYk1Spt85gDu9qW31YHa3SlP0p2_java", "4BYk1Spt85gDu9qW31YHa3SlP0p2_linux", "4BYk1Spt85gDu9qW31YHa3SlP0p2_Boot camp" ],
+          "email" : "guru@gmail.com",
+          "password" : "123456",
+          "uid" : "4BYk1Spt85gDu9qW31YHa3SlP0p2",
+          "username" : "guru"
+        },
+        "7POzZZWFC2dbKFCaok9zIhLG5M72" : {
+          "course" : [ "" ],
+          "email" : "hello@gmail.com",
+          "password" : "123456",
+          "uid" : "7POzZZWFC2dbKFCaok9zIhLG5M72",
+          "username" : "hello"
+        },
+        "HaXQNTi7v4e5I4kRo8lwduMN6A53" : {
+          "course" : [ "", "HaXQNTi7v4e5I4kRo8lwduMN6A53_hello" ],
+          "email" : "amit@gmail.com",
+          "password" : "123456",
+          "uid" : "HaXQNTi7v4e5I4kRo8lwduMN6A53",
+          "username" : "amit"
+        },
+        "NynQVXXYnXfdfXU6ULVJXskOAQs2" : {
+          "course" : [ "", "NynQVXXYnXfdfXU6ULVJXskOAQs2_hello" ],
+          "email" : "ajay@gmail.com",
+          "password" : "123456",
+          "uid" : "NynQVXXYnXfdfXU6ULVJXskOAQs2",
+          "username" : "ajay"
+        },
+        "PUePYYBfJlSyIjsYMdam0X2q4VE3" : {
+          "course" : [ "" ],
+          "email" : "kishan.reddy@gmail.com",
+          "password" : "qweqqew",
+          "uid" : "PUePYYBfJlSyIjsYMdam0X2q4VE3",
+          "username" : "asdjldsak"
+        },
+        "lDDyiZQjMaS2FaaRQibBcwleQ852" : {
+          "course" : [ "" ],
+          "email" : "kishanreddy95@gmail.com",
+          "password" : "123456",
+          "uid" : "lDDyiZQjMaS2FaaRQibBcwleQ852",
+          "username" : "kishan reddy"
+        },
+        "oVEH4flF8HVVc0FjfegRixtu21C3" : {
+          "course" : [ "", "oVEH4flF8HVVc0FjfegRixtu21C3_hello" ],
+          "email" : "helloword@gmail.com",
+          "password" : "123456",
+          "uid" : "oVEH4flF8HVVc0FjfegRixtu21C3",
+          "username" : "helloword"
+        },
+        "sSr4CJLGhFa26iJ3FlxaplsYcdB3" : {
+          "course" : [ "", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_test", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_hello", "sSr4CJLGhFa26iJ3FlxaplsYcdB3_java" ],
+          "email" : "test@gmail.com",
+          "password" : "123456",
+          "uid" : "sSr4CJLGhFa26iJ3FlxaplsYcdB3",
+          "username" : "testuser"
+        }
+      }
+    }
+  }
