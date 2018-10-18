@@ -130,7 +130,7 @@ class AddVideos extends Component {
                                         </ExpansionPanelSummary>
                                         <ExpansionPanelDetails>
                                             <Typography>
-                                                <iframe width="600" height="100%" src={video.url} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                                <iframe width="600" height="400" src={video.url} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                             </Typography>
                                         </ExpansionPanelDetails>
                                     </ExpansionPanel>
