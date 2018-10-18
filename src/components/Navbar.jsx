@@ -26,26 +26,6 @@ const Navbar = () => {
                 </ul>
             </div>
         </nav>
-        // <nav className=" navbar is-dark ">
-        //     <div className="navbar-brand">
-        //         <div className="navbar-start">
-        //             <Link to="/home" class="navbar-item" href="">
-        //                 Home
-        //             </Link>
-        //             <Link to="/dashboard" class="navbar-item" href="">
-        //                 Dashborad
-        //             </Link>
-        //         </div>
-        //     </div>
-        //     <div className="navbar-end">
-        //         <Link to="/signin" class="navbar-item" href="">
-        //             Login
-        //         </Link>
-        //         <Link to="/singup" class="navbar-item" href="">
-        //             Sing up
-        //         </Link>
-        //     </div>
-        // </nav>
 
     );
 };
