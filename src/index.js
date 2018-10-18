@@ -8,7 +8,9 @@ import store from './redux/store';
 
 store.firebaseAuthIsReady.then(() => {
     ReactDOM.render(
-        <new></new>
+        <Provider store={store}>
+            <App />
+        </Provider>
         , document.getElementById('root'));
     serviceWorker.unregister();
 });
