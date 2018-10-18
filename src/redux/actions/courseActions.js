@@ -1,4 +1,4 @@
-import { CREATE_COURSE, SELECT_COURSE } from '../../constants/actionTypes';
+import { CREATE_COURSE, SELECT_COURSE, SELECT_COURSE_CATEGROY } from '../../constants/actionTypes';
 
 export const createCourse = (course) => {
 
@@ -30,3 +30,7 @@ export const createCourse = (course) => {
 };
 
 export const selectCourse = (courseId) => ({ type: SELECT_COURSE, payload: courseId });
+export const selectCategory = (category) => {
+    return ({ type: SELECT_COURSE_CATEGROY, payload: category })
+};
+

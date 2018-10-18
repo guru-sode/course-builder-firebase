@@ -158,6 +158,6 @@ export const submitSection = () => {
     };
 };
 
-export const selectCategory = (category) => {
-    return ({ type: SELECT_COURSE_CATEGROY, payload: category })
-};
+// export const selectCategory = (category) => {
+//     return ({ type: SELECT_COURSE_CATEGROY, payload: category })
+// };
