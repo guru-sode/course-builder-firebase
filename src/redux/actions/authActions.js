@@ -21,7 +21,7 @@ export const signIn = (userInfo) => {
             userInfo.password
         ).then(() => {
             const { auth } = getState().firebase;
-            return dispatch({ type: SIGNIN_SUCCESS, payload: auth });
+            return dispatch({ type: 'SIGNIN_SUCCESS_hello', payload: auth });
         }).catch((err) => {
             return dispatch({ type: SIGNIN_ERROR, payload: LOGIN_FAIL });
         });
