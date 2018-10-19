@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
-import { addPlanOfAttackToStore,submitSection } from '../redux/actions/sectionActions';
+import { addPlanOfAttackToStore, submitSection } from '../redux/actions/sectionActions';
 import { compose } from 'redux';
 import Button from '@material-ui/core/Button';
 
@@ -33,14 +33,14 @@ const styles = theme => ({
 });
 
 class AddPlan extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit() {
         const description = document.getElementById('description').value;
         const planInfo = description;
-        if(description!=='')
+        if (description !== '')
             this.props.addPlanOfAttackToStore(planInfo);
         document.getElementById('description').value='';   
     }

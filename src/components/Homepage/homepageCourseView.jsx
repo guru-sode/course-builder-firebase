@@ -88,7 +88,9 @@ class HomePageCourseView extends Component {
         return (
             <Grid container>
                 {this.props.app === undefined ?
-                    <Grid className={classes.progressContainer} container><CircularProgress className={classes.progress} size={100} /> </Grid> :
+                    <Grid className={classes.progressContainer} container>
+                        <CircularProgress className={classes.progress} size={100} />
+                    </Grid> :
                     <div>
                         <Card className={classes.introCard}>
                             <Grid container>
@@ -137,7 +139,7 @@ class HomePageCourseView extends Component {
                                                     <NavLink className={classes.navlink} to="/login"
                                                     ><Button size="small" color="primary">
                                                             Enroll Now
-                                                    </Button>
+                                                        </Button>
                                                     </NavLink>
                                                 </CardActions>
                                             </Card>
