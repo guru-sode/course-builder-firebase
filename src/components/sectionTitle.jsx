@@ -11,11 +11,13 @@ const styles = theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
-        width: '100%',
+        width: '60%',
     },
     button: {
         backgroundColor: '#000a12',
@@ -23,7 +25,6 @@ const styles = theme => ({
         '&:hover': {
             backgroundColor: '#000a12'
         },
-        marginLeft: '50%'
     }
 });
 

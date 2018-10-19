@@ -13,20 +13,26 @@ const styles = theme => ({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
-        width: '100%',
+        width: '50%',
     },
     button: {
-        marginLeft: '45%',
         marginTop: '2%',
         backgroundColor: '#000a12',
         color: 'white',
-        "&:hover": {
-            backgroundColor: "#000a12"
-        }
+        '&:hover': {
+            backgroundColor: '#000a12'
+        },
+        textAlign: 'end',
+    },
+    buttonDiv: {
+        display: 'flex',
+        justifyContent: 'flex-end',
     }
 });
 
@@ -60,8 +66,13 @@ class AddPlan extends Component {
                     name="description"
                     margin="normal"
                     variant="outlined"
+                    multiline="true"
+                    rows={4}
+                    rowsMax={4}
                 />
-                <NavLink to="/createCourse" style={{ textDecoration: 'none' }}><Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
+                <div className={classes.buttonDiv}>
+                    <NavLink to="/createCourse" style={{ textDecoration: 'none' }}><Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">FINISH</Button></NavLink>
+                </div>
             </form>
         );
     }

@@ -38,7 +38,7 @@ const styles = theme => ({
   },
   dialogBox: {
     padding: '0.5em',
-    margin: '1em'
+    margin: 'auto',
   },
   input: {
     width: '100%'
@@ -60,15 +60,11 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: "#000a12"
     },
-    marginLeft: '40%'
+    marginLeft: '0.25em'
   },
-  logOutbutton: {
-    backgroundColor: '#000a12',
-    color: 'white',
-    "&:hover": {
-      backgroundColor: "#000a12"
-    },
-    marginLeft: '85%'
+  titleAlign: {
+    textAlign: 'center !important',
+    paddingBottom: 0
   }
 });
 
@@ -148,21 +144,20 @@ class CreateCourse extends Component {
               anchor="left"
             >
               <Divider />
-              <Button onClick={this.viewMyCourses}>View My Courses</Button>
+              <Button onClick={this.viewMyCourses}>My Courses</Button>
               <Divider />
-              <Button onClick={this.viewAllCourses}>View All Courses</Button>
+              <Button onClick={this.viewAllCourses}>All Courses</Button>
               <Divider />
-              <Button onClick={this.handleClickOpen}>Create a Course</Button>
+              <Button onClick={this.handleClickOpen}>Create Course</Button>
               <Dialog
                 className={classes.dialogBox}
                 open={this.state.open}
                 onClose={this.handleClose}
               >
-                <DialogTitle id="form-dialog-title">
+              <DialogTitle id="form-dialog-title" className={classes.titleAlign}>
                   Enter Course Details
               </DialogTitle>
                 <DialogContent>
-                  <DialogContentText>Enter Course Title</DialogContentText>
                   <TextField
                     onChange={this.handleTitleChange}
                     className={classes.input}
@@ -180,9 +175,8 @@ class CreateCourse extends Component {
                     className={classes.selectDropdown}
                     required
                   >
-                    {category}
+                  {category}
                   </select>
-                  <DialogContentText>Enter Course Description</DialogContentText>
                   <TextField
                     onChange={this.handleDescriptionChange}
                     className={classes.input}
@@ -192,8 +186,11 @@ class CreateCourse extends Component {
                     name="course-description"
                     margin="normal"
                     variant="outlined"
+                    multiline="true"
                   />
-                  <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
+                  <Grid item className={classes.buttons}></Grid>
+                <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
+                <Button onClick={this.handleClose} variant="contained" className={classes.button} align="end">CANCEL</Button>
                 </DialogContent>
               </Dialog>
             </Drawer>
