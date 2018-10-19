@@ -8,7 +8,7 @@ import Login from './components/Homepage/login';
 import SignUp from './components/Homepage/signUp';
 import { connect } from 'react-redux';
 // import AddSection from './components/addSection';
-// import sectionTitle from './components/sectionTitle';
+import SectionTitle from './components/sectionTitle';
 import HomePageCourseView from './components/Homepage/homepageCourseView';
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)
                         )}/> 
-                    <Route exact path="/:key/sectionTitle" 
+                    <Route exact path="/view" 
                         render={() => (
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)
@@ -36,10 +36,31 @@ class App extends Component {
                             userInfo ? (<CreateCourse />)
                                 : (<Redirect to="/" />)
                         )}/>
-                    <Route path="/" render={() => (
+                    <Route  path="/" render={() => (
                         userInfo ? (<Redirect to="/createCourse" />)
                             : (<Redirect to="/" />)
                     )} />
+                    <Route exact path='/view/sectionTitle' 
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )} />
+                    <Route exact path='/view/addResources' 
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )} />
+                    <Route exact path='/:sid/view' 
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )} />
+                    <Route exact path='/overview' 
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )} />
+
                 </div>
             </BrowserRouter>
         );

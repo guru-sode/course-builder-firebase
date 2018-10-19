@@ -13,6 +13,11 @@ import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import AddSection from './addSection';
 import { Route } from 'react-router';
+import { MenuItem, Button, Grid, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ViewSection from './sectionView';
+import { NavLink } from 'react-router-dom';
+import addResources from './addResources';
 
 const drawerWidth = 240;
 
@@ -38,12 +43,48 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing.unit * 3,
         minWidth: 0, // So the Typography noWrap works
-        height: 'auto'
+        height: 'auto',
     },
-    toolbar: theme.mixins.toolbar
+    toolbar: theme.mixins.toolbar,
+    menuItem: {
+        '&:focus': {
+            backgroundColor: '#bdbdbd',
+            '& $primary, & $icon': {
+                color: theme.palette.common.white,
+            },
+        },
+    },
+    overview: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginTop: '0.5em',
+    },
+    navlink: {
+        textDecoration: 'none',
+        color: 'white',
+    },
+    nav: {
+        '&:focus': {
+            backgroundColor: '#bdbdbd',
+            '& $primary, & $icon': {
+                color: theme.palette.common.white,
+            },
+        }, 
+    }
 });
 
 class DrawerSection extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedIndex: -1,
+        };
+    }
+
+    handleListItemClick = (event, index) => {
+        console.log(event.target.id);
+        this.setState({ selectedIndex: event.target.id });
+    };
 
     render() {
         const { course, store_sections, sid, cid, sections, classes } = this.props;
@@ -62,9 +103,11 @@ class DrawerSection extends Component {
             if (sections[sid] !== undefined) {
                 return (
                     <List component="nav">
-                        <ListItem button>
+                        <NavLink className={classes.navlink} to={`/${sid}/view`}><ListItem className={classes.menuItem} id={index}
+                            selected={this.state.selectedIndex === true}
+                            onClick={event => this.handleListItemClick(event, event.target.id)}>
                             <ListItemText primary={sections[sid].title} />
-                        </ListItem>
+                        </ListItem></NavLink>
                     </List>);
             }
         });
@@ -85,13 +128,38 @@ class DrawerSection extends Component {
                     }}
                 >
                     <div className={classes.toolbar} />
-                    {section_list}
-                    {local_sections_list}
+                        {section_list}
+                    <NavLink to={`/view/sectionTitle`}><Button className={classes.addSectionButton}>Add Section</Button></NavLink>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Route exact path='/:key/sectionTitle' component={SectionTitle} />
-                    <Route exact path='/addResources' component={AddSection} />
+                    <Route exact path='/overview' render={()=>{
+                        return (
+                                               <Grid className={classes.overview} container spacing={24}>
+                        <Grid item><Typography style={{ textAlign: 'center' }} variant="h1">{course.title}</Typography></Grid>
+                        <Grid item><Typography variant="h4">Overview</Typography></Grid>
+                        <Grid item><Typography variant="p">{course.description}</Typography></Grid>
+                        <Grid item><Typography variant="h4">Sections</Typography></Grid>
+                        <Grid item>
+                            {section_list = sids.map((sid) => {
+                                if (sections[sid] !== undefined) {
+                                    return (
+                                        <ExpansionPanel>
+                                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                                <Typography variant="h6">{sections[sid].title}</Typography>
+                                            </ExpansionPanelSummary>
+                                            <ExpansionPanelDetails>
+                                                <Typography variant="p">{sections[sid].description}</Typography>
+                                            </ExpansionPanelDetails>
+                                        </ExpansionPanel>);
+                                }
+                            })}
+                        </Grid>
+                    </Grid>);
+                    }} />
+                    <Route exact path='/view/sectionTitle' component={SectionTitle} />
+                    <Route exact path='/view/addResources' component={AddSection} />
+                    <Route exact path='/:sid/view' component={ViewSection} />
                 </main>
             </div>
         );
@@ -111,7 +179,7 @@ const mapStateToProps = state => {
         sections: state.firebase.data.app
             ? state.firebase.data.app['sections']
             : state.courses,
-        store_sections: local_sections ? local_sections : '',
+        store_sections: sections ? sections : '',
         sid: sid ? sid : '',
         cid: cid ? cid : ''
     };

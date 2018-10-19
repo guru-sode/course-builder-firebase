@@ -48,7 +48,7 @@ class SectionTitle extends Component {
 
     render() {
         const { classes } = this.props;
-
+        console.log('In section title')
         return (
             <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
