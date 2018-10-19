@@ -132,7 +132,8 @@ class CreateCourse extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Courses
           </Typography>
-            <NavLink to="/" style={{ textDecoration: 'none', marginLeft: '80%' }}><Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button></NavLink>
+            <NavLink to="/" style={{ textDecoration: 'none', marginLeft: '80%' }}>
+            <Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button></NavLink>
           </Toolbar>
         </AppBar>
         <Grid className={classes.main} container>
