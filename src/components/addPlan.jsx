@@ -17,7 +17,7 @@ const styles = theme => ({
     textField: {
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
-        width: '100%',
+        width: '50%',
     },
     button: {
         marginLeft: '45%',
@@ -60,6 +60,7 @@ class AddPlan extends Component {
                     name="description"
                     margin="normal"
                     variant="outlined"
+                    multiline="true"
                 />
                 <NavLink to="/createCourse" style={{ textDecoration: 'none' }}><Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
             </form>
