@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
-import { addPlanOfAttackToStore,submitSection } from '../redux/actions/sectionActions';
+import { addPlanOfAttackToStore, submitSection } from '../redux/actions/sectionActions';
 import { compose } from 'redux';
 import Button from '@material-ui/core/Button';
 
@@ -37,19 +37,19 @@ const styles = theme => ({
 });
 
 class AddPlan extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     componentWillUnmount() {
         const description = document.getElementById('description').value;
         const planInfo = description;
-        if(description!=='')
+        if (description !== '')
             this.props.addPlanOfAttackToStore(planInfo);
 
     }
 
-    handleSubmit(){
+    handleSubmit() {
         this.props.submitSection();
     }
 
@@ -71,7 +71,11 @@ class AddPlan extends Component {
                     rowsMax={4}
                 />
                 <div className={classes.buttonDiv}>
-                    <NavLink to="/createCourse" style={{ textDecoration: 'none' }}><Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">FINISH</Button></NavLink>
+                    <NavLink to="/createCourse" style={{ textDecoration: 'none' }}>
+                        <Button onClick={() => this.handleSubmit()}
+                            variant="contained" className={classes.button}
+                            align="end">FINISH</Button>
+                    </NavLink>
                 </div>
             </form>
         );
@@ -82,7 +86,7 @@ class AddPlan extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         addPlanOfAttackToStore: (planInfo) => dispatch(addPlanOfAttackToStore(planInfo)),
-        submitSection:()=> dispatch(submitSection())
+        submitSection: () => dispatch(submitSection())
     };
 };
 

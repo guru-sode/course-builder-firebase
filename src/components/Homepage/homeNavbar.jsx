@@ -186,8 +186,9 @@ class HomeNavbar extends Component {
                         <Grid className={classes.header} container>
                             <Grid item>
                                 <Toolbar className={classes.title}>
-                                    <NavLink to="/" className={classes.navlink}><Typography className={classes.heading} variant="h4" color="inherit" noWrap>
-                                        Course Creator
+                                    <NavLink to="/" className={classes.navlink}>
+                                        <Typography className={classes.heading} variant="h4" color="inherit" noWrap>
+                                            Course Creator
                                     </Typography></NavLink>
                                     <Button className={classes.categories} onClick={this.handleCategoryOpen}>
                                         <Typography className={classes.headerFontColor} variant="p" noWrap>
@@ -236,7 +237,7 @@ class HomeNavbar extends Component {
                                         </Icon>
                                     </NavLink>
                                 </div>
-                                <AccountSetting />
+                                {/* <AccountSetting /> */}
                             </Toolbar>
                         </Grid>
                     </AppBar>
