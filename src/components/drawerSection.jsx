@@ -89,12 +89,18 @@ class DrawerSection extends Component {
     render() {
         const { course, store_sections, sid, cid, sections, classes } = this.props;
         const sids = course.section;
-        console.log(course);
         let section_list;
-        console.log(sections);
-        section_list = sids.map((sid, index) => {
+        let local_sections_list;
+        if (store_sections[sid] !== undefined) {
+            local_sections_list = (<List component="nav">
+                <ListItem button>
+                    <ListItemText primary={store_sections[sid].title} />
+                </ListItem>
+            </List>);
+        }
+
+        section_list = sids.map((sid) => {
             if (sections[sid] !== undefined) {
-                console.log(index);
                 return (
                     <List component="nav">
                         <NavLink className={classes.navlink} to={`/${sid}/view`}><ListItem className={classes.menuItem} id={index}

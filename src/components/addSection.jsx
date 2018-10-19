@@ -4,6 +4,7 @@ import SectionTitle from '../components/sectionTitle';
 import AddVideos from '../components/addVideos';
 import AddResources from '../components/addResources';
 import AddPlan from '../components/addPlan';
+import AddDeliverables from '../components/addDeliverables';
 
 //For stepper
 import { withStyles } from '@material-ui/core/styles';
@@ -30,7 +31,7 @@ const styles = theme => ({
   });
   
   function getSteps() {
-    return ['Add videos', 'Add resources','Add plan of attack'];
+    return ['Add videos', 'Add resources','Add plan of attack','Add deliverables'];
   }
   
   function getStepContent(step) {
@@ -41,6 +42,8 @@ const styles = theme => ({
         return (<AddResources />);
         case 2:
         return (<AddPlan />);
+        case 3:
+        return (<AddDeliverables />);
       default:
         return 'Unknown step';
     }

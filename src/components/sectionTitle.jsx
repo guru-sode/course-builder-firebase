@@ -30,9 +30,9 @@ const styles = theme => ({
 
 class SectionTitle extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit() {
@@ -69,7 +69,12 @@ class SectionTitle extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <NavLink to='/view/addResources' style={{ textDecoration: 'none' }}><Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
+                <NavLink to='/addResources' style={{ textDecoration: 'none' }}>
+                    <Button onClick={this.handleSubmit}
+                        variant="contained"
+                        className={classes.button}
+                        align="end">SUBMIT</Button>
+                </NavLink>
             </form>
         );
     }

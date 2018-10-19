@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
-import { addPlanOfAttackToStore, submitSection } from '../redux/actions/sectionActions';
+import { addPlanOfAttackToStore,submitSection } from '../redux/actions/sectionActions';
 import { compose } from 'redux';
 import Button from '@material-ui/core/Button';
 
@@ -30,19 +30,24 @@ const styles = theme => ({
         },
         textAlign: 'end',
     },
+    buttonDiv: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+    }
 });
 
-class AddPlan extends Component {
-    constructor(props) {
+class AddDeliverables extends Component {
+    constructor(props){
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit=this.handleSubmit.bind(this);
     }
-    handleSubmit() {
+
+    handleSubmit(){
         const description = document.getElementById('description').value;
         const planInfo = description;
-        if (description !== '')
-            this.props.addPlanOfAttackToStore(planInfo);
-        document.getElementById('description').value='';   
+        if(description!=='')
+            this.props.addDeliverableToStore(planInfo);
+        this.props.submitSection();
     }
 
     render() {
@@ -52,7 +57,7 @@ class AddPlan extends Component {
                 <TextField
                     id="description"
                     multiline={true}
-                    label="Plan of attack"
+                    label="Deliverables"
                     className={classes.textField}
                     type="description"
                     name="description"
@@ -62,7 +67,9 @@ class AddPlan extends Component {
                     rows={4}
                     rowsMax={4}
                 />
-                <Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">SUBMIT</Button>
+                <div className={classes.buttonDiv}>
+                    <NavLink to="/createCourse" style={{ textDecoration: 'none' }}><Button onClick={()=>this.handleSubmit()} variant="contained" className={classes.button} align="end">FINISH</Button></NavLink>
+                </div>
             </form>
         );
     }
@@ -71,12 +78,13 @@ class AddPlan extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addPlanOfAttackToStore: (planInfo) => dispatch(addPlanOfAttackToStore(planInfo)),
+        addDeliverableToStore: (deliverable) => dispatch(addPlanOfAttackToStore(deliverable)),
+        submitSection:()=> dispatch(submitSection())
     };
 };
 
 export default compose(
     connect(null, mapDispatchToProps),
     withStyles(styles)
-)(AddPlan);
+)(AddDeliverables);
 

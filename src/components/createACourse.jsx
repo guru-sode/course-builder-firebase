@@ -14,7 +14,7 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  MenuItem
+  Avatar
 } from '@material-ui/core';
 import ViewMyCourse from './viewMyCourse';
 import ViewAllCourses from './viewAllCourse'
@@ -120,7 +120,7 @@ class CreateCourse extends Component {
   };
 
   render() {
-    const { classes, course_category } = this.props;
+    const { classes, course_category, user } = this.props;
     const { allCourseFlag } = this.state
     const courseList = allCourseFlag ? <ViewAllCourses /> : <ViewMyCourse />
     const category = course_category.map((course) => {
@@ -133,7 +133,13 @@ class CreateCourse extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Courses
           </Typography>
-            <NavLink to="/" style={{ textDecoration: 'none', marginLeft: '80%' }}><Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button></NavLink>
+
+            <NavLink to="/" style={{ textDecoration: 'none', marginLeft: '80%' }}>
+              <Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button>
+            </NavLink>
+
+            <Avatar className={classes.purpleAvatar}>{user.username ? user.username[0].toUpperCase() : null}</Avatar>
+
           </Toolbar>
         </AppBar>
         <Grid className={classes.main} container>
@@ -155,7 +161,7 @@ class CreateCourse extends Component {
                 open={this.state.open}
                 onClose={this.handleClose}
               >
-              <DialogTitle id="form-dialog-title" className={classes.titleAlign}>
+                <DialogTitle id="form-dialog-title" className={classes.titleAlign}>
                   Enter Course Details
               </DialogTitle>
                 <DialogContent>
@@ -176,7 +182,7 @@ class CreateCourse extends Component {
                     className={classes.selectDropdown}
                     required
                   >
-                  {category}
+                    {category}
                   </select>
                   <TextField
                     onChange={this.handleDescriptionChange}
@@ -190,8 +196,8 @@ class CreateCourse extends Component {
                     multiline="true"
                   />
                   <Grid item className={classes.buttons}></Grid>
-                <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
-                <Button onClick={this.handleClose} variant="contained" className={classes.button} align="end">CANCEL</Button>
+                  <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>
+                  <Button onClick={this.handleClose} variant="contained" className={classes.button} align="end">CANCEL</Button>
                 </DialogContent>
               </Dialog>
             </Drawer>
@@ -206,15 +212,17 @@ class CreateCourse extends Component {
 }
 
 const mapStateToProps = state => {
+  const uid = state.firebase.auth ? state.firebase.auth.uid : '';
+  const users = state.firebase.data.app ? state.firebase.data.app['users'] : {}
+
   return {
     /* getting data from firebase redux store { firebaseReducer as firebase } */
     courses: state.firebase.data.app
       ? state.firebase.data.app['courses']
       : state.courses,
-    users: state.firebase.data.app
-      ? state.firebase.data.app['users']
-      : state.users,
+    user: users[uid] ? users[uid] : {},
     course_category: state.firebase.data.app['course_category'],
+
 
   };
 };
