@@ -13,7 +13,8 @@ import {
   Drawer,
   AppBar,
   Toolbar,
-  Typography
+  Typography,
+  MenuItem
 } from '@material-ui/core';
 import ViewMyCourse from './viewMyCourse';
 import ViewAllCourses from './viewAllCourse'

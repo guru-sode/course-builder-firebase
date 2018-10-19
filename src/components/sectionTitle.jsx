@@ -48,7 +48,7 @@ class SectionTitle extends Component {
 
     render() {
         const { classes } = this.props;
-
+        console.log('In section title')
         return (
             <form className={classes.container} id="titleForm" noValidate autoComplete="off">
                 <TextField
@@ -69,7 +69,7 @@ class SectionTitle extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <NavLink to='/addResources' style={{ textDecoration: 'none' }}><Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
+                <NavLink to='/view/addResources' style={{ textDecoration: 'none' }}><Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">SUBMIT</Button></NavLink>
             </form>
         );
     }

@@ -13,6 +13,9 @@ import {compose} from 'redux';
 import {firebaseConnect} from 'react-redux-firebase';
 import AddSection from './addSection';
 import { Route } from 'react-router';
+import { MenuItem, Button } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
+import addResources from './addResources';
 
 const drawerWidth = 240;
 
@@ -40,7 +43,15 @@ const styles = theme => ({
         minWidth: 0, // So the Typography noWrap works
         height: 'auto'
     },
-    toolbar: theme.mixins.toolbar
+    toolbar: theme.mixins.toolbar,
+    menuItem: {
+        '&:focus': {
+            backgroundColor: '#bdbdbd',
+            '& $primary, & $icon': {
+                color: theme.palette.common.white,
+            },
+        },
+    }
 });
 
 class DrawerSection extends Component {
@@ -77,12 +88,16 @@ class DrawerSection extends Component {
                     }}
                 >
                     <div className={classes.toolbar} />
-                    {section_list}
+                    <MenuItem className={classes.menuItem}>
+                        {section_list}
+                        <NavLink to={`/view/sectionTitle`}><Button className={classes.addSectionButton}>Add Section</Button></NavLink>
+                        <NavLink to={`/view/addResources`}><Button className={classes.addSectionButton}>addResources</Button></NavLink>
+                    </MenuItem>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Route exact path='/:key/sectionTitle' component={SectionTitle} />
-                    <Route exact path='/addResources' component={AddSection} />
+                    <Route exact path='/view/sectionTitle' component={SectionTitle} />
+                    <Route exact path='/view/addResources' component={AddSection} />
                 </main>
             </div>
         );
