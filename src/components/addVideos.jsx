@@ -197,7 +197,7 @@ class AddVideos extends Component {
                                                     <Typography component="p">
                                                         {video.description}
                                                     </Typography>
-                                                    <a href={video.url} style={{ textDecoration: 'none' }}>{video.url}</a>
+                                                    <a href={video.url} target="_blank" style={{ textDecoration: 'none' }}>{video.url}</a>
                                                 </CardContent>
                                             </CardContent>
                                         </Card>
