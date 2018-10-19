@@ -23,9 +23,7 @@ const styles = theme => ({
         width: '100%'
     },
     textField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-        width: '100%'
+        width: '55%'
     },
     button: {
         marginLeft: '45%',
@@ -40,7 +38,7 @@ const styles = theme => ({
         width: '100%'
     },
     emptyGrid: {
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
     },
     buttons: {
@@ -53,11 +51,13 @@ const styles = theme => ({
         marginBottom: '1em'
       },
       buttonGroupDialog: {
+        display: 'flex',
+        justifyContent: 'center',
         textAlign: 'start',
-        margin: '0.50em 0 0 0.25em'
+        margin: '0.3em 0.3em 0 0'
       },
       dialogBox: {
-        padding: '0.5em',
+        padding: '0.25em',
         margin: 'auto',
         textAlign: 'center',
       },
@@ -207,7 +207,7 @@ class AddVideos extends Component {
                             }) :
                             <Grid className={classes.emptyGrid} container>
                                 <Grid item>
-                                    <Typography component="p">No Videos</Typography>
+                                    <Typography variant="h6">No Videos</Typography>
                                 </Grid>
                                 <Grid item>
                                     <Button variant="fab" onClick={this.handleDialogOpen} mini className={classes.buttons} aria-label="Add">

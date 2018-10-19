@@ -22,8 +22,8 @@ const styles = theme => ({
         marginTop: '2%',
         backgroundColor: '#000a12',
         color: 'white',
-        "&:hover": {
-            backgroundColor: "#000a12"
+        '&:hover': {
+            backgroundColor: '#000a12'
         }
     },
 });
