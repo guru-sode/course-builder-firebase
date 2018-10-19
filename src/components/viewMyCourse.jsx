@@ -68,7 +68,7 @@ class ViewMyCourse extends Component {
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <NavLink to={'/${key}/sectionTitle'}
+                                        <NavLink to='/overview'
                                             style={{ textDecoration: 'none' }}>
                                             <Button id={key}
                                                 onClick={this.addSection.bind(this, key)}

@@ -69,7 +69,7 @@ class SectionTitle extends Component {
                     margin="normal"
                     variant="outlined"
                 />
-                <NavLink to='/addResources' style={{ textDecoration: 'none' }}>
+                <NavLink to='/view/addResources' style={{ textDecoration: 'none' }}>
                     <Button onClick={this.handleSubmit}
                         variant="contained"
                         className={classes.button}

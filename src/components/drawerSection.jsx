@@ -99,7 +99,7 @@ class DrawerSection extends Component {
             </List>);
         }
 
-        section_list = sids.map((sid) => {
+        section_list = sids.map((sid,index) => {
             if (sections[sid] !== undefined) {
                 return (
                     <List component="nav">
