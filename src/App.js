@@ -50,6 +50,12 @@ class App extends Component {
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)
                         )} />
+                        <Route exact path='/:sid/view' 
+                        render={() => (
+                            userInfo ? (<DrawerSection />)
+                                : (<Redirect to="/" />)
+                        )} />
+
                 </div>
             </BrowserRouter>
         );

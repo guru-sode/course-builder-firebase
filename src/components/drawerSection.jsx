@@ -15,6 +15,7 @@ import AddSection from './addSection';
 import { Route } from 'react-router';
 import { MenuItem, Button, Grid, ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ViewSection from './sectionView';
 import { NavLink } from 'react-router-dom';
 import addResources from './addResources';
 
@@ -57,24 +58,50 @@ const styles = theme => ({
         display: 'flex',
         flexDirection: 'column',
         marginTop: '0.5em',
+    },
+    navlink: {
+        textDecoration: 'none',
+        color: 'white',
+    },
+    nav: {
+        '&:focus': {
+            backgroundColor: '#bdbdbd',
+            '& $primary, & $icon': {
+                color: theme.palette.common.white,
+            },
+        }, 
     }
 });
 
 class DrawerSection extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedIndex: -1,
+        };
+    }
 
+    handleListItemClick = (event, index) => {
+        console.log(event.target.id);
+        this.setState({ selectedIndex: event.target.id });
+    };
+
+    render() {
         const { course, store_sections, sid, cid, sections, classes } = this.props;
         const sids = course.section;
         console.log(course);
         let section_list;
         console.log(sections);
-        section_list = sids.map((sid) => {
+        section_list = sids.map((sid, index) => {
             if (sections[sid] !== undefined) {
+                console.log(index);
                 return (
                     <List component="nav">
-                        <ListItem button>
+                        <NavLink className={classes.navlink} to={`/${sid}/view`}><ListItem className={classes.menuItem} id={index}
+                            selected={this.state.selectedIndex === true}
+                            onClick={event => this.handleListItemClick(event, event.target.id)}>
                             <ListItemText primary={sections[sid].title} />
-                        </ListItem>
+                        </ListItem></NavLink>
                     </List>);
             }
         });
@@ -95,11 +122,8 @@ class DrawerSection extends Component {
                     }}
                 >
                     <div className={classes.toolbar} />
-                    <MenuItem className={classes.menuItem}>
                         {section_list}
-                    </MenuItem>
                     <NavLink to={`/view/sectionTitle`}><Button className={classes.addSectionButton}>Add Section</Button></NavLink>
-                    <NavLink to={`/view/addResources`}><Button className={classes.addSectionButton}>addResources</Button></NavLink>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
@@ -126,6 +150,7 @@ class DrawerSection extends Component {
                     </Grid>
                     <Route exact path='/view/sectionTitle' component={SectionTitle} />
                     <Route exact path='/view/addResources' component={AddSection} />
+                    <Route exact path='/:sid/view' component={ViewSection} />
                 </main>
             </div>
         );
