@@ -127,7 +127,7 @@ class DrawerSection extends Component {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                    <Grid className={classes.overview} container spacing={24}>
+                   <Grid className={classes.overview} container spacing={24}>
                         <Grid item><Typography style={{ textAlign: 'center' }} variant="h1">{course.title}</Typography></Grid>
                         <Grid item><Typography variant="h4">Overview</Typography></Grid>
                         <Grid item><Typography variant="p">{course.description}</Typography></Grid>
