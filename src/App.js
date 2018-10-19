@@ -7,8 +7,8 @@ import HomeNavbar from './components/Homepage/homeNavbar';
 import Login from './components/Homepage/login';
 import SignUp from './components/Homepage/signUp';
 import { connect } from 'react-redux';
-import AddSection from './components/addSection';
-import sectionTitle from './components/sectionTitle';
+// import AddSection from './components/addSection';
+// import sectionTitle from './components/sectionTitle';
 import HomePageCourseView from './components/Homepage/homepageCourseView';
 
 class App extends Component {
@@ -26,8 +26,7 @@ class App extends Component {
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)
                         )}/> 
-                    {/* component={DrawerSection} /> */}
-                    <Route exact path="/sectionTitle" 
+                    <Route exact path="/:key/sectionTitle" 
                         render={() => (
                             userInfo ? (<DrawerSection />)
                                 : (<Redirect to="/" />)

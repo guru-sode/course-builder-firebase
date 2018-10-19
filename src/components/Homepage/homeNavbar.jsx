@@ -10,6 +10,7 @@ import HomePageCourseView from './homepageCourseView';
 import AccountSetting from './accountSetting';
 import { signOut } from '../../redux/actions/authActions';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { selectCategory } from '../../redux/actions/courseActions'
 
 
 const styles = theme => ({
@@ -140,8 +141,9 @@ class HomeNavbar extends Component {
     }
 
     handleCategoryChange = (e) => {
-        console.log(e.target.value);
+        console.log("slected category >> ", e.target.value);
         this.setState({ categoryText: e.target.value })
+        this.props.selectCourseCategory(e.target.value);
     }
 
     handleSingOut = () => {
@@ -257,6 +259,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         signOut: () => dispatch(signOut()),
+        selectCourseCategory: (courseCategory) => dispatch(selectCategory(courseCategory)),
+
     };
 };
 export default compose(
@@ -269,4 +273,3 @@ export default compose(
         path: '/app'
     }])
 )(HomeNavbar);
-// export default withStyles(styles)(HomeNavbar);

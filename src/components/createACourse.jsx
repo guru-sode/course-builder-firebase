@@ -21,6 +21,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { createCourse } from '../redux/actions/courseActions';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 200;
 
@@ -50,14 +51,14 @@ const styles = theme => ({
     width: drawerWidth,
     height: '925px'
   },
-  appBar:{
-    backgroundColor:'#000a12',
+  appBar: {
+    backgroundColor: '#000a12',
   },
   button: {
     backgroundColor: '#000a12',
     color: 'white',
     "&:hover": {
-        backgroundColor: "#000a12"
+      backgroundColor: "#000a12"
     },
     marginLeft: '0.25em'
   },
@@ -118,11 +119,11 @@ class CreateCourse extends Component {
   };
 
   render() {
-    const { classes,course_category } = this.props;
+    const { classes, course_category } = this.props;
     const { allCourseFlag } = this.state
     const courseList = allCourseFlag ? <ViewAllCourses /> : <ViewMyCourse />
-    const category = course_category.map((course)=>{
-      return(<option value={course}>{course}</option>)
+    const category = course_category.map((course) => {
+      return (<option value={course}>{course}</option>)
     })
     return (
       <div>
@@ -131,6 +132,7 @@ class CreateCourse extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Courses
           </Typography>
+            <NavLink to="/" style={{ textDecoration: 'none', marginLeft: '80%' }}><Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button></NavLink>
           </Toolbar>
         </AppBar>
         <Grid className={classes.main} container>
@@ -169,6 +171,7 @@ class CreateCourse extends Component {
                   <DialogContentText>Select Category</DialogContentText>
                   <select
                     onClick={this.handleDropdownChange}
+                    onOpen={this.handleDropdownChange}
                     className={classes.selectDropdown}
                     required
                   >
@@ -202,7 +205,6 @@ class CreateCourse extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log('in createCourse >>', state);
   return {
     /* getting data from firebase redux store { firebaseReducer as firebase } */
     courses: state.firebase.data.app
@@ -211,13 +213,13 @@ const mapStateToProps = state => {
     users: state.firebase.data.app
       ? state.firebase.data.app['users']
       : state.users,
-    course_category:state.firebase.data.app['course_category'],
-    
+    course_category: state.firebase.data.app['course_category'],
+
   };
 };
 const mapDispatchToProps = dispatch => {
   return {
-    createCourse: course => dispatch(createCourse(course))
+    createCourse: course => dispatch(createCourse(course)),
   };
 };
 

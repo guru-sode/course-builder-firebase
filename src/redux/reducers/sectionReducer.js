@@ -2,7 +2,7 @@
 import {
     ADD_SECTION, ADD_SECTION_ID,
     ADD_VIDEO,
-    ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT
+    ADD_ADDITIONAL_RESOURSE, ADD_PLAN_OF_ATTACT, ADD_DELIVERABLE
 } from '../../constants/actionTypes';
 
 const initialState = {
@@ -66,6 +66,18 @@ const sectionReducer = (state = initialState, action) => {
                 [current_section]: {
                     ...sections[current_section],
                     plan_of_attack: action.payload
+                },
+            }
+        };
+    case ADD_DELIVERABLE:
+        console.log('in deliverable >> ', action);
+        return {
+            ...state,
+            sections: {
+                ...sections,
+                [current_section]: {
+                    ...sections[current_section],
+                    deliverable: action.payload
                 },
             }
         };
