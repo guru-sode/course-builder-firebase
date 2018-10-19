@@ -127,7 +127,9 @@ class DrawerSection extends Component {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
-                   <Grid className={classes.overview} container spacing={24}>
+                    <Route exact path='/overview' render={()=>{
+                        return (
+                                               <Grid className={classes.overview} container spacing={24}>
                         <Grid item><Typography style={{ textAlign: 'center' }} variant="h1">{course.title}</Typography></Grid>
                         <Grid item><Typography variant="h4">Overview</Typography></Grid>
                         <Grid item><Typography variant="p">{course.description}</Typography></Grid>
@@ -147,7 +149,8 @@ class DrawerSection extends Component {
                                 }
                             })}
                         </Grid>
-                    </Grid>
+                    </Grid>);
+                    }} />
                     <Route exact path='/view/sectionTitle' component={SectionTitle} />
                     <Route exact path='/view/addResources' component={AddSection} />
                     <Route exact path='/:sid/view' component={ViewSection} />
