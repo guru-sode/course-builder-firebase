@@ -64,6 +64,9 @@ class AddDeliverables extends Component {
                     margin="normal"
                     variant="outlined"
                     multiline="true"
+                    defaultValue="- Get an overview of the Responsive News website and what it looks like.
+                     - Understand and dive deep into HTML / CSS
+                      - Incrementally build changes to the responsive website in different git branches"
                     rows={4}
                     rowsMax={4}
                 />

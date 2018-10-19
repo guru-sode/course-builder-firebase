@@ -59,6 +59,7 @@ class SectionTitle extends Component {
                     name="title"
                     margin="normal"
                     variant="outlined"
+                    defaultValue="Array utilities"
                 />
                 <TextField
                     id="description"
@@ -68,6 +69,7 @@ class SectionTitle extends Component {
                     name="description"
                     margin="normal"
                     variant="outlined"
+                    defaultValue="Learn basics of array utilities in this section"
                 />
                 <NavLink to='/view/addResources' style={{ textDecoration: 'none' }}>
                     <Button onClick={this.handleSubmit}

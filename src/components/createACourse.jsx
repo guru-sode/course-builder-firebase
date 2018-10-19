@@ -185,6 +185,7 @@ class CreateCourse extends Component {
                     name="course-name"
                     margin="normal"
                     variant="outlined"
+                    defaultValue="Mountblue"
                   />
                   <DialogContentText>Select Category</DialogContentText>
                   <select
@@ -205,6 +206,7 @@ class CreateCourse extends Component {
                     margin="normal"
                     variant="outlined"
                     multiline="true"
+                    defaultValue="Two months of full stack development boot camp "
                   />
                   <Grid item className={classes.buttons}></Grid>
                   <Button onClick={this.handleSubmit} variant="contained" className={classes.button} align="end">CREATE</Button>

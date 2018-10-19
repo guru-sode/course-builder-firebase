@@ -11,24 +11,6 @@ import AddIcon from '@material-ui/icons/Add';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = theme => ({
-    // container: {
-    //     display: 'flex',
-    //     flexWrap: 'wrap',
-    // },
-    // textField: {
-    //     marginLeft: theme.spacing.unit,
-    //     marginRight: theme.spacing.unit,
-    //     width: '100%',
-    // },
-    // button: {
-    //     marginLeft: '45%',
-    //     marginTop: '2%',
-    //     backgroundColor: '#000a12',
-    //     color: 'white',
-    //     '&:hover': {
-    //         backgroundColor: '#000a12'
-    //     }
-    // },
     container: {
         margin: '2em',
         width: '100%'
@@ -144,6 +126,7 @@ class AddResources extends Component {
                                     name="title"
                                     margin="normal"
                                     variant="outlined"
+                                    defaultValue="JavaScript documentation"
                                     onChange={(e) => { this.setState({title: e.target.value}) }}
                                 />
                                 <TextField
@@ -155,6 +138,7 @@ class AddResources extends Component {
                                     name="description"
                                     margin="normal"
                                     variant="outlined"
+                                    defaultValue="Documentation for array utilities"
                                     onChange={(e) => { this.setState({description: e.target.value}) }}
                                 />
                                 <TextField
@@ -166,6 +150,7 @@ class AddResources extends Component {
                                     name="url"
                                     margin="normal"
                                     variant="outlined"
+                                    defaultValue="https://en.wikipedia.org/wiki/JavaScript"
                                     onChange={(e) => { this.setState({url: e.target.value}) }}
                                 />
                                 <Grid item className={classes.buttonGroupDialog}>

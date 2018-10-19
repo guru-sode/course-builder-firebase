@@ -59,6 +59,8 @@ class AddPlan extends Component {
                     margin="normal"
                     variant="outlined"
                     multiline="true"
+                    defaultValue="- Build the JSON required for the High Charts for the given problem statements 
+                                    - Write unit tests using mocha and chai"
                     rows={4}
                     rowsMax={4}
                 />

@@ -132,6 +132,7 @@ class AddVideos extends Component {
                                     name="title"
                                     margin="normal"
                                     variant="outlined"
+                                    defaultValue="Video of array utilities"
                                     onChange={(e) => { this.setState({title: e.target.value}) }}
                                 />
                                 <TextField
@@ -143,6 +144,7 @@ class AddVideos extends Component {
                                     name="description"
                                     margin="normal"
                                     variant="outlined"
+                                    defaultValue="Watch this video to understand array utilities"
                                     onChange={(e) => { this.setState({description: e.target.value}) }}
                                 />
                                 <TextField
@@ -154,6 +156,7 @@ class AddVideos extends Component {
                                     name="url"
                                     margin="normal"
                                     variant="outlined"
+                                    defaultValue="https://www.youtube.com/watch?v=oigfaZ5ApsM"
                                     onChange={(e) => { this.setState({url: e.target.value}) }}
                                 />
                                 <Grid item className={classes.buttonGroupDialog}>
