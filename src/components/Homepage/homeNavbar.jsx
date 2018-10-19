@@ -202,7 +202,7 @@ class HomeNavbar extends Component {
                                             onOpen={this.handleCategoryOpen}
                                             value={this.state.categorySearch}
                                             onChange={this.handleCategoryChange}
-                                        >
+                                        >   <MenuItem value='All'>All</MenuItem>
                                             {this.props.app !== undefined ?
                                                 this.props.app.course_category.map((category) => {
                                                     return (
