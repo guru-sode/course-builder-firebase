@@ -93,25 +93,15 @@ class AddVideos extends Component {
         const description = document.getElementById('description').value;
         const url = document.getElementById('url').value;
         const videoInfo = {
-            name: title,
-            description: description,
-            url: url
-        };
-        if (title !== '' && description !== '' && url !== '')
-            this.props.addVideoToStore(videoInfo);
-        document.getElementById('title').value = '';
-        document.getElementById('description').value = '';
-        document.getElementById('url').value = '';
-    }
-
-    componentWillUnmount() {
-        const videoInfo = {
             name: this.state.title,
             description: this.state.description,
             url: this.state.url
         };
         if (this.state.title !== '' && this.state.description !== '' && this.state.url !== '')
             this.props.addVideoToStore(videoInfo);
+        document.getElementById('title').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('url').value = '';
     }
 
     handleDialogOpen = () => {
