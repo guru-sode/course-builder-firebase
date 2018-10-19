@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import SectionTitle from './sectionTitle';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import {connect} from 'react-redux';
-import {compose} from 'redux';
-import {firebaseConnect} from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firebaseConnect } from 'react-redux-firebase';
 import AddSection from './addSection';
 import { Route } from 'react-router';
 
@@ -46,13 +46,21 @@ const styles = theme => ({
 class DrawerSection extends Component {
 
     render() {
-        const{course,store_sections,sid,cid,sections,classes} = this.props;
+        const { course, store_sections, sid, cid, sections, classes } = this.props;
         const sids = course.section;
+        let section_list;
+        let local_sections_list;
+        if (store_sections[sid] !== undefined) {
+            local_sections_list = (<List component="nav">
+                <ListItem button>
+                    <ListItemText primary={store_sections[sid].title} />
+                </ListItem>
+            </List>);
+        }
 
-        let  section_list;
-        section_list=sids.map((sid)=>{
-            if(sections[sid]!==undefined){
-                return(
+        section_list = sids.map((sid) => {
+            if (sections[sid] !== undefined) {
+                return (
                     <List component="nav">
                         <ListItem button>
                             <ListItemText primary={sections[sid].title} />
@@ -66,7 +74,7 @@ class DrawerSection extends Component {
                 <AppBar position="absolute" className={classes.appBar}>
                     <Toolbar>
                         <Typography variant="h6" color="inherit" noWrap>
-              Add section
+                            Add section
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -78,6 +86,7 @@ class DrawerSection extends Component {
                 >
                     <div className={classes.toolbar} />
                     {section_list}
+                    {local_sections_list}
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
@@ -94,20 +103,20 @@ const mapStateToProps = state => {
     const sections = state.firebase.data.app.sections;
     const local_sections = state.sections.sections;
     const cid = state.courses.current_course;
-    const app = state.firebase.data?state.firebase.data.app:null;
-    const current_course = app ? app.courses[cid]:null;
+    const app = state.firebase.data ? state.firebase.data.app : null;
+    const current_course = app ? app.courses[cid] : null;
     return {
         /* getting data from firebase redux store { firebaseReducer as firebase } */
-        course: current_course ? current_course :'',
+        course: current_course ? current_course : '',
         sections: state.firebase.data.app
             ? state.firebase.data.app['sections']
             : state.courses,
-        store_sections:sections?sections:'',
-        sid:sid?sid:'',
-        cid:cid?cid:''
+        store_sections: local_sections ? local_sections : '',
+        sid: sid ? sid : '',
+        cid: cid ? cid : ''
     };
 };
- 
+
 /*  composing multiple connecter  */
 export default compose(
     withStyles(styles),
