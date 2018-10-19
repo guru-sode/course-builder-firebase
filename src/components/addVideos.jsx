@@ -89,9 +89,6 @@ class AddVideos extends Component {
     }
     handleAdd(e) {
         e.preventDefault();
-        const title = document.getElementById('title').value;
-        const description = document.getElementById('description').value;
-        const url = document.getElementById('url').value;
         const videoInfo = {
             name: this.state.title,
             description: this.state.description,
@@ -206,81 +203,17 @@ class AddVideos extends Component {
                                 </Grid>
                             </Grid>}
                             </Grid>
-                            {/* <Button className={classes.buttons} align="end">Next</Button> */}
                         </Grid>
                     </Grid> :
                     <Grid className={classes.progressContainer} container><CircularProgress className={classes.progress} size={100} /> </Grid>
                     }
-                {/* <form
-                    className={classes.container}
-                    id="titleForm"
-                    noValidate
-                    autoComplete="off"
-                >
-                    <TextField
-                        id="title"
-                        label="Video title"
-                        className={classes.textField}
-                        type="title"
-                        name="title"
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <TextField
-                        id="description"
-                        multiline={true}
-                        label="Video description"
-                        className={classes.textField}
-                        type="description"
-                        name="description"
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <TextField
-                        id="url"
-                        multiline={true}
-                        label="Video URL"
-                        className={classes.textField}
-                        type="url"
-                        name="url"
-                        margin="normal"
-                        variant="outlined"
-                    />
-                    <Button onClick={this.handleAdd} variant="contained" className={classes.button} align="end">Add another video</Button>
-                </form> */}
-                {/* <Grid className={classes.videoCards} item> */}
-                {/* {section !== undefined ?
-                    section.resourses.map((video, index) => {
-                        if (index != 0) {
-                            return (
-                                <div className={classes.expandDiv}>
-                                    <ExpansionPanel className={classes.expandDiv}>
-                                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                                            <Typography className={classes.heading}>Video Title:{video.name}</Typography>
-                                        </ExpansionPanelSummary>
-                                        <ExpansionPanelDetails>
-                                            <Typography>
-                                                <iframe width="600" height="400" src={video.url} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                            </Typography>
-                                        </ExpansionPanelDetails>
-                                    </ExpansionPanel>
-                                </div>
-                            );
-                        }
-                    }) :
-                    <div>
-                            No videos has been added so far
-                    </div>} */}
-                {/* </Grid> */}
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    // console.log(' in addVideo >> ', state.sections.current_section);
     const sid = state.sections.current_section;
-    // const sections = state.firebase.data.app.sections;
     const sections = state.sections.sections;
     const section = sections ? sections[sid] : null;
     return {
