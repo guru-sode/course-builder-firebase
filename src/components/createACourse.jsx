@@ -66,6 +66,15 @@ const styles = theme => ({
   titleAlign: {
     textAlign: 'center !important',
     paddingBottom: 0
+  },
+  purpleAvatar: {
+    marginRight: '0.5em',
+    backgroundColor: '#474a52',
+    marginLeft: '80%'
+  },
+  logOutbutton: {
+    background: '#000a12',
+    color: 'white'
   }
 });
 
@@ -134,11 +143,13 @@ class CreateCourse extends Component {
               Courses
           </Typography>
 
-            <NavLink to="/" style={{ textDecoration: 'none', marginLeft: '80%' }}>
+            <Avatar className={classes.purpleAvatar}>{user.username ? user.username[0].toUpperCase() : null}</Avatar>
+
+            <NavLink to="/" style={{ textDecoration: 'none' }}>
               <Button variant="contained" className={classes.logOutbutton} align="end">Signout</Button>
             </NavLink>
 
-            <Avatar className={classes.purpleAvatar}>{user.username ? user.username[0].toUpperCase() : null}</Avatar>
+            
 
           </Toolbar>
         </AppBar>

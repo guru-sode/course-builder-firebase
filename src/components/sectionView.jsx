@@ -27,7 +27,7 @@ class ViewSection extends Component {
         }
         console.log(section);
         // console.log(sections);
-        // console.log(this.props.match.params.sid);
+        console.log("sid >> ",this.props.match.params.sid);
         return (
             <Grid className={classes.overview} container spacing={24}>
                 <Grid item><Typography style={{ textAlign: 'center' }} variant="h1">{section.title}</Typography></Grid>
@@ -71,6 +71,10 @@ class ViewSection extends Component {
                         }
                     })}
                 </Grid>
+                <Grid item><Typography variant="h4">Plan Of Attack</Typography></Grid>
+                <Grid item><Typography variant="p">{section.plan_of_attack}</Typography></Grid>
+                <Grid item><Typography variant="h4">Deliverables</Typography></Grid>
+                <Grid item><Typography variant="p">{section.deliverable}</Typography></Grid>
             </Grid>
         );
     }

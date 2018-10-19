@@ -101,6 +101,7 @@ class AddResources extends Component {
     }
     handleAdd(e) {
         e.preventDefault();
+        this.setState({ open: false })
         const videoInfo = {
             name: this.state.title,
             description: this.state.description,

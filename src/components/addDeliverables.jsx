@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
-import { addPlanOfAttackToStore,submitSection } from '../redux/actions/sectionActions';
+import { addDeliverableToStore,submitSection } from '../redux/actions/sectionActions';
 import { compose } from 'redux';
 import Button from '@material-ui/core/Button';
 
@@ -78,7 +78,7 @@ class AddDeliverables extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addDeliverableToStore: (deliverable) => dispatch(addPlanOfAttackToStore(deliverable)),
+        addDeliverableToStore: (deliverable) => dispatch(addDeliverableToStore(deliverable)),
         submitSection:()=> dispatch(submitSection())
     };
 };

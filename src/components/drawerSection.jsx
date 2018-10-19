@@ -53,6 +53,7 @@ const styles = theme => ({
                 color: theme.palette.common.white,
             },
         },
+        textAlign: 'center',
     },
     overview: {
         display: 'flex',
@@ -62,6 +63,7 @@ const styles = theme => ({
     navlink: {
         textDecoration: 'none',
         color: 'white',
+        textAlign: 'center',
     },
     nav: {
         '&:focus': {
@@ -70,7 +72,15 @@ const styles = theme => ({
                 color: theme.palette.common.white,
             },
         }, 
-    }
+    },
+    addSectionButton: {
+        // backgroundColor: '#000a12',
+        backgroundColor: '#000a12',
+        color: 'white',
+        "&:hover": {
+            backgroundColor: "#000a12"
+        },
+    },
 });
 
 class DrawerSection extends Component {
@@ -81,9 +91,9 @@ class DrawerSection extends Component {
         };
     }
 
-    handleListItemClick = (event, index) => {
+    handleListItemClick = (event) => {
         console.log(event.target.id);
-        this.setState({ selectedIndex: event.target.id });
+        // this.setState({ selectedIndex: event.target.id });
     };
 
     render() {
@@ -103,9 +113,8 @@ class DrawerSection extends Component {
             if (sections[sid] !== undefined) {
                 return (
                     <List component="nav">
-                        <NavLink className={classes.navlink} to={`/${sid}/view`}><ListItem className={classes.menuItem} id={index}
-                            selected={this.state.selectedIndex === true}
-                            onClick={event => this.handleListItemClick(event, event.target.id)}>
+                        <NavLink className={classes.navlink} to={`/${sid}/view`} id={sid}
+                        onClick={(event) => { this.handleListItemClick(event) }}><ListItem className={classes.menuItem} key={sid}>
                             <ListItemText primary={sections[sid].title} />
                         </ListItem></NavLink>
                     </List>);
@@ -129,7 +138,7 @@ class DrawerSection extends Component {
                 >
                     <div className={classes.toolbar} />
                         {section_list}
-                    <NavLink to={`/view/sectionTitle`}><Button className={classes.addSectionButton}>Add Section</Button></NavLink>
+                    <NavLink className={classes.navlink} to={`/view/sectionTitle`}><Button variant="contained" size="medium" className={classes.addSectionButton}>Add Section</Button></NavLink>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
