@@ -18,6 +18,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ViewSection from './sectionView';
 import { NavLink } from 'react-router-dom';
 import addResources from './addResources';
+import { selectSection } from '../redux/actions/sectionActions';
 
 const drawerWidth = 240;
 
@@ -91,9 +92,9 @@ class DrawerSection extends Component {
         };
     }
 
-    handleListItemClick = (event) => {
-        console.log(event.target.id);
-        // this.setState({ selectedIndex: event.target.id });
+    handleListItemClick = (sid) => {
+        this.setState({ selectedIndex: sid });
+        this.props.selectSection(sid);
     };
 
     render() {
@@ -114,7 +115,8 @@ class DrawerSection extends Component {
                 return (
                     <List component="nav">
                         <NavLink className={classes.navlink} to={`/${sid}/view`} id={sid}
-                        onClick={(event) => { this.handleListItemClick(event) }}><ListItem className={classes.menuItem} key={sid}>
+                        onClick={ this.handleListItemClick.bind(this,sid) }
+                        ><ListItem className={classes.menuItem} key={sid}>
                             <ListItemText primary={sections[sid].title} />
                         </ListItem></NavLink>
                     </List>);
@@ -194,12 +196,18 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps=dispatch=>{
+    return{
+        selectSection:id=>dispatch(selectSection(id)),
+    }
+}
+
 /*  composing multiple connecter  */
 export default compose(
     withStyles(styles),
     connect(
         mapStateToProps,
-        null
+        mapDispatchToProps
     ),
     firebaseConnect([
         {
