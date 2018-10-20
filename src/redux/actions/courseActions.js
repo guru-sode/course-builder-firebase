@@ -11,6 +11,7 @@ export const createCourse = (course) => {
         const uid = userInfo ? userInfo['uid'] : null;
         const user = app.users ? app.users[uid] : null;
         const userCourse = user.course;
+        console.log("uid  >> ",uid)
         const cid = `${uid}_${course.title}`;
         course = {
             ...course, uid, cid
