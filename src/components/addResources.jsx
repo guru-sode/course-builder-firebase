@@ -115,7 +115,7 @@ class AddResources extends Component {
                             onClose={this.handleDialogClose}
                         >
                             <DialogTitle id="form-dialog-title" className={classes.titleAlign}>
-                                Add videos
+                                Add resources
                             </DialogTitle>
                             <DialogContent>
                                 <TextField
